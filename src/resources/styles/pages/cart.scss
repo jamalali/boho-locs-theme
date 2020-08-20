@@ -1,0 +1,272 @@
+.cart-section{
+  position: relative;
+
+  @include tablet{
+    padding: 0;
+  }
+
+  .fixed-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    > *{
+      @include flex-grow(1);
+      @include flex-basis(0);
+    }
+
+    .btn{
+      padding: 25px;
+      font-size: 17px;
+    }
+  }
+
+  .cart-header{
+    margin-bottom: 50px;
+    h1{
+      color: $secondaryColor;
+      font-size: 23px;
+
+      span{
+        font-size: 16px;
+        letter-spacing: 0;
+        font-weight: 400;
+        margin-top: 10px;
+        display: block;
+
+        @include tablet{
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    p{ 
+      font-size: 15px;
+      margin: 5px 0;
+
+      .money{
+        color: $primaryColor;
+      }
+
+      small{
+        font-size: 12px;
+        color: #8c8c8c;
+      }
+    }
+  }
+
+  .cart-main{
+    opacity: 0;
+    visibility: hidden;
+    @include transition(all 0.5s ease);
+
+    &:before{
+      content: "";
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      @include transition(all 0.5s ease);
+      z-index: 1;
+    }
+
+    &:after{
+      content: "Loading";
+      position: absolute;
+      left: 50%;
+      top: 300px;
+      @include transform(translate(-50%, -50%));
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      @include transition(all 0.5s ease);
+      z-index: 2;
+    }
+
+    &.rendered{
+      opacity: 1;
+      visibility: visible;
+
+      &:before, &:after{
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    &.faded{
+
+      &:before, &:after{
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+    > .left-area{
+      width: calc(100% - 320px);
+
+      @include tablet{
+        width: 100%;
+      }
+
+      .amount-to-free-gift{
+        width: 100%;
+        background: $primaryColor;
+        color: $bodyBackground;
+        padding: 7px;
+        text-align: center;
+        margin: 0 0 15px 0;
+      }
+
+      .inner-cart-items{
+        margin-bottom: 40px;
+
+        .cart-item{
+          .item-actions{
+            width: 100%;
+            margin-top: 20px;
+          }
+        }
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+
+        > h2{
+          margin-bottom: 20px;
+          font-size: 17px;
+        }
+      }
+    }
+
+    > .right-area{
+      width: 320px;
+      @include align-self(flex-start);
+
+      @include tablet{
+        width: 100%;
+      }
+
+      .cart-summary{
+        background: $primaryColor;
+        padding: 20px;
+
+        *{
+          color: #fff;
+        }
+
+        header{
+          margin-bottom: 30px;
+
+          h2{
+            font-size: 17px;
+            letter-spacing: 2.22px;
+          }
+        }
+
+        .total-area{
+          border-top: 1px solid #fff;
+          border-bottom: 1px solid #fff;
+          padding: 10px 0;
+          margin-bottom: 10px;
+
+          p, span{
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+          }
+
+        }
+
+        .note{
+          text-align: left;
+          font-weight: 400;
+          margin-bottom: 30px;
+          line-height: 1.4;
+        }
+
+        footer{
+          text-align: center;
+          .btn{
+            color: $primaryColor;
+            width: 100%;
+            margin-bottom: 10px;
+
+            &:hover{
+              background: #fff;
+              color: $primaryColor;
+            }
+          }
+
+          a:not(.btn){
+
+          }
+        }
+
+        
+      }
+
+      > footer{
+        overflow: hidden;
+
+        @include tablet{
+          text-align: center;
+          padding: 30px;
+        }
+
+        > a{
+          text-decoration: underline;
+          margin: 25px 0 0 0;
+          display: inline-block;
+        }
+
+        .note{
+          max-width: 280px;
+          margin: 0 auto;
+        }
+
+        .payment-icons{
+          margin: 30px 0;
+          ul{
+            li{
+              svg{
+                line-height: 0;
+                width: 28px;
+                height: 18px;
+              }
+            }
+          }
+        }
+
+        > ul{
+            li{
+              position: relative;
+              a{
+                font-size: 11px;
+                font-weight: 400;
+                color: #8c8c8c;
+              }
+
+              &:not(:last-child){
+                &:after{
+                  content: "";
+                  width: 1px;
+                  height: 8px;
+                  top: 50%;
+                  @include transform(translateY(-50%));
+                  background: #8c8c8c;
+                  right: 0;
+                  position: absolute;
+                }
+              }
+            }
+        }
+
+      }
+    }
+  }
+}

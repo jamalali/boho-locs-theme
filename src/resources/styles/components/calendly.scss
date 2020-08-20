@@ -1,0 +1,124 @@
+// Calendly adds height:100% on the body in its imported css which causes the page not to be able to scroll.
+html, body {
+    height: unset!important;
+}
+
+
+// Original styling - trust me, they'll want it back this way eventually
+// .calendly-badge-widget{
+//     position: fixed !important;
+//     bottom: unset !important;
+//     left: unset !important;
+
+//     transform: translateY(-100%) rotate(-90deg) translateX(100%) !important;
+//     transform-origin: right!important;
+//     top: 50% !important;
+//     right: 18px !important;
+//     .calendly-badge-content{
+//         background-color: #006681 !important;
+//         color: #fff !important;
+//         border-radius: 0 !important;
+//         padding: 10px !important;
+//         height: auto!important;
+//     }
+// }
+.calendly-badge-widget{
+    position: fixed !important;
+    bottom: unset !important;
+    left: unset !important;
+
+    right:15px!important;
+    // @include tablet{
+    //     top:unset!important;
+    //     bottom:10px!important;
+    //     right:5px!important;
+    // }
+    // @include mobile{
+    //     left:5px!important;
+    //     width:auto!important;
+    //     margin:auto!important;
+    // }
+    .calendly-badge-content{
+        background-color: #fff!important;
+        color: inherit!important;
+        padding: 10px 30px !important;
+        height: auto !important;
+        border-radius: 0px!important;
+        font-weight: 400!important;
+        text-transform: uppercase;
+        background-color: white;
+        @include bodyFontImportant;
+        box-shadow: none !important;
+        @include transition(all 0.4s cubic-bezier(0.4, 0, 0.2, 1));
+        @include mobile{
+            padding: 8px 25px !important;
+        }
+        &:before{
+    		content: "";
+    		width: 100%;
+    		height: calc(100% + 8px);
+    		border: 2px solid $secondaryColor;
+    		display: block;
+    		position: absolute;
+    		left: -2px;
+    		top: -6px;
+    		pointer-events: none;
+            background-color: white;
+            z-index:-1;
+            box-shadow: rgba(0,0,0,0.25) 0 2px 5px;
+    	}
+        &:hover{
+    		background-color: $borderColor !important;
+    		color: #fff !important;
+    	}
+        @include mobile{
+            width: 100%!important;
+            max-width: unset!important;
+            display: block!important;
+        }
+    }
+}
+body.calendly-enabled{
+    .site-footer{
+        footer .copyright-area{
+            @include mobile{
+                padding-bottom:50px!important;
+            }
+        }
+    }
+}
+.calendly-close{
+    position: fixed;
+    right: 15px;
+    height: 15px;
+    width: 15px;
+    z-index: 9998;
+    cursor: pointer;
+    @include mobile{
+        height: 12px;
+        width: 12px;
+    }
+    &:before{
+        width: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        @include transform(rotate(45deg))
+        content: "";
+        background-color: black;
+    }
+    &:after{
+        width: 2px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        @include transform(rotate(-45deg))
+        content: "";
+        background-color: black;
+    }
+    &:not(.show){
+        display: none;
+    }
+}

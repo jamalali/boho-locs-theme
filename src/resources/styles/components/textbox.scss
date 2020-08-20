@@ -1,0 +1,26 @@
+.textbox {
+    display: inline-block;
+    padding:23px 29px;
+    &__white {
+        background: $white;
+    }
+
+    &__title {
+        font-size: 25px;
+        margin-bottom:5px;
+
+        @include mobile {
+            font-size: 21px;
+        }
+    }
+    &__large {
+        padding:177px 115px;
+
+        @include tablet {
+            padding:100px 80px;
+        }
+        @include mobile {
+            padding:90px 25px;
+        }
+    }
+}

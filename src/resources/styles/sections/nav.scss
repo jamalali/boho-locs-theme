@@ -1,0 +1,29 @@
+#primary-header {
+
+  nav.menu {
+
+    li {
+
+      a {
+        color: #000000;
+        font-family: "GT America Condensed";
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      &.gm-item.gm-level-0 {
+        flex: 1;
+        text-align: center;
+
+        > a {
+          padding-top: 0!important;
+        }
+
+      }
+
+    }
+
+  }
+
+}

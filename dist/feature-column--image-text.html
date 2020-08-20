@@ -1,0 +1,64 @@
+
+<section class="feature-column--image-text">
+  <header>
+    <h2 class="h3">
+      Lorem ipsum dolor.
+    </h2>
+    <h2 class="h2">
+      Dolor in Reprehend Erit
+    </h2>
+  </header>
+  <div class="container">
+    <article class="article one">
+      <img src="https://via.placeholder.com/1000" alt="">
+    </article>
+    <article class="article two">
+      <h4 class="h3 title">
+        Lorem ipsum dolor sit
+amet consectetur quis
+      </h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum exercitationem autem deserunt, saepe nisi dolore, iusto est laboriosam nam perferendis porro accusantium aperiam ea vero delectus tempora ipsam possimus corporis!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perferendis eaque, doloremque sunt vitae harum voluptate impedit inventore possimus suscipit? Recusandae veritatis eaque adipisci, nihil natus ab dignissimos, aliquid libero.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .feature-column--image-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+  }
+
+  .container .article  {
+    flex: 1;
+  }
+  .container .one  {
+    padding: 50px;
+    text-align: right;
+  }
+  .container .one img  {
+    max-width: 400px;
+  }
+
+  .container .article.two {
+    text-align: left;
+    align-self: flex-end;
+    height: 300px;
+  }
+  .container .article.two p {
+    max-width: 70%;
+  }
+
+</style>

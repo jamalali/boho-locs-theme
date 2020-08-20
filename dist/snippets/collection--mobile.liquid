@@ -1,0 +1,11 @@
+<div class="mobile">
+  <div class="slider">
+
+    {% for item in collection.products limit: product_limit %}
+
+      {%- include 'item' -%}
+
+    {% endfor %}
+
+  </div>
+</div>

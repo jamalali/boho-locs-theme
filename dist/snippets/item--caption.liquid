@@ -1,0 +1,18 @@
+<figcaption
+class="item__caption {% if item_article %}flex--column{% else %}flex--row justify--between{% endif %}">
+
+  {%- include 'item--title' -%}
+
+  {%- if item_collection -%}
+
+    {%- include 'item--price' -%}
+
+  {%- elsif item_article -%}
+
+    {%- include 'item--excerpt' -%}
+
+    {%- include 'item--meta' -%}
+
+  {%- endif -%}
+
+</figcaption>

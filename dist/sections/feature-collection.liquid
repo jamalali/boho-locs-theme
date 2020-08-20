@@ -1,0 +1,129 @@
+{%- assign item_collection = true -%}
+
+{%- assign collection = collections[section.settings.collection] -%}
+
+{%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+{% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+
+{%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+<section
+class="feature__collection"
+style="
+background: {{ section.settings.section_bg }};
+color: {{ section.settings.font_color }};
+">
+
+  <header>
+    {%- include 'section--title' -%}
+  </header>
+
+  {%- include 'collection--desktop' -%}
+
+  {%- include 'collection--mobile' -%}
+
+</section>
+
+{% schema %}
+  {
+    "name": "Feature Collection",
+      "settings": [
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Section Font Color",
+        "default": "#000"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+         "type":      "select",
+         "id":        "alignment",
+         "label":     "Align Header",
+         "options": [
+           {
+             "group": "value",
+             "value": "left",
+             "label": "Left"
+           },
+           {
+             "group": "value",
+             "value": "center",
+             "label": "Center"
+           },
+           {
+             "group": "value",
+             "value": "right",
+             "label": "Right"
+           }
+         ],
+         "default":   "left",
+         "info":      "Header Alignment"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "range",
+        "id": "grid",
+        "label": "Products per row",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      },
+      {
+        "type": "checkbox",
+        "id": "show_price",
+        "label": "Show Price",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendors",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Collection",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}
+
+{% javascript %}
+$(document).ready(function(){
+    $('.slider').bxSlider();
+  });
+{% endjavascript %}

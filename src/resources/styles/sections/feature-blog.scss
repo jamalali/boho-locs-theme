@@ -1,0 +1,101 @@
+/*================ Feature Blog =====
+==========================================*/
+.feature--blog {
+
+  padding: 120px 0;
+
+  .desktop,
+  .section__title {
+    @include pageWidth(5%);
+  }
+
+  .desktop {
+    border-top: solid 1px #000;
+  }
+
+  .section__title {
+    padding-bottom: 48px;
+
+    @include fontProps(
+      42px,    // font-size
+      normal,  // line-height
+      700,     // font-weight
+      normal   // letter-spacing
+    )
+  }
+
+  .item__container {
+    border-left: solid 1px #000;
+    border-bottom: solid 1px #000;
+    max-width: 480px;
+    padding: 48px 30px 0;
+
+    @media (max-width: $small) {
+      max-width: 310px!important;
+    }
+  }
+  .item__container:last-child {
+    border-right: solid 1px #000;
+  }
+
+}
+/* Test Removal
+.blog-item {
+  max-width: 480px;
+  padding: 48px 30px 0;
+  border: solid 1px #000;
+
+  @media (max-width: $small) {
+    max-width: 310px!important;
+  }
+
+  .image-wrap {
+    margin-bottom: 36px;
+  }
+
+  .article__title {
+    margin-bottom: 36px;
+
+    a {
+      text-decoration: none;
+
+      @include fontProps(
+        18px,    // font-size
+        24px,    // line-height
+        700,     // font-weight
+        0.04px   // letter-spacing
+      )
+
+    }
+
+  }
+
+  .article-content p.article-excerpt {
+    color: #000000;
+    font-family: "Louize Display Regular";
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  .meta {
+    margin: 47px 0 63px 0;
+  }
+
+}
+*/
+/*================ Desktop MQs =====
+==========================================
+@media only screen and (max-width: 740px) {
+  .feature-blog .mobile .blog-item {
+    max-width: 100%;
+    padding: 18px 30px 0;
+  }
+  .slider {
+    width: 100%;
+  }
+}
+/*================ Mobile MQs =====
+==========================================*/
+@media only screen and (min-width: 741px) {
+
+}

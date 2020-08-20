@@ -1,0 +1,29 @@
+.feature-column--image-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.container .article  {
+  flex: 1;
+}
+.container .one  {
+  padding: 50px;
+  text-align: right;
+}
+.container .one img  {
+  max-width: 400px;
+}
+
+.container .article.two {
+  text-align: left;
+  align-self: flex-end;
+  height: 300px;
+}
+.container .article.two p {
+  max-width: 70%;
+}

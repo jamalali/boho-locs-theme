@@ -1,0 +1,30 @@
+/*================ Text Banner =============
+==========================================*/
+.banner-items {
+  padding: 30px 0;
+}
+.banner-container {
+  height: 50px;
+  overflow: hidden;
+  padding: 12px 0;
+  white-space: nowrap;
+
+  .banner-text-only {
+    font-family: "GT America Expanded";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02px;
+    text-transform: uppercase;
+    letter-spacing: 0.11px;
+    margin-right: 10px;
+  }
+
+  .banner-container .banner-text-only:after {
+    content: '->';
+  }
+
+  .banner-item-img img {
+    max-height: 60px;
+  }
+
+}

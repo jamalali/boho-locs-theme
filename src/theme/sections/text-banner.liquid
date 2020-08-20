@@ -1,0 +1,58 @@
+<section class="text-banner page-width">
+  <div class="container flex-row">
+
+    <div
+    class="banner-container flex--row align--center"
+    style="background: {{ section.settings.section_bg }}
+    ">
+
+      {% for block in section.blocks %}
+
+        {%- include 'banner--text' -%}
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Text Banner",
+    "max_blocks": 1,
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Banner Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#f00"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Banner Items",
+        "settings": [
+          {
+              "type": "text",
+              "id": "banner_caption",
+              "label": "Banner Caption"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Boho Sections",
+        "name": "Text Banner"
+      }
+    ]
+  }
+{% endschema %}

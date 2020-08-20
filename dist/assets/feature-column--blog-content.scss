@@ -1,0 +1,44 @@
+/*================ Layout 2-col ================*/
+/*============================================================================*/
+.flexbox-container {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+/* Blog Post */
+.two-col-layout .single-blog-post {
+  padding: 240px 80px 120px;
+  text-align: center;
+  color: #e4d9d5;
+  box-sizing: border-box;
+}
+.two-col-layout .single-blog-post .article__title {
+  color: #e4d9d5;
+  font-family: "GT America Condensed";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+.two-col-layout .single-blog-post .article__grid-excerpt {
+  color: #e4d9d5;
+  font-family: "Louize Display";
+  font-size: 82px;
+  line-height: 94px;
+}
+.two-col-layout .single-blog-post .article__date,
+.two-col-layout .single-blog-post .article__author {
+  color: #e4d9d5;
+  font-family: "Louize Display";
+  font-size: 24px;
+  line-height: 94px;
+}
+
+/* Article */
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+}

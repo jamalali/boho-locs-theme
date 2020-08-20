@@ -1,0 +1,18 @@
+{% if section.settings.rc_blog != blank %}
+
+  {%- assign blog = blogs[section.settings.rc_blog] -%}
+  {% include 'single-post' %}
+
+{%- elsif section.settings.rc_blog == blank and section.settings.rc_col_img != blank -%}
+
+  {%- assign img = section.settings.rc_col_img -%}
+  {%- include 'col-full-image' -%}
+
+{%- elsif section.settings.blog == blank and section.settings.rc_col_img == blank -%}
+
+  {%- assign article_heading = section.settings.rc_article_heading -%}
+  {%- assign article_button_link = section.settings.rc_article_button_link -%}
+  {%- assign article_button_text = section.settings.rc_article_button_text -%}
+  {%- include 'col-textarea' -%}
+
+{%- endif -%}

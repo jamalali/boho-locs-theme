@@ -1,0 +1,41 @@
+.collections {
+  padding: 0;
+}
+
+.filters {
+  /* width: 530px; */
+  width:28.4375%;
+  margin: 0 80px;
+}
+.articles {
+  width: 71.5625%;
+  margin-right: 80px;
+}
+
+figure {
+  max-width: 30%;
+}
+.grid--layout .container {
+  max-width: 30%;
+}
+.grid--layout .container figure {
+  max-width: 100%;
+}
+
+.grid--layout .container figure:last-child {
+  margin-top: auto;
+}
+
+.grid--full figure {
+  max-width: 100%;
+}
+
+.layout-double {
+  max-width: 68%!important;
+}
+.large {
+  max-width: 68%!important;
+}
+.full {
+  max-width: 100%!important;
+}

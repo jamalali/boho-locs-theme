@@ -1,0 +1,5 @@
+{% if article.excerpt.size > 0 %}
+  {{ article.excerpt }}
+{% else %}
+  {{ article.content | strip_html | truncate: 33 }}
+{% endif %}

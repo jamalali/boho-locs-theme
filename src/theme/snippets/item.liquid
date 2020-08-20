@@ -1,0 +1,16 @@
+<figure
+class="item__container {% if item.tags contains 'layout-double' %}layout-double{% endif %}{% if item.tags contains 'layout-full' %}full{% endif %}">
+
+  {%- if item_video -%}
+
+    {%- include 'item--vid' -%}
+
+  {%- else -%}
+
+    {%- include 'item--img' -%}
+
+  {%- endif -%}
+
+  {%- include 'item--caption' -%}
+
+</figure>

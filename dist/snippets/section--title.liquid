@@ -1,0 +1,15 @@
+<h2
+class="h2 section__title
+{% if section.settings.alignment == 'left' %}
+  text-left
+{% elsif section.settings.alignment == 'center' %}
+  text-center
+{% elsif section.settings.alignment == 'right' %}
+  text-right
+{% endif %}
+"
+>
+
+  {{ section.settings.section_title }}
+
+</h2>

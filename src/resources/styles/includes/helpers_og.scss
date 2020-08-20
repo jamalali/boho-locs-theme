@@ -1,0 +1,550 @@
+*{
+	outline: none;
+}
+
+select{
+	border-radius: 0;
+}
+
+.lower{
+	text-transform: none;
+}
+
+.no-scroll{
+	overflow: hidden !important;
+}
+
+.centered{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hide{
+	display: none !important;
+}
+
+.block{
+	display: block;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+}
+.text-sm {
+	font-size: 11px;
+}
+
+.full-width{
+	width: 100% !important;
+}
+
+.upper{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.padded{
+	padding: $sitePadding;
+
+	&.extra{
+		padding: 50px 45px;
+
+		@include tablet{
+			padding: 20px;
+		}
+	}
+
+	&.just-horizontal{
+		padding: 10px 85px;
+
+		@include tablet{
+			padding: 20px;
+		}
+	}
+
+	&.double{
+		padding: $sitePadding ($sitePadding * 2);
+
+		@include tablet{
+			padding: 20px;
+		}
+	}
+
+	&.triple{
+		padding: $sitePadding ($sitePadding * 3);
+
+		@include tablet{
+			padding: 20px;
+		}
+	}
+
+	@include tablet{
+		padding: 20px;
+	}
+}
+ 
+.small-margin{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.enforce-width{
+	max-width: $siteWidth;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+
+	&.smaller{
+		max-width: 900px;
+	}
+
+	&.bigger{
+		max-width: 1300px;
+	}
+
+	&.biggest{
+		max-width: 1400px;
+	}
+
+	&.massive{
+		max-width: 2000px;
+	}
+}
+ 
+.wrapper{
+	@extend .enforce-width;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $sitePadding;
+	padding-right: $sitePadding;
+	overflow: hidden;
+
+	@include tablet{
+		padding-left: $siteMobilePadding;
+		padding-right: $siteMobilePadding;
+	}
+}
+
+.mobile-only{
+	@include desktop{
+		display: none !important;
+	}
+}
+
+.desktop-only{
+	@include tablet{
+		display: none !important;
+	}
+}
+
+.big-desktop-only{
+	@include smallDesktop{
+		display: none !important;
+	}
+}
+
+.big-mobile-only{
+	@include smallDesktopAbove{
+		display: none !important;
+	}
+}
+
+.slick-middle{
+	.slick-track{
+		margin: 0 auto;
+	}
+}
+
+.flex{
+	@include flexbox;
+
+	&.flex-grid{
+		@include flex-wrap(wrap);
+		margin-left: -20px;
+		margin-right: -20px;
+
+		> *{
+			padding: 0 20px;
+		}
+
+		@include tablet{
+			margin-left: -6px;
+			margin-right: -6px;
+
+			> *{
+				padding: 0 6px;
+			}
+		}
+
+		&.tiny-grid{
+			margin-left: -5px;
+			margin-right: -5px;
+
+			> *{
+				padding: 0 5px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -5px;
+					margin-right: -5px;
+
+					> *{
+						padding: 0 5px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -5px;
+					margin-right: -5px;
+
+					> *{
+						padding: 0 5px;
+					}
+			  }
+			}
+
+		}
+
+		&.mini-grid{
+			margin-left: -10px;
+			margin-right: -10px;
+
+			> *{
+				padding: 0 10px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -10px;
+					margin-right: -10px;
+
+					> *{
+						padding: 0 10px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -10px;
+					margin-right: -10px;
+
+					> *{
+						padding: 0 10px;
+					}
+			  }
+			}
+		}
+
+		&.small-grid{
+			margin-left: -15px;
+			margin-right: -15px;
+
+			> *{
+				padding: 0 15px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -15px;
+					margin-right: -15px;
+
+					> *{
+						padding: 0 15px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -15px;
+					margin-right: -15px;
+
+					> *{
+						padding: 0 15px;
+					}
+			  }
+			}
+		}
+
+		&.medium-grid{
+			margin-left: -30px;
+			margin-right: -30px;
+
+			> *{
+				padding: 0 30px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -30px;
+					margin-right: -30px;
+
+					> *{
+						padding: 0 30px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -30px;
+					margin-right: -30px;
+
+					> *{
+						padding: 0 30px;
+					}
+			  }
+			}
+		}
+
+		&.large-grid{
+			margin-left: -45px;
+			margin-right: -45px;
+			> *{
+				padding: 0 45px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -45px;
+					margin-right: -45px;
+
+					> *{
+						padding: 0 45px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -45px;
+					margin-right: -45px;
+
+					> *{
+						padding: 0 45px;
+					}
+			  }
+			}
+		}
+
+		&.huge-grid{
+			margin-left: -75px;
+			margin-right: -75px;
+			> *{
+				padding: 0 75px;
+			}
+
+			&-desktop{
+			  @include desktop{
+					margin-left: -75px;
+					margin-right: -75px;
+
+					> *{
+						padding: 0 75px;
+					}
+			  }
+			}
+
+			&-tablet{
+			  @include tablet{
+					margin-left: -75px;
+					margin-right: -75px;
+
+					> *{
+						padding: 0 75px;
+					}
+			  }
+			}
+		}
+	}
+
+	&.center{
+		@include justify-content(center);
+	}
+
+	&.vertical-center{
+		@include align-items(center);
+	}
+
+	&.vertical-end {
+		@include align-items(flex-end);
+	}
+
+	&.inline{
+		@include inline-flex;
+	}
+
+	&.full-mobile{
+		@include tablet{
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	&.between{
+		@include justify-content(space-between);
+	}
+
+	&.end{
+		@include justify-content(flex-end);
+	}
+
+	&.flex-reverse {
+		@include flex-direction(row-reverse);
+	}
+
+	&.vertical{
+		@include flex-direction(column);
+	}
+
+	&.wrap{
+		@include flex-wrap(wrap);
+	}
+
+	&.half{
+		@include tablet{
+			@include flex-direction(column);
+		}
+		> *{
+			width: 50%;
+
+			@include tablet{
+				width: 100%;
+			}
+		}
+	}
+
+	&.third{
+		@include tablet{
+			@include flex-direction(column);
+		}
+
+		> *{
+			width: 33.33333%;
+
+			@include tablet{
+				width: 100%;
+			}
+		}
+	}
+}
+
+.caption-container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 40px;
+  @include flexPositioning();
+}
+
+.abs-center{
+	@include abs-center();
+}
+
+
+.obj-cover, .obj-contain {
+	width:100%;
+	height:100%;
+	img {
+		width:100%;
+		height:100%;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&.mobile-position-left{
+		@include tablet{
+			img{
+				object-position: left;
+			}
+		}
+	}
+
+	&.mobile-position-center{
+		@include tablet{
+			img{
+				object-position: center;
+			}
+		}
+	}
+
+	&.mobile-position-right{
+		@include tablet{
+			img{
+				object-position: right;
+			}
+		}
+	}
+}
+.obj-contain img {
+	object-fit: contain
+}
+
+
+.grey {
+	color:$grey;
+}
+.plain {
+	border:none;
+	padding:none;
+}
+.grey-section {
+	background:$bgGrey;
+	padding:30px 0;
+}
+
+.m-mid {
+	margin-bottom:50px;
+}
+.m-sm {
+	margin-bottom:9px;
+}
+.f-sm {
+	font-size: 11px !important;
+}
+.italic {
+	font-style: italic;
+}
+.mono {
+	@include bodyFont;
+}
+
+.bg-area-placeholder{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
+  @include transition(all 0.25s ease);
+  @include blur(5px);
+
+  .img-loaded &{
+  	opacity: 0;
+  	visibility: hidden;
+  }
+}
+
+img[data-img-loader]{
+	@include transition(all 0.25s ease);
+	&:not(.img-loaded){
+		opacity: 0;
+		visibility: hidden;
+	}
+}

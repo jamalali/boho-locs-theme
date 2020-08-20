@@ -1,0 +1,60 @@
+.standard-content{
+  
+  aside{
+    background: #f7f7f7;
+    padding: 30px 45px;
+    width: 250px;
+    @include align-self(flex-start);
+
+    @include tablet{
+      width: 100%;
+    }
+
+    ul{
+      li{
+        margin-bottom: 30px;
+
+        a{
+          color: #4a4a4a;
+          font-weight: 400;
+
+          &.active{
+            text-decoration: underline;
+          }
+        }
+
+        &:first-child{
+          a{
+            font-weight: 700;
+          }
+        }
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .page-content{
+    padding-left: 40px;
+    width: calc(100% - 250px);
+
+    &.no-sidebar{
+      width: 100%;
+      padding-left: 0;
+      margin: 0 auto;
+    }
+
+    @include tablet{
+      width: 100%;
+      padding-left: 0;
+    }
+
+    h1{
+      font-size: 23px;
+      margin-bottom: 50px;
+      color: $secondaryColor;
+    }
+  }
+}

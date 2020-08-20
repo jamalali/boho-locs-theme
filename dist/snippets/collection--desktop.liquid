@@ -1,0 +1,17 @@
+<div class="desktop flex--row wrap justify--between">
+
+  {%- if collection_page -%}
+    {% for item in collection.products  %}
+
+      {%- include 'item' -%}
+
+    {% endfor %}
+  {%- else  -%}
+    {% for item in collection.products limit: product_limit %}
+
+      {%- include 'item' -%}
+
+    {% endfor %}
+  {%- endif -%}
+
+</div>

@@ -1,0 +1,63 @@
+.contact-section{
+  @extend .standard-content;
+
+  .page-content{
+    form{
+      margin-top: 50px;
+      margin-bottom: 80px;
+
+      .form-success{
+        margin-bottom: 20px;
+        background: $primaryColor;
+        color: #fff;
+        padding: 15px;
+      }
+
+      input, textarea{
+        width: 100%;
+      }
+
+      .choices-select{
+        height: 1px;
+          padding: 0;
+          border: 0;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          background: transparent;
+          display: block !important;
+      }
+
+      button[type="submit"]{
+        max-width: 170px;
+        width: 100%;
+      }
+    }
+     
+    .icons-area{ 
+      padding-bottom: 50px;
+      margin-bottom: 50px;
+      border-bottom: 4px solid #f7f7f7;
+      > div{
+        text-align: center;
+        width: 33.3%;
+        img{
+          margin-bottom: 30px;
+        }
+
+        h3{
+          font-size: 15px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          color: $secondaryColor;
+        }
+
+        .rte{
+          line-height: 2;
+          max-width: 200px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

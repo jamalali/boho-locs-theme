@@ -1,0 +1,26 @@
+{%- for block in section.blocks -%}
+
+  <ul>
+    <li>
+
+      {{ block.settings.menu_title }}
+
+    </li>
+
+    {% for link in linklists[block.settings.header_linklist].links %}
+
+      <li class="footer-link">
+
+        <a href="{{ link.url }}">
+
+          {{ link.title }}
+
+        </a>
+
+      </li>
+
+    {% endfor %}
+
+  </ul>
+
+{%- endfor -%}

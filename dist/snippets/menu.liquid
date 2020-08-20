@@ -1,0 +1,15 @@
+{%- for block in section.blocks -%}
+
+  <ul>
+
+    {%- include 'menu-title' -%}
+
+    {% for link in linklists[block.settings.footer_linklist].links %}
+
+      {%- include 'footer-link' -%}
+
+    {% endfor %}
+
+  </ul>
+
+{%- endfor -%}

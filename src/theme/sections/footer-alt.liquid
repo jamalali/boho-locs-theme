@@ -1,0 +1,93 @@
+<section
+id="primary-footer"
+class="footer"
+style="
+  background: {{ section.settings.section_bg }};
+  color: {{ section.settings.font_color }};
+">
+  <div class="footer-inner flex--column">
+
+    {%- include 'footer-header' -%}
+
+    {%- include 'footer-menus' -%}
+
+    {%- if section.settings.footer_newsletter_enable != blank -%}
+
+      {%- include 'newsletter' -%}
+
+    {%- endif -%}
+
+    {%- include 'footer-secondary' -%}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "max_blocks": 5,
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Section Font Color",
+        "default": "#f00"
+      },
+      {
+        "type": "text",
+        "id": "footer_title",
+        "label": "Footer Title",
+        "default": "Boho Locks"
+      },
+      {
+        "type": "checkbox",
+        "id": "footer_newsletter_enable",
+        "label": "Show newsletter signup",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social_icons",
+        "label": "Show social icons",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "footer_subtitle",
+        "label": "Footer SubTitle",
+        "default": "Follow Us"
+      },
+      {
+        "type": "text",
+        "id": "footer_credit",
+        "label": "Footer Credit"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "link_list",
+        "name": "Footer Menus",
+        "settings": [
+          {
+            "type": "text",
+            "id": "menu_title",
+            "label": "Menu Title",
+            "default": "Menu Title"
+          },
+          {
+            "type": "link_list",
+            "id": "footer_linklist",
+            "label": "Footer menu",
+            "default": "main-menu"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

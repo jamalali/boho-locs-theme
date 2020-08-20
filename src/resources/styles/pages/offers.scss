@@ -1,0 +1,292 @@
+.offers-section-top{
+    padding-bottom: 59px;
+    padding-top: 18px;
+    @include tablet(){
+        padding-top: 0;
+    }
+    .offers-top-content{
+        position: relative;
+        max-width: 1170px;
+        margin: 0px auto;
+        @include flexbox();
+        @include flex-direction(row);
+        @include justify-content(center);
+        @include align-items(center);
+        background-color: white;
+
+        @include tablet(){
+            @include flex-direction(column);
+            padding-bottom: 100px;
+        }
+
+        img {
+            margin-bottom: 42px;
+            margin-left: 42px;
+            max-width: 500px;
+            height: auto;
+
+            @include smallDesktop{
+                width: 30%;
+            }
+
+            @include tablet(){
+                margin-bottom: 29px;
+                margin-left: 0px;
+                width: 100%;
+            }
+        }
+        
+        .offers-content-text{
+            padding: 30px 100px;
+            color: #0a0a0a;
+            position: relative;
+
+            @include smallDesktop{
+                width: 70%;
+            }
+
+            @include tablet(){
+                padding: 0px 15px;
+                text-align: center;
+                top: 0px;
+                width: 100%;
+            }
+                
+            h1{
+                font-size: 25px;
+                font-weight:bold;
+                
+                letter-spacing: 3.26px;
+                margin-bottom: 19px;
+            }
+            p{
+                line-height: 23px;
+                font-size: 13px;
+            }
+
+            .btn{
+                margin-top: 30px;
+            }
+            .offers-shop-btn{
+                border: 1px solid #0a0a0a;
+                padding: 21px 63px 20px 21px;
+                font-weight: normal;
+                position: relative;
+                top: 90px;
+                text-transform: uppercase;
+              
+                @include tablet(){
+                    top: 45px;
+                    padding: 21px 63px 20px 25px;
+                    width: 76%;
+                    margin: 0 auto;
+                    margin-top: 29px;
+                    font-weight: bold;
+                }
+            }
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            top: -17px;
+            left: -17px;
+            bottom: -17px;
+            right: -17px;
+            border: 2px #ffffff solid;
+            @include tablet(){
+                border: 3px #ffffff solid;
+            }
+
+        }
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        background: transparent;
+        border-top: 1.5px solid black;
+        border-right: 1.5px solid black;
+        box-shadow: 0 0 0 lightgrey;
+        transition: all 200ms ease;
+        
+        &.left {
+            left: 0;
+            transform: translate3d(0,-50%,0) rotate(-135deg);
+        }
+
+        &.right {
+            right: 20px;
+            transform: translate3d(0,-50%,0) rotate(45deg);
+        }
+        
+        &:hover {
+            border-color: #666;
+            box-shadow: 0.5vmin -0.5vmin 0 white;
+        }
+        
+        &:before { // for better hit area
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%,-60%) rotate(45deg);
+            width: 200%;
+            height: 200%;
+        }
+    }
+
+}
+
+.offers-section-bottom{
+    background: #ffffff;
+
+    @include desktop{
+        padding: 0 $sitePadding;
+    }
+    
+    .offers-wrapper {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        @include flexbox();
+        @include flex-direction(row);
+        @include tablet(){
+            flex-direction: column;
+            margin: 0px 25px;
+        }
+    }
+        .offers-block{
+            width: 100%;
+            margin-top: 40px;
+            margin-right: 40px;
+
+            @include tablet{ 
+                margin-bottom: 130px;
+            }
+
+            .bg-area{
+                padding-bottom: 100%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top;
+                position: relative;
+            }
+
+            @include tablet(){
+                margin-right: 0px;
+            }
+
+
+            &__bottom-content{
+                position:absolute;
+                left: 30px;
+                bottom: 30px;
+                width: calc(100% - 60px);
+                height: auto;
+
+                .inner{
+                    background: #fff;
+                    padding: 29px;
+
+                    @include tablet{
+                        @include flex-direction(column);
+                    }
+                }
+
+                @include tablet(){
+                    top: 79vw;
+                    text-align: center;
+                }
+                
+                
+                .btn{
+                    white-space: nowrap;
+                }
+
+                h1{
+                    font-size: 25px;
+                    font-weight:bold;
+                    letter-spacing: 3.26px;
+                }
+                p{
+                    @include headingFont();
+                    font-size: 15px;
+                    color: #8c8c8c;
+                    letter-spacing: 3.26px;
+                    line-height: 26px;
+
+                    @include tablet{
+                        margin-bottom: 10px;
+                    }
+
+                }
+                .offers-shop-btn{
+                    border: 1px solid #0a0a0a;
+                    padding: 21px 63px 20px 21px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+
+                    .arrow.right {
+                        right: 50px;
+                        @include tablet(){
+                            right: 87px;
+                        }
+                    }
+                    @include tablet(){
+                        padding: 21px 63px 20px 0px;
+                        width: 76%;
+                        margin: 0 auto;
+                        margin-top: 29px;
+                        font-weight: bold;
+
+                    }
+                   
+                }
+            }
+        }
+        .offers-block:last-child{
+            margin-right: 0px;
+        }
+        .arrow {
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            background: transparent;
+            border-top: 1.5px solid black;
+            border-right: 1.5px solid black;
+            box-shadow: 0 0 0 lightgrey;
+            transition: all 200ms ease;
+
+            @include tablet(){
+                top: 123%;
+            }
+            
+            &.left {
+                left: 0;
+                transform: translate3d(0,-50%,0) rotate(-135deg);
+            }
+    
+            &.right {
+                transform: translate3d(0,-50%,0) rotate(45deg);
+            }
+            
+            &:hover {
+                border-color: #666;
+                box-shadow: 0.5vmin -0.5vmin 0 white;
+            }
+            
+            &:before { // for better hit area
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-40%,-60%) rotate(45deg);
+                width: 200%;
+                height: 200%;
+            }
+        }
+    
+}

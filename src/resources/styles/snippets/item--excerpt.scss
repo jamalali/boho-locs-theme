@@ -1,0 +1,13 @@
+.item__excerpt {
+
+  margin-bottom: 47px;
+
+  @extend regFont;
+  @include fontProps (
+    42px,  // font-size
+    42px,  // line-height
+    700,   // font-weight
+    normal // letter-spacing
+  )
+
+}

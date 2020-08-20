@@ -1,0 +1,157 @@
+.offers-page-v2{
+  padding: 0;
+  
+  @include tablet{
+    padding: 0;
+  }
+
+  .image-block{
+    > a{
+      position: relative;
+      display: block;
+
+      .bg-area{
+        padding-bottom: 120%;
+        @include bg-cover;
+      }
+
+      .caption-container{
+        padding: 50px 30px;
+        
+        .caption{
+          padding: 30px;
+          width: 100%; 
+          position: relative;
+
+          @include tablet{
+            padding: 20px;
+          }
+
+          &.has-content{
+            background: #fff;
+          }
+ 
+          h2{
+
+            @media screen and (max-width: 1299px){
+              font-size: 21px;
+            }
+
+
+            @media screen and (max-width: 1079px){
+              font-size: 20px;
+            }
+          }
+
+          .rte{
+            margin-top: 10px;
+          }
+
+          .button-container{
+            text-align: right;
+            @include transform(translateY(60%));
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%; 
+            padding: 0 20px;
+
+            .btn{
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .offers-block-v2{
+    margin-bottom: 30px;
+
+    @include tablet{
+      margin-bottom: 15px;
+    }
+  }
+
+  .offers-block-v2-image-and-text{
+    .homepage-image-and-text{
+      margin-top: 0;
+    }
+  }
+
+  .offers-block-v2-newsletter{
+    margin: 60px 0;
+  }
+
+
+  .offers-block-v2-three-image-feature {
+    .main-area, .sub-area{
+      width: 50%;
+
+      @include tablet{
+        width: 100%;
+      }
+    }
+
+    .main-area{
+      @include tablet{
+        margin-bottom: 15px;
+      }
+      &.main-image-side-left{
+        @include order(-1);
+      }
+    }
+
+    .sub-area{
+      .bg-area{
+        padding-bottom: calc(60% - 7.5px);
+      }
+
+      .image-block{
+        &:first-child{
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  .offers-block-v2-image-grid{
+    margin-bottom: 40px;
+
+    @include tablet{
+      padding: 0 10px;
+    }
+
+    .image-block{
+      @include flex-grow(1);
+      @include flex-basis(0);
+      max-width: 50%;
+ 
+      @include tablet{
+        width: 50%;
+        @include flex-grow(0);
+        @include flex-basis(auto);
+        margin-bottom: 35px;
+      }
+
+      > a{
+        .caption-container{
+          padding: 0;
+
+          .caption{
+            .button-container{
+              text-align: center;
+              @include transform(translateY(50%)); 
+
+              @include tablet{
+                @include transform(translateY(40%));
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+
+}

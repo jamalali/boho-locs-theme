@@ -1,0 +1,31 @@
+<div class="blog-item">
+  <div class="image-wrap">
+
+    {% if article.image %}
+
+      {%- include 'article-image' -%}
+
+    {% endif %}
+
+  </div>
+  <div class="article-content">
+    {%- include 'article-title' -%}
+    <p class="article-excerpt">
+
+      {%- include 'article-excerpt' -%}
+
+    </p>
+  </div>
+  <footer class="meta">
+    <span class="date">
+
+      {%- include 'article-date' -%} -
+
+    </span>
+    <span class="author">
+
+      {%- include 'article-author' -%}
+
+    </span>
+  </footer>
+</div>

@@ -1,0 +1,314 @@
+.snize-ac-results{
+  .snize-description{
+    font-weight: 400;
+    font-size: 10px;
+  }
+
+  .snize-mobile-top-panel{
+    border-color: #fff !important;
+  }
+
+  strong, .snize-view-link{
+    font-weight: 400 !important;
+  }
+
+  .snize-product{
+    border-bottom: 1px solid $borderGrey2;
+  }
+
+  .snize-page-img{
+    background-image: url(liquid("{{ 'icon-information.svg' | asset_url }}")) !important;
+    background-size: 10px !important;
+    background-position: center center !important;
+  }
+
+  .snize-label{
+    padding: 5px !important;
+  }
+
+  .total-reviews{
+    color: $secondaryColor !important;
+  }
+
+  .snize-reviews{
+    padding-top: 10px !important;
+  }
+
+  .snize-view-all-link{
+    padding: 20px !important;
+    background: #fff !important;
+    span{
+      display: block;
+      background: $primaryColor;
+      padding: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+  }
+}
+
+
+.snize-results-page{
+
+  .standard-content.wrapper{
+    max-width: 2000px;
+  }
+
+  .page-content{
+    h1{
+      text-align: center;
+      color: $primaryColor;
+
+      @include tablet{
+        margin-bottom: 20px !important;
+      }
+    }
+  }
+
+  .snize-main-panel-controls{
+    > ul{
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .snize-search-results-header{
+    font-size: 13px !important;
+  }
+
+  .snize-main-panel-dropdown, .snize-main-panel-mobile-filters, .snize-main-panel-view-mode{
+    > a{
+      border-radius: 0 !important;
+      color: $secondaryColor;
+    }
+  }
+
+  .snize-main-panel-view-mode{
+    display: none !important;
+  }
+
+  .snize-search-results{
+
+    .snize-filters-sidebar{
+      border: 0 none;
+
+      .snize-product-filters-block{
+        margin-bottom: 15px;
+        border: 1px solid $borderGrey2;
+
+        &:hover{
+          background: #fff !important;
+        }
+
+        .snize-product-filters-title{
+          @include flexbox;
+          @include justify-content(space-between);
+          @include align-items(center);
+          padding: 15px !important;
+
+          > span{
+            font-weight: 700;
+            font-size: 13px;
+            @include order(-1);
+          }
+
+          .snize-product-filters-close, .snize-product-filters-open{
+            width: 10px !important;
+            height: 10px !important;
+          }
+
+          .snize-product-filters-close{
+            background-image: url(liquid("{{ 'icon-minus.svg' | asset_url }}")) !important;
+          }
+
+          .snize-product-filters-open{
+            background-image: url(liquid("{{ 'icon-plus.svg' | asset_url }}")) !important;
+          }
+        }
+
+        .snize-product-filters-list{
+          li{
+            > label{
+              .snize-filter-checkbox{
+                width: 13px;
+                height: 13px;
+
+                span{
+                  border: 1px solid $secondaryColor;
+                  width: 13px;
+                  height: 13px;
+                  border-radius: 0;
+                  box-shadow: none;
+
+                }
+              }
+
+              > span{
+                font-size: 11px !important;
+                padding-left: 30px !important;
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    .snize-search-results-content{
+      margin: 0 -15px !important;
+      width: auto !important;
+
+      @include tablet{
+        margin: 0 -5px !important;
+      }
+
+      .snize-product{
+        border: 0 none !important;
+        width: 33.333% !important;
+        margin: 0 0 30px 0 !important;
+        padding: 0 15px !important;
+        overflow: visible !important;
+        @include flexbox;
+
+        @include tablet{
+          width: 50% !important;
+          padding: 0 5px !important;
+        }
+
+        > a{
+          @include flex-grow(1);
+          width: 100%;
+          background-color: #f7f7f7;
+          @include transition(all 0.35s ease);
+
+
+          &:hover{
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+          }
+
+          .snize-thumbnail-wrapper{
+            padding: 0 !important;
+            .snize-thumbnail{
+              padding-bottom: 100%;
+              height: 0 !important;
+              width: 100% !important;
+
+              img{
+                max-width: 100% !important;
+                max-height: 100% !important;
+              }
+            }
+          }
+
+          .snize-overhidden{
+            text-align: center;
+            border-top: 1px solid #fff;
+            padding: 25px 30px !important;
+            position: relative;
+
+            @include tablet{
+              padding: 20px 10px !important;
+            }
+
+            &:after{
+              content: "";
+              width: 100%;
+              height: 100%;
+              z-index: 1;
+              background-color: #f7f7f7;
+              position: absolute;
+              left: 0;
+              top: 0;
+              pointer-events: none;
+            }
+
+            > :not(.snize-button){
+              position: relative;
+              z-index: 2;
+              text-align: center !important;
+            }
+
+            .snize-title{
+              font-size: 15px !important;
+              font-weight: 700 !important;
+
+              @include tablet{
+                font-size: 12px !important;
+              }
+              @include mobile{
+                font-size: 12px !important;
+              }
+              height: 44px !important;
+            }
+
+            .snize-description{
+              font-size: 12px !important;
+            }
+
+            .snize-price-list{
+              font-size: 13px !important;
+              margin-bottom: 12px!important;
+              @include headingFont;
+
+              *{
+                font-weight: 500;
+              }
+            }
+
+            .snize-reviews{
+              .total-reviews{
+                display: none !important;
+              }
+
+              .stars-container{
+                font-size: 13px;
+                letter-spacing: 1px;
+                &:after{
+                  color: #000;
+                }
+              }
+            }
+
+            .snize-button{
+              top: 0 !important;
+              width: 100% !important;
+              margin: 0 !important;
+              left: 0 !important;
+              box-sizing: border-box;
+              background: rgba(#fff, 0.75);
+              @include transition(all 0.35s ease);
+              text-decoration: underline;
+              text-transform: uppercase;
+              padding: 20px;
+              font-weight: 700;
+              color: $secondaryColor !important;
+              font-size: 13px !important;
+              z-index: 1;
+              border-radius: 0 !important;
+
+              &.size-button-view-cart{
+                background-color: $primaryColor !important;
+                color: #fff !important;
+              }
+            }
+          }
+
+          &:hover{
+            .snize-button{
+              @include transform(translateY(-100%));
+              visibility: visible !important;
+            }
+          }
+        }
+      }
+    }
+
+    .snize-pagination-load-more{
+      border-radius: 0 !important;
+      padding: 15px 30px !important;
+    }
+
+  }
+}

@@ -1,0 +1,92 @@
+/*================ Feature Collection =====
+==========================================*/
+body.template-index {
+
+  .section__title {
+    color: #93a0ee;
+    @include fontProps (
+      24px,  // font-size
+      30px,  // line-height
+      700,   // font-weight
+      0.05px // letter-spacing
+    )
+  }
+
+}
+
+.feature__collection {
+
+  padding: 120px 80px;
+
+  @media (max-width: $small) {
+    padding: 48px 0 48px 0;
+  }
+
+  .section__title {
+    @include fontProps (
+      42px,  // font-size
+      30px,  // line-height
+      700,   // font-weight
+      normal // letter-spacing
+    )
+    text-transform: uppercase;
+
+    @media (max-width: $small) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+
+  header {
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .item__container {
+    position: relative;
+    width: 23%;
+
+    @media (max-width: $small) {
+      width: 100%;
+      padding: 18px 22px 0;
+    }
+
+    .wishlist-icon {
+      width: 46px;
+      height: 41px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+      @media (max-width: $small) {
+        top: 25px;
+        left: 30px;
+      }
+    }
+
+    figcaption {
+
+      padding: 20px 0;
+
+      @include fontProps (
+        22px,  // font-size
+        20px,  // line-height
+        700,   // font-weight
+        normal // letter-spacing
+      )
+
+      @media (max-width: $small) {
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .item__price {
+        background-color: #f6ff00;
+        color: #000;
+      }
+
+    }
+
+  }
+
+}

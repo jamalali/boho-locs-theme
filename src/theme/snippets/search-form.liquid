@@ -1,0 +1,16 @@
+<form action="/search" method="get" role="search" class="search">
+  <div class="input-group">
+
+    <input
+      type="search"
+      id="SearchInput"
+      class="input-group__field search__input"
+      name="q"
+      value="{{ search.terms | escape }}"
+      placeholder="{{ 'general.search.placeholder' | t }}"
+      aria-label="{{ 'general.search.placeholder' | t }}"
+      autofocus
+    >
+
+  </div>
+</form>

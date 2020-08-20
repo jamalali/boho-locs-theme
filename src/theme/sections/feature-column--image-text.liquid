@@ -1,0 +1,93 @@
+<section
+class="feature-column--image-text flex--column"
+style="
+  background: {{ section.settings.section_bg }};
+  color: {{ section.settings.font_color }};
+">
+  <header>
+    <h2 class="h3 title">
+
+      {{ section.settings.feature_title }}
+
+    </h2>
+    <h2 class="h2 subtitle">
+
+      {{ section.settings.feature_heading }}
+
+    </h2>
+  </header>
+  <div class="container flex--row justify--around">
+    <article class="article one">
+
+      <img
+      src="{{ section.settings.image | img_url: '1920x' }}"
+      alt="{{ block.settings.image | alt }}"
+      />
+
+    </article>
+    <article class="article two">
+      <h4 class="h3 title">
+
+        {{ section.settings.article_heading }}
+
+      </h4>
+
+        {{ section.settings.article_text }}
+
+    </article>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Two Col Media/Text",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#f00"
+      },
+      {
+        "type": "text",
+        "id": "feature_title",
+        "label": "Feature Title",
+        "default": "Feature Title "
+      },
+      {
+        "type": "text",
+        "id": "feature_heading",
+        "label": "Feature Heading",
+        "default": "Feature Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Choose and image"
+      },
+      {
+        "type": "text",
+        "id": "article_heading",
+        "label": "Article Heading",
+        "default": "Article Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "article_text",
+        "label": "Article Content"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Two Col Image/Text",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}

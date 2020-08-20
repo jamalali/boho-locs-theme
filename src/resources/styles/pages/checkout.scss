@@ -1,0 +1,665 @@
+@mixin mobileCart {
+  @media (max-width: 999px) {
+    @content;
+  }
+}
+
+.checkout{
+  
+  /** GENERAL
+ ---------------------------------------------------------*/
+  
+  .content-box{
+    h2{
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    h3{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+ .checkout-header{
+    margin: 30px 0;
+    h1{
+      color: #0a0a0a;
+      font-size: 23px;
+      letter-spacing: 2.74px;
+      margin-bottom: 5px;
+    }
+
+    p{ 
+      font-size: 15px;
+      margin: 2px 0;
+
+      .money{
+        color: #85b09a;
+      }
+
+      small{
+        font-size: 12px;
+        color: #8c8c8c;
+      }
+    }
+  }
+  
+  .wrap{
+    max-width:1300px;
+    padding:0 30px;
+  }
+  
+  .section__title{
+    letter-spacing: 3px;
+    color: #0a0a0a;
+    margin-bottom: 10px;
+  }
+  
+  .logo__image {
+    @include tablet{
+     margin: 0 auto;
+      display: block;
+    }
+  }
+  
+  h2.section__title{
+    font-size: 20px;
+    letter-spacing: 2.22px;
+  }
+
+  input{
+    border: none;
+  }
+  
+  .input-checkbox, .input-radio {
+    border-color: #000;
+    border-radius: 0;
+    border: 1px solid #0a0a0a;
+  }
+
+  .input-radio{
+    border-radius: 50%;
+  }
+  
+  .checkbox__label{
+    color:#8c8c8c;
+  }
+  
+  .field__input-wrapper--select::before{
+    display:none;
+  }
+  
+  .field__input--select{
+    border-bottom:1px solid #000;
+    min-height:39.44px;
+  }
+
+  .field__caret{
+    display: none !important;
+  }
+  
+  .field__input {
+    border-radius: 0;
+    box-shadow: none !important;
+    padding-left:0;
+    border: 0 none;
+    border-bottom: 1px solid #0a0a0a;
+    padding-right:0;
+    font-size: 14px;
+  }
+  
+  .checkbox__label{
+    font-size: 11px;
+  }
+  
+  .field__label{
+     padding:0;
+  }
+
+  .floating-labels .field__label{
+    margin: 0;
+  }
+  
+  .section{
+    
+    @include tablet{
+      margin-bottom: 50px;
+    }
+    &.section--shipping-address{
+      padding-top: 80px; 
+
+      @include tablet{
+        padding-top: 20px;
+      }
+    }
+
+    &.section--payment-method, &.section--billing-address{
+      margin-top: 50px;
+      padding-top: 50px;
+      border-top: 1px solid #d8d8d8;
+    }
+
+    &.section--payment-method{
+      .content-box{
+        border: 0 none;
+
+        .content-box__row{
+          border: 0 none;
+        }
+      }
+    }
+  }
+  
+  .section--reductions {
+    .section__header{
+     display: none; 
+    }
+    
+    .content-box--applied-reduction-code-list{
+      background: transparent;
+    }
+    
+    .fieldset{
+      .field{
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .field__input-btn-wrapper{
+          background: #fff;
+          border-bottom: 1px solid #0a0a0a;
+          padding-bottom: 10px;
+        }
+
+        .field__input{
+          border: 0 none; 
+          padding: 14px 0 0 0;
+        }
+
+        button{
+          background: #85b09a;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: 13px;
+          border: 0 none;
+          padding: 10px 15px;
+          
+          .visually-hidden-on-mobile{
+           width: auto;
+            height: auto;
+            position: static;
+          }
+          
+          .icon{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  
+  .breadcrumb{
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 15px;
+    margin-top:40px;
+    margin-bottom:5px;
+    .breadcrumb__item{
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2.86px;
+      margin-right: 5px;
+      
+      &.breadcrumb__item--current{
+        color: #0a0a0a;
+      }
+      
+      &:after{
+        content:'/';
+      }
+
+      .breadcrumb__text{
+        margin-right: 5px;
+      }
+      
+      svg{
+        display:none;
+      }
+      
+      &:last-of-type{
+        &:after{
+          content:'';
+        }
+      }
+    } 
+    
+    .breadcrumb__link{
+      font-size: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 2.86px;
+    }
+  }
+  
+  .btn{
+    background: #85b09a;
+    color:#fff;
+    &:hover{
+      background:#669c80;
+    }
+  }
+  
+  /** HEADER
+ ---------------------------------------------------------*/
+  
+  .logo__image{
+    max-width:120px;
+  }
+  
+  .field{
+    padding-top: 0;
+    padding-bottom: 15px;
+  }
+  
+  
+  /** SHIPPING BOXES
+ ---------------------------------------------------------*/
+  
+  .content-box{
+    box-shadow: none;
+    //border-bottom: 1px solid #0a0a0a;
+    -webkit-box-shadow: none;
+    border: 0 none;
+    border-radius: 0;
+    .content-box__row{
+      padding-left: 0;
+      padding-right: 0;
+      border-color: #0a0a0a;
+      &.content-box__row--secondary{
+       background: transparent; 
+      }
+
+      .review-block__label{
+        @include flex-basis(120px);
+      }
+
+      .radio__label{
+        &[for="checkout_shipping_rate_id_shopify-uk20next20day20-20dpd-5_00"]{
+          &:after{
+            content: "Please note for addresses to Channel Islands, Isle of Man, Northern Ireland and Scotland will take two working days.";
+            font-size: 12px;
+          }
+        }
+
+        &[for="checkout_shipping_rate_id_shopify-uk20saturday20delivery20-20dpd-12_00"] {
+          &:after{
+            content: "Available for all addresses within the UK.";
+            font-size: 12px;
+          }
+        }
+      }
+
+      .radio__label__primary{
+        font-weight: 500;
+        div{
+          display: block;
+          opacity: .7;
+          margin-top: 5px;
+        }
+      }
+
+    }
+    
+    .content-box__hr{
+      border-color: #0a0a0a;
+    }
+  }
+  
+   /** FOOTER
+ ---------------------------------------------------------*/
+  .step__footer{
+    margin-top: 40px;
+    .step__footer__previous-link{
+     font-size: 11px; 
+    }
+  }
+  
+  /** SIDEBAR
+ ---------------------------------------------------------*/
+  .sidebar:after{
+    box-shadow:none;
+    -webkit-box-shadow: none;
+  }
+  
+  .order-summary-custom{
+    
+  }
+  
+  .sidebar{
+    padding-top: 114px;
+    
+    @include tablet{
+      padding-top: 0;
+      
+      &.order-summary--is-expanded{
+       padding-top: 30px; 
+      }
+    }
+  }
+  
+  .order-summary-toggle{
+    .order-summary-toggle__inner{
+      .order-summary-toggle__icon-wrapper{
+       display: none; 
+      }
+      
+      .order-summary-toggle__text {
+       @include flexbox;
+        @include justify-content(space-between);
+      }
+      
+      .order-summary-toggle__total-recap{
+        display: none;
+      }
+    }
+    
+    &.order-summary-toggle--show{
+      .order-summary-toggle__text--hide{
+        display: none;
+      }
+    }
+    
+    &.order-summary-toggle--hide{
+      .order-summary-toggle__text--show{
+        display: none;
+      }
+    }
+  }
+  
+  
+  .sidebar__content{
+    
+    strong{
+      color: #0a0a0a;
+    }
+    
+    .product-item{
+      @include flexbox;
+      @include align-items(center);
+      padding:30px 10px;
+      border-bottom:1px solid #f7f7f7;
+      .product-item__image{
+        min-width:70px;
+        text-align:center;
+        img{
+          max-height:70px;
+        }
+      }
+      .product-item__data{
+        padding-left: 15px;
+        width:calc(100% - 70px);
+        @include flexbox;
+        @include flex-wrap(wrap);
+
+        .reduction-code__text{
+          text-transform: uppercase;
+        }
+        
+        .product-item__title{
+          font-family: 'GT Walsheim', Helvetica, sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          width:100%;
+          color: #0a0a0a;
+          margin-bottom:10px;
+        }
+        
+        .product-item__price{
+          width:33.333%;
+          color: #0a0a0a;
+          
+          @include tablet{
+            width: 100%;
+          }
+        }
+
+        strong{
+          font-weight: 300;
+          color: #0a0a0a;
+        }
+
+        ul{
+          margin-top: 10px;
+        }
+        
+        .product-item__size{
+          width:33.333%;
+          color: #8c8c8c;
+          
+           @include tablet{
+            width: 100%;
+          }
+        }
+           
+        .product-item__qty{
+          width:33.333%;
+          color: #8c8c8c;
+          
+           @include tablet{
+            width: 100%;
+          }
+        }
+
+        .product-item__sub-products{
+          width: 100%;
+          margin-top: 10px;
+
+          > *{
+            display: block;
+            margin-bottom: 5px;
+
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+        }
+        
+        
+      }
+
+    }
+  
+    .sidebar__content-products{
+      background:#fff;
+    }
+  
+    .sidebar__content-samples{
+      h3{
+        color: #85b09a;
+        font-size: 17px;
+        padding-top: 30px;
+        border-top: 1px solid #dbdbdb;
+      }
+      
+      .product-item{
+        border-color: #dbdbdb;
+      }
+    }
+    
+    .sidebar__content-totals{
+      margin-top: 15px;
+      padding-bottom: 0;
+      border-top: 0 none;
+      border-bottom: 0 none;
+
+      .order-summary__section--product-list{
+        display: none;
+      }
+      
+      .fieldset{
+        .field{
+          padding-top: 0;
+          padding-bottom: 0;
+          
+          .field__input-btn-wrapper{
+            background: #fff;
+          }
+          
+          .field__input{
+             border: 0 none; 
+             padding: 20px;
+            
+          }
+          
+          button{
+            background: transparent;
+            color: #85b09a;
+            text-transform: uppercase;
+            font-size: 13px;
+            border: 0 none;
+          }
+      }
+    }
+      
+    .order-summary__sections{
+      height: auto;
+    }
+
+    .order-summary__section--discount{
+      &:after{
+        content: "One code per order";
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      .field__label{
+        padding: 0 20px;
+        margin: 2px 0;
+      }
+    }
+
+    .order-summary__section--total-lines{
+      border-color: transparent;
+    }
+      
+      .total-line-table{
+        padding: 15px 0;
+        font-family: 'GT Walsheim', Helvetica, sans-serif;
+        font-size:13px;
+
+         .total-line__name{
+            font-size: 13px;
+            margin: 0;
+            color: #0a0a0a;
+            font-weight: 700;
+            letter-spacing: 1.7px;
+
+            .payment-due-label__taxes{
+              font-size: 12px;
+              font-weight: 400;
+              display: block;
+              margin-top: 5px;
+              color: #0a0a0a;
+            }
+         }
+          
+        .total-line__price{
+          span{
+            font-weight: 700;
+            font-size: 13px;
+            color: #0a0a0a;
+            letter-spacing: 1.7px;
+            vertical-align: baseline;
+          }
+        }
+ 
+        .total-line__name, .total-line__price{
+          &:before{
+            background-color: #fff;
+          }
+        }
+      }
+    
+    }
+    
+    
+  }
+  
+/*   .sidebar__content{
+    .order-summary__sections{
+      .order-summary__section--discount{
+        @include order(0);
+        background:#fff;
+        padding-top:0;
+        padding-bottom:0;
+        .field__input-btn-wrapper{
+          border-bottom:1px solid #000;
+        }
+        label{
+          padding-left:10px;
+        }
+        input{
+          padding:20px;
+          border:none;
+        }
+        button{
+          margin-left:0;
+          border:none;
+        }
+      }
+      .order-summary__section--product-list{
+        @include order(1);
+        background:#fff;
+        padding:0 10px;
+        @include mobileCart{
+          padding:20px 10px;
+        }
+        
+        .product__description__name{
+          font-family: 'GT Walsheim', Helvetica, sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+        }
+        
+        .product-thumbnail::after{
+          display:none;
+        }
+      }
+      .order-summary__section--total-lines{
+        @include order(2);
+      }
+    }
+  } */
+  
+  
+  
+  /** CONTACT INFORMATION
+ ---------------------------------------------------------*/
+  .section--contact-information{
+    h2{
+      font-size: 23px;
+      padding-left:0.3em;
+    }
+    a{
+      text-decoration:underline;
+    }
+  }
+  
+  /** SHIPPING ADDRESS
+ ---------------------------------------------------------*/
+  .section--shipping-address{
+    h2{
+      font-size: 17px;
+    }
+
+    .po-box-notice{
+      font-weight: bold;
+      margin-top: 10px; 
+      line-height: 1.2;
+      font-size: 10px;
+      display: block;
+    }
+  }
+}
+[data-shopify-buttoncontainer]{
+  justify-content:center;
+}

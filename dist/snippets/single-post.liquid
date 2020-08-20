@@ -1,0 +1,35 @@
+<article
+  class="col single-blog-post"
+  style="
+  background: {{ section.settings.lc_bg }};
+  color: {{ section.settings.lc_font_color }};
+">
+
+{% unless blog.articles_count == 0 %}
+  {% for article in blog.articles limit: 1 %}
+  <h2 class="h3 article__title">
+    <a href="{{ article.url }}">{{ article.title }}</a>
+  </h2>
+
+  <div class="rte article__grid-excerpt">
+    {% if article.excerpt.size > 0 %}
+      {{ article.excerpt }}
+    {% else %}
+      {{ article.content | strip_html }}
+    {% endif %}
+  </div>
+
+  {% if section.settings.blog_show_date %}
+    <span class="article__date">
+      {{ article.published_at | time_tag: format: 'month_day_year' }}
+    </span>
+  {% endif %}
+
+  {% if section.settings.blog_show_author %}
+    <span class="article__author"> - {{ article.author }}</span>
+  {% endif %}
+
+  {% endfor %}
+{% endunless %}
+
+</article>

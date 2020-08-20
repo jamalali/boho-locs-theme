@@ -1,0 +1,576 @@
+@mixin desktop {
+  @media (min-width: #{$large}) {
+    @content;
+  }
+}
+
+@mixin smallDesktop {
+  @media (max-width: #{$smallDesktop}) {
+    @content;
+  }
+}
+
+@mixin mediumDesktop {
+  @media (max-width: #{$mediumDesktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$medium}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin smallDesktopAbove {
+  @media (min-width: #{$smallDesktop2}) {
+    @content;
+  }
+}
+
+@mixin belowTablet{
+  @media (max-width: #{$medium - 1px}){
+    @content;
+  }
+}
+
+@mixin aboveTablet{
+    @media (min-width: #{$medium + 1px}){
+      @content;
+    }
+  }
+
+@mixin mobile {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+
+@mixin ie{
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin smooth-webkit{
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+
+@mixin no-select(){
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin transition-delay($arg: 0) {
+  -webkit-transition-delay: $arg;
+  -moz-transition-delay: $arg;
+  -ms-transition-delay: $arg;
+  -o-transition-delay: $arg;
+  transition-delay: $arg;
+}
+
+@mixin transition-duration($arg: 0) {
+  -webkit-transition-duration: $arg;
+  -moz-transition-duration: $arg;
+  -ms-transition-duration: $arg;
+  -o-transition-duration: $arg;
+  transition-duration: $arg;
+}
+
+@mixin transform($args...) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}
+
+@mixin transform-origin($args...) {
+  -webkit-transform-origin: $args;
+  -moz-transform-origin: $args;
+  -ms-transform-origin: $args;
+  -o-transform-origin: $args;
+  transform-origin: $args;
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+}
+
+@mixin blur($value){
+  -webkit-filter: blur($value);
+  -moz-filter: blur($value);
+  -o-filter: blur($value);
+  -ms-filter: blur($value);
+  filter: blur($value);
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+@mixin flex-grow($int: 0) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+
+@mixin flex-basis($value: auto) {
+  -webkit-flex-basis: $value;
+  -moz-flex-basis: $value;
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+
+@mixin order($int: 0) {
+  -webkit-box-ordinal-group: $int + 1;
+  -webkit-order: $int;
+  -moz-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+
+  // Set a variable to be used by box-flex properties
+  $fg-boxflex: $fg;
+
+  // Box-Flex only supports a flex-grow value so let's grab the
+  // first item in the list and just return that.
+  @if type-of($fg) == 'list' {
+    $fg-boxflex: nth($fg, 1);
+  }
+
+  -webkit-box-flex: $fg-boxflex;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg-boxflex;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
+}
+
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin align-self($value: auto) {
+  // No Webkit Box Fallback.
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin column-count($count) {
+  -webkit-column-count: $count;
+     -moz-column-count: $count;
+          column-count: $count;
+}
+
+@mixin column-width($width) {
+  -webkit-column-width: $width;
+     -moz-column-width: $width;
+          column-width: $width;
+}
+
+@mixin column-gap($width) {
+  -webkit-column-gap: $width;
+     -moz-column-gap: $width;
+          column-gap: $width;
+}
+
+@mixin break-inside($value){
+  -webkit-column-break-inside: $value; /* Chrome, Safari, Opera */
+  page-break-inside: $value; /* Firefox */
+       break-inside: $value; /* IE 10+ */
+}
+
+@mixin bg-cover{
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin abs-center{
+  position: absolute;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    top: 50%;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str...) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin animation-play-state($str) {
+  -webkit-animation-play-state: #{$str};
+  -moz-animation-play-state: #{$str};
+  -ms-animation-play-state: #{$str};
+  -o-animation-play-state: #{$str};
+  animation-play-state: #{$str};
+}
+
+@mixin noscrollbar{
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;  // Firefox
+    &::-webkit-scrollbar {
+        width: 0px;
+        height: 0;
+        padding: 0;
+        display: none;
+        margin: 0;
+        border: none;
+        background: transparent;
+    }
+  }
+
+@mixin flexPositioning{
+  @include flexbox;
+  &.top-left{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(flex-start);
+        @include align-items(flex-start);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(flex-start);
+        @include align-items(flex-start);
+      }
+    }
+  }
+
+  &.top-middle{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(center);
+        @include align-items(flex-start);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(center);
+        @include align-items(flex-start);
+      }
+    }
+
+  }
+
+  &.top-right{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(flex-end);
+        @include align-items(flex-start);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(flex-end);
+        @include align-items(flex-start);
+      }
+    }
+
+  }
+
+  &.middle-left{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(flex-start);
+        @include align-items(center);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(flex-start);
+        @include align-items(center);
+      }
+    }
+
+  }
+
+  &.middle-middle{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(center);
+        @include align-items(center);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(center);
+        @include align-items(center);
+      }
+    }
+
+
+  }
+
+  &.middle-right{
+
+    &-desktop{
+      @include desktop{
+        @include justify-content(flex-end);
+        @include align-items(center);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(flex-end);
+        @include align-items(center);
+      }
+    }
+  }
+
+  &.bottom-left{
+    &-desktop{
+      @include desktop{
+        @include justify-content(flex-start);
+        @include align-items(flex-end);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include justify-content(flex-start);
+        @include align-items(flex-end);
+      }
+    }
+  }
+
+  &.bottom-middle{
+
+    &-desktop{
+      @include desktop{
+        @include align-items(flex-end);
+        @include justify-content(center);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include align-items(flex-end);
+        @include justify-content(center);
+      }
+    }
+  }
+
+  &.bottom-right{
+
+    &-desktop{
+      @include desktop{
+        @include align-items(flex-end);
+        @include justify-content(flex-end);
+      }
+    }
+
+    &-mobile{
+      @include tablet{
+        @include align-items(flex-end);
+        @include justify-content(flex-end);
+      }
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@mixin bodyFont{
+  font-family: 'Work Sans', 'Liberation Mono', sans-serif;
+}
+
+@mixin bodyFontImportant{
+  font-family: 'Work Sans', 'Liberation Mono', sans-serif !important;
+}
+
+@mixin headingFont{
+  font-family: 'GT Walsheim', Helvetica, sans-serif;
+}
+
+@mixin headingFontImportant{
+  font-family: 'GT Walsheim', Helvetica, sans-serif !important;
+}

@@ -1,0 +1,129 @@
+<section
+class="feature--blog"
+style="
+background: {{ section.settings.section_bg }};
+color: {{ section.settings.font_color }};
+">
+  {%- include 'divider' -%}
+
+  {%- include 'section--title' -%}
+
+  {%- assign blog = blogs[section.settings.blog] -%}
+
+  <!-- let the item object know it's an article -->
+  {%- assign item_article = true -%}
+
+  {% unless blog.articles_count == 0 %}
+
+    {%- include 'article--desktop' -%}
+
+    {%- include 'article--mobile--slider' -%}
+
+  {% endunless %}
+
+{% schema %}
+  {
+    "name": "Feature Blog Posts",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Section Font Color",
+        "default": "#f00"
+      },
+      {
+        "type": "checkbox",
+        "id": "divider",
+        "label": "Divider On/Off"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Blog posts"
+      },
+      {
+         "type":      "select",
+         "id":        "alignment",
+         "label":     "Align Header",
+         "options": [
+           {
+             "group": "value",
+             "value": "left",
+             "label": "Left"
+           },
+           {
+             "group": "value",
+             "value": "center",
+             "label": "Center"
+           },
+           {
+             "group": "value",
+             "value": "right",
+             "label": "Right"
+           }
+         ],
+         "default":   "left",
+         "info":      "Header Alignment"
+      },
+      {
+        "id": "blog",
+        "type": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Posts",
+        "min": 3,
+        "max": 12,
+        "step": 3,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "item_author",
+        "label": "Show author",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "item_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_view_all",
+        "label": "Show 'View all' button",
+        "default": false
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Blog",
+        "category": "Boho Sections",
+        "settings": {
+          "blog": "News",
+          "post_limit": 3
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+
+{% javascript %}
+$('.multiple-items').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+{% endjavascript %}

@@ -1,0 +1,34 @@
+<div class="icons flex--row">
+
+  <a href="/search" class="search">
+    {% include 'icon-search' %}
+  </a>
+
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+      <a href="/account" class="site-header__account">
+        {% include 'icon-login' %}
+      </a>
+    {% else %}
+      <a href="/account/login" class="site-header__account">
+        {% include 'icon-login' %}
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <a href="" class="wishlist-icon">
+    <img src="{{ 'heart.png' | asset_url }} " alt="wishlist-icon" style="max-width: 24px; margin: 0 13px 0 10px; max-height: 33px;"/>
+  </a>
+
+  <a href="/cart" class="site-header__cart">
+    {% include 'icon-cart' %}
+    <!-- <span class="visually-hidden">{{ 'layout.cart.title' | t }}</span> -->
+    {% if cart.item_count > 0 %}
+      <div id="CartCount" class="site-header__cart-count">
+        <span>{{ cart.item_count }}</span>
+        <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+      </div>
+    {% endif %}
+  </a>
+
+</div>

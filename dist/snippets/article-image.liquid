@@ -1,0 +1,17 @@
+{% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+{%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+<img id="{{ img_id }}"
+     class="article__grid-image lazyload"
+     src="{{ article.image | img_url: '300x300' }}"
+     data-src="{{ img_url }}"
+     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+     data-aspectratio="{{ article.image.aspect_ratio }}"
+     data-sizes="auto"
+     alt="{{ article.image.alt | escape }}" />
+
+<noscript>
+  <a href="{{ article.url }}" class="article__grid-image-wrapper">
+    {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
+  </a>
+</noscript>

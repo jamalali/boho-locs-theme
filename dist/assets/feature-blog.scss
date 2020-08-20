@@ -1,0 +1,26 @@
+/* featured blog */
+.feature-blog .desktop {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.blog-item {
+  max-width: 480px;
+  padding: 48px 30px 0;
+}
+/*================ Media Queries for Desktop ================*/
+/*============================================================================*/
+@media only screen and (max-width: 740px) {
+  .feature-blog .mobile .blog-item {
+    max-width: 100%;
+    padding: 18px 30px 0;
+  }
+  .slider {
+    width: 100%;
+  }
+}
+/*================ Media Queries for Mobile ================*/
+/*============================================================================*/
+@media only screen and (min-width: 741px) {
+
+}

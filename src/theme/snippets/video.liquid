@@ -1,0 +1,9 @@
+{% if block.settings.video_url.type == "youtube" %}
+
+  {%- include 'youtube' -%}
+
+{%- elsif block.settings.video_url.type == "vimeo" -%}
+
+  {%- include 'vimeo' -%}
+
+{% endif %}

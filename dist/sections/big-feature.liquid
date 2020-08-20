@@ -1,0 +1,107 @@
+<section
+class="
+big-feature
+flex--column
+align--center
+"
+style="
+  background: {{ section.settings.section_bg }};
+  color: {{ section.settings.font_color }};
+">
+  <div
+  class="image-container"
+  style="
+  background: url( {{
+  section.settings.image | img_url: '400x800'
+    }} );
+  background-size: cover;
+  ">
+    <h2 style="color: {{ section.settings.feature_color }};">
+
+      {{ section.settings.feature_title }}
+
+    </h2>
+  </div>
+  <h3 class="h3 title">
+
+    {{ section.settings.feature_heading }}
+
+  </h3>
+
+  <div class="feature-text">
+
+    {{ section.settings.feature_text }}
+
+  </div>
+
+  <a href="{{ section.settings.feature_button_link }}" class="btn feature-button">
+
+    {{ section.settings.feature_button_text }}
+
+  </a>
+</section>
+
+{% schema %}
+  {
+    "name": "Big Feature",
+    "settings": [
+      {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#f00"
+      },
+      {
+        "type": "color",
+        "id": "feature_color",
+        "label": "Feature Heading Color",
+        "default": "#f00"
+      },
+      {
+        "type": "text",
+        "id": "feature_title",
+        "label": "Feature Title",
+        "default": "Feature Title "
+      },
+      {
+        "type": "text",
+        "id": "feature_heading",
+        "label": "Feature Heading",
+        "default": "Feature Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Choose and image"
+      },
+      {
+        "type": "richtext",
+        "id": "feature_text",
+        "label": "Feature Content"
+      },
+      {
+        "type": "url",
+        "id": "feature_button_link",
+        "label": "Article Button Link"
+      },
+      {
+        "type": "text",
+        "id": "feature_button_text",
+        "label": "Article Button Text",
+        "default": "Button Text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Big Feature",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}

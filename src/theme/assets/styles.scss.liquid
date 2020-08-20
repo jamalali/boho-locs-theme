@@ -1,0 +1,390 @@
+/*================ Typography ================*/
+/*============================================================================*/
+.section-title {
+  text-align: left;
+  color: #93a0ee;
+  font-family: "GT America Condensed";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+.bestseller-caption {
+  color: #000000;
+  font-family: "GT America Condensed";
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.product-title {
+  color: #000000;
+  font-family: "GT America Condensed";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.product-price__price {
+  font-weight: 600;
+  background: black;
+  color: #fff;
+  float: right;
+  font-size: 12px;
+  letter-spacing: 0.04px;
+  font-family: "GT America Condensed";
+  padding: 5px;
+  position: relative;
+  right: -1px;
+}
+body.template-search .section-title {
+  color: #000000;
+  font-family: "GT America Condensed";
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+}
+.search-bar__submit, .search-header__submit {
+  top: -15px;
+}
+/*================ Misc ================*/
+/*============================================================================*/
+.homepage-featured-collection .product-price__price {
+  display: none;
+}
+
+.bx-wrapper {
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+body.template-search .index-section {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+body.template-search main form.search input,
+body.template-search main form.search input:focus,
+body.template-search main form.search input:active {
+  outline: none;
+  background: transparent;
+  border: none;
+  border-bottom: solid 1px #000;
+  color: #000000;
+  font-family: "Louize Display";
+  font-size: 54px;
+  line-height: 54px;
+  text-align: center;
+}
+// .page-width.grid.search-products {
+//     border-top: solid 1px #000;
+// }
+/*================ Layout ================*/
+/*============================================================================*/
+.flexbox-container {
+  display: flex;
+}
+.col {
+  flex: 50%;
+}
+.feature-article  {
+  min-height: 1900px;
+  text-align: center;
+}
+.feature-article .section-title {
+  color: #8a85cd;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+.feature-article h3.section-subtitle {
+  color: #000000;
+  font-family: "Louize Display";
+  font-size: 62px;
+  line-height: 78px;
+}
+.feature-article .article-heading {
+  color: #000000;
+  font-family: "Louize Display";
+  font-size: 24px;
+  line-height: 42px;
+  max-width: 914px;
+  margin: auto;
+}
+.feature-article .article-container {
+  position: relative;
+}
+.feature-article article.quote,
+.feature-article article.tl,
+.feature-article article.tr,
+.feature-article article.bl,
+.feature-article article.br {
+  position: absolute;
+}
+
+.article-container article.tl {
+  left: 80px;
+}
+.article-container article.tl img {
+  width: 346px;
+  height: 318px;
+}
+.article-container article.tr {
+  right: 100px;
+}
+.article-container article.tr img {
+  width: 387px;
+  height: 460px;
+}
+.article-container .quote {
+  top: 220px;
+  left: 0;
+  right: 0;
+  width: 672px;
+  height: 734px;
+  margin: auto;
+  background: #000;
+  z-index: 5;
+  color: #e4d9d5;
+  font-family: "Louize Display";
+  font-size: 72px;
+  line-height: 84px;
+  text-align: center;
+  padding: 80px;
+}
+.article-container article.bl {
+  top: 600px;
+  left: 80px;
+}
+.article-container article.bl img {
+  width: 630px;
+  height: 779px;
+  // bottom: 120px;
+}
+.article-container article.br {
+  top: 800px;
+  right: 80px;
+  z-index: 10;
+}
+.article-container article.br img {
+  width: 631px;
+  height: 448px;
+  // bottom: 240px;
+}
+
+/*================ Layout 2-col ================*/
+/*============================================================================*/
+
+/* Blog Post */
+.two-col-layout .single-blog-post {
+  padding: 240px 80px 120px;
+  text-align: center;
+  color: #e4d9d5;
+  box-sizing: border-box;
+}
+.two-col-layout .single-blog-post .article__title {
+  color: #e4d9d5;
+  font-family: "GT America Condensed";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+.two-col-layout .single-blog-post .article__grid-excerpt {
+  color: #e4d9d5;
+  font-family: "Louize Display";
+  font-size: 82px;
+  line-height: 94px;
+}
+.two-col-layout .single-blog-post .article__date,
+.two-col-layout .single-blog-post .article__author {
+  color: #e4d9d5;
+  font-family: "Louize Display";
+  font-size: 24px;
+  line-height: 94px;
+}
+
+/* Article */
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Banner Items */
+.banner-items {
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+.banner-container {
+  height: 50px;
+  overflow: hidden;
+  padding: 12px 0;
+  white-space: nowrap;
+}
+.banner-container .banner-text-only {
+  font-family: "GT America Expanded";
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02px;
+  text-transform: uppercase;
+  letter-spacing: 0.11px;
+}
+.banner-container .banner-text-only:after {
+  content: '->';
+}
+.banner-item-img img {
+  max-height: 60px;
+}
+
+
+
+/* Featured Image/Text */
+.featured-image-text .title {
+  font-family: "GT America Condensed";
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.05px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+.featured-image-text .subtitle {
+  font-family: "Louize Display";
+  font-size: 72px;
+  line-height: 36px;
+}
+.featured-image-text .featured-row__subtext {
+  max-width: 370px;
+}
+
+/*================ Paddings and Margins ================*/
+/*============================================================================*/
+ul {
+  padding: 0;
+  margin: 0;
+}
+.section-container {
+  padding: 120px 0;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.index-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+figure {
+  margin: 0!important;
+}
+figcaption {
+  height: 47px;
+  color: #ffffff;
+  font-family: "GT America Condensed";
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.03px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+/*================ Search Styles ================*/
+/*============================================================================*/
+.search-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  overflow: scroll;
+  background: #eef315;
+  padding-bottom: 300px;
+}
+.bestseller-tags li {
+  margin-bottom: 10px;
+}
+.bestseller-tags a.btn {
+  width: 100%;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  // line-height: 1.4;
+}
+body.template-search .searchbar {
+  margin-top: 120px;
+}
+body.template-search .search-results {
+  margin-bottom: 64px;
+}
+body.template-search .section-title {
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+body.template-search .bestsellers {
+  padding-top: 0;
+}
+body.template-search .bestsellers .section-title {
+  padding-top: 48px;
+  margin-bottom: 0;
+}
+body.template-search .bestsellers hr {
+  display: none;
+}
+body.template-search .search-results .grid__item {
+  padding-left: 0;
+}
+body.template-search .search-results footer {
+  min-height: 47px;
+}
+body.template-search .empty-page-content {
+  padding: 0;
+}
+body.template-search .search-results header {
+  overflow: hidden;
+  max-height: 250px;
+  margin-bottom: 12px;
+}
+// body.template-search .search-results footer {
+//   min-height: 47px;
+// }
+// body.template-search .featured-videos {
+//   padding-bottom: 240px;
+// }
+/*================ Media Queries for Desktop ================*/
+/*============================================================================*/
+@media only screen and (max-width: 740px) {
+  .desktop {
+    display: none;
+  }
+}
+/*================ Media Queries for Mobile ================*/
+/*============================================================================*/
+@media only screen and (min-width: 741px) {
+  .mobile {
+    display: none;
+  }
+}
+/*================ Media ================*/
+/*============================================================================*/
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+// input:focus.search-header__input.search__input {
+//   position: absolute;
+//   width: 100px;
+//   left: 0;
+//   right: 0;
+// }

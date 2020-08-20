@@ -1,0 +1,27 @@
+.item__container {
+
+  .item__caption {
+
+    padding-bottom: 64px;
+    padding-top: 7px;
+
+    @include fontProps (
+      22px,  // font-size
+      24px,  // line-height
+      700,   // font-weight
+      0.03px // letter-spacing
+    )
+
+    @import "item--title";
+
+    @import "item--excerpt";
+
+    @import "item--price";
+
+    @import "item--meta";
+
+  }
+
+}
+
+@import "item--tags";

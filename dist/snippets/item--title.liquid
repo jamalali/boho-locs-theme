@@ -1,0 +1,25 @@
+{%- if item_article -%}
+
+  <a href="{{ article.url }}" class="h3 item__title">
+
+    {{ article.title }}
+
+  </a>
+
+{%- elsif item_search or item_collection or collection_page -%}
+
+  <a href="{{ item.url }}">
+
+    {{ item.title }}
+
+  </a>
+
+{%- else -%}
+
+<a href="{{ item.url }}">
+
+  {{ block.settings.title }}
+
+</a>
+
+{%- endif -%}

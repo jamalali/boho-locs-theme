@@ -1,0 +1,50 @@
+@mixin flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin fontProps ($fontSize, $lineHeight, $fontWeight, $letterSpacing...) {
+  @extend titleFont;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpacing;
+  text-transform: uppercase;
+}
+@mixin itemTags {
+  width: 202px;
+  height: 50px;
+  border-radius: 25px;
+  border: 2px solid #000000;
+  @media (max-width: $small) {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+@mixin itemButton {
+  width: 70px;
+  height: 44px;
+  background-color: #000000;
+  border: none;
+  color: #fff;
+}
+@mixin sectionTitle ($size, $lineHeight, $fontWeight, $spacing...) {
+  @extend titleFont;
+  text-transform: uppercase;
+  font-weight: $fontWeight;
+  font-size: $size;
+  letter-spacing: $spacing;
+  line-height: $lineHeight;
+}
+
+@mixin input {
+  font-family: $LouizeReg;
+  text-align: center;
+  background: transparent;
+}
+
+@mixin pageWidth ($pageWidth) {
+  padding: 0 $pageWidth 0 $pageWidth;
+}

@@ -1,0 +1,108 @@
+*{
+	outline: none;
+}
+select{
+	border-radius: 0;
+}
+.visually-hidden {
+  display: none;
+}
+
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+.lower{
+	text-transform: none;
+}
+
+.no-scroll{
+	overflow: hidden !important;
+}
+
+.centered{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hide{
+	display: none !important;
+}
+
+.block{
+	display: block;
+}
+
+.text-left{
+	text-align: left;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+}
+.text-sm {
+	font-size: 11px;
+}
+
+.full-width{
+	width: 100% !important;
+}
+
+.upper{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+// FlexBox Helpers
+.flex,
+.flex--row,
+.flex--column {
+  @include flex;
+}
+.flex--row {
+  flex-direction: row;
+}
+.flex--column {
+  flex-direction: column;
+}
+// Flex Justify
+.justify--start {
+  justify-content: flex-start;
+}
+.justify--center {
+  justify-content: center;
+}
+.justify--end {
+  justify-content: flex-end;
+}
+Flex align-items
+.align--start {
+  align-items: flex-start;
+}
+.align--center {
+  align-items: center;
+}
+.align--end {
+  align-items: flex-end;
+}
+.justify--between {
+  justify-content: space-between;
+}
+.justify--around {
+  justify-content: space-around;
+}
+.wrap {
+	flex-wrap: wrap;
+}

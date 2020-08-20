@@ -1,0 +1,116 @@
+.ewd-ufaq-faqs{
+    margin-top: 0 !important;
+
+    &:not(.shown) {
+        display: none;
+    }
+
+    .ufaq-list{
+        border-top: 0 none !important;
+        padding-top: 0 !important;
+
+        .ufaq-expand-collapse-div{
+            margin-bottom: 20px;
+
+            + .ufaq-category{
+                .ufaq-category-title{
+                    border-top: none;
+                }
+            }
+        }
+
+        .ufaq-category{
+
+            &:last-child{
+                display: none;
+            }
+
+            .ufaq-category-title{
+                border-top: 4px solid #0a0a0a;
+                padding: 10px 0;
+                h2{
+                    margin: 0 !important;
+
+                    font-size: 18px !important;
+
+                    @include tablet{
+                      font-size: 18px !important;
+                    }
+                }
+
+                &:after{
+                    font-size: 30px !important;
+                    height: 30px;
+                    width: 30px;
+                    margin: 0;
+                    top: auto;
+                    bottom: 10px;
+
+                    @include tablet{
+                      font-size: 25px !important;
+                      height: 23px; 
+                    }
+                }
+            } 
+            
+            @include desktop{
+                &:not(:first-child){
+                    .ufaq-category-title{
+                        padding-top: 50px;
+                    }
+                }
+            }
+ 
+            .ufaq-category-inner{
+                margin-bottom: 50px;
+
+                &:before{
+                    font-size: 30px !important;
+                    height: 30px;
+                    width: 25px;
+                    bottom: calc(100% + 10px);
+
+                    @include tablet{
+                      font-size: 25px !important;
+                      bottom: calc(100% + 20px);
+                      height: 30px;
+                    }
+                }
+                .ufaq-div{
+                    .ufaq-title{
+                        background: #fff;
+                        @include flexbox;
+                        @include justify-content(space-between);
+                        @include align-items(center);
+                        padding: 8px 0;
+
+                        .ufaq-post-margin-symbol {
+                            @include order(2);
+                            margin: 0 !important;
+                            border: 0 none !important;
+
+                            span{
+                                font-size: 14px !important;
+                                font-weight: 500;
+                                display: block;
+                            }
+                        }
+
+                        .ufaq-title-text{
+                            h2{
+                                font-size: 14px !important;
+                                font-weight: 500;
+                                margin: 0 !important;
+                            }
+                        }
+                    }
+
+                    .ufaq-body{
+                        padding: 5px 0 20px 0;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
