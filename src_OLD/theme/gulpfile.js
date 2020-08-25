@@ -1,4 +1,4 @@
-const gulp = require('gulp'),
+const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cached = require('gulp-cached');
 const sassPartialsImported = require('gulp-sass-partials-imported');

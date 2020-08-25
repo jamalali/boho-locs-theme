@@ -1,0 +1,104 @@
+<header class="site-header">
+
+    <div class="inner">
+
+        <div class="left-area">
+            <a href="#" class="mobile-menu-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+        </div>
+
+        <a href="/" class="logo-area">
+            <img class="logo" src="{{ 'boho_locs_black_logo.png' | asset_img_url: 'master' }}" alt="Boho Locs Logo" />
+        </a>
+
+        <div class="right-area">
+            <a href="#" class="search-link">
+                {% render 'icon_search' %}
+            </a>
+            <a href="/cart" class="cart-link">
+                {% render 'icon_shopping_bag' %}
+            </a>
+        </div>
+
+    </div>
+
+    <div class="mobile-menu-area">
+
+        <div  class="header">
+            <a href="#" class="mobile-menu-toggle">
+                {% render 'icon_times' %}
+            </a>
+
+            <div class="right-area">
+                <ul class="options">
+                    <li>
+                        <a href="#">
+                            {% render 'icon_search' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {% render 'icon_heart' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {% render 'icon_profile' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            {% render 'icon_shopping_bag' %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="links">
+            {% for link in linklists.mobile-menu.links %}
+                <li class="link-item {{ link.handle }} {% if link.links != blank %}is-parent{% endif %}">
+                    <a href="{{ link.url }}">
+                        {{ link.title }}
+                    </a>
+
+                    {% if link.links != blank %}
+                        <ul class="child-links">
+                            {% for child_link in link.links %}
+                                <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
+                                    <a href="{{ child_link.url }}">
+                                        {{ child_link.title }}
+
+                                        {% if child_link.links != blank %}
+                                            <span class="chevron">
+                                                {% render 'icon_chevron' %}
+                                            </span>
+                                        {% endif %}
+                                    </a>
+
+                                    {% if child_link.links != blank %}
+                                        <ul class="grand-child-links">
+                                            {% for grand_child_link in child_link.links %}
+                                                <li class="link-item {{ grand_child_link.handle }}">
+                                                    <a href="{{ grand_child_link.url }}">
+                                                        {{ grand_child_link.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</header>

@@ -1,0 +1,19 @@
+@mixin flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin header-font-secondary-normal {
+  font-family: $header-font-secondary;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@mixin header-font-secondary-bold {
+  font-family: $header-font-secondary;
+  font-weight: 700;
+  text-transform: uppercase;
+}

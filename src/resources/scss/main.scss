@@ -1,0 +1,13 @@
+@import "includes/mixins";
+@import "includes/variables.scss";
+@import "includes/globals.scss";
+@import "includes/fonts.scss";
+
+@import "components/site_header";
+
+@import "elements/hamburger_icon";
+
+
+img {
+    max-width: 100%;
+}

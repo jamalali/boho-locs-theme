@@ -1,0 +1,111 @@
+header.site-header {
+    
+    .inner {
+        display: flex;
+        height: 42px;
+        padding: 12px 18px 12px;
+        background: $yellow;
+
+        .left-area {
+            margin-right: 18px;
+        }
+
+        .logo-area {
+            .logo {
+                width: 100px;
+            }
+        }
+
+        .right-area {
+            flex-grow: 1;
+            text-align: right;
+
+            .cart-link {
+                margin-left: 18px;
+            }
+        }
+    }
+
+    // Mobile menu open
+    &.mobile-menu-open .mobile-menu-area {
+        left: 0;
+    }
+
+    .mobile-menu-area {
+        padding: 36px 24px 48px;
+        background: $yellow;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        left: -100%;
+        transition: left .5s;
+
+        .header {
+            margin-bottom: 36px;
+            display: flex;
+
+            .right-area {
+                flex-grow: 1;
+            }
+
+            .options {
+                text-align: right;
+
+                li {
+                    display: inline;
+                    margin-left: 12px;
+                }
+            }
+        }
+
+        .links {
+            a {
+                display: block;
+                line-height: 24px;
+            }
+
+            > .link-item {
+                margin-bottom: 48px;
+
+                > a {
+                    @include header-font-secondary-normal;
+                    font-size: 20px;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+
+        .child-links {
+            > .link-item {
+                border-bottom: solid 1px $body-text-color;
+                padding: 12px 0;
+
+                &.is-parent {
+
+                    > a {
+                        position: relative;
+
+                        .chevron {
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                }
+
+                > a {
+                    @include header-font-secondary-bold;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .grand-child-links {
+            > .link-item {
+                > a {
+                    @include header-font-secondary-normal;
+                    font-size: 16x;
+                }
+            }
+        }
+    }
+}
