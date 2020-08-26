@@ -1,0 +1,78 @@
+<section class="section section--media-info-box">
+
+    <h3>
+        {{ section.settings.sub_heading }}
+    </h3>
+
+    <h2>
+        {{ section.settings.heading }}
+    </h2>
+
+    <div>
+        <a href="{{ section.settings.link }}">
+            <img src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.image_title }}" />
+            {% if section.settings.show_play == true %}
+                <button class="button button--play">
+                    {% render 'icon_search' %}
+                </button>
+            {% endif %}
+        </a>
+    <p>
+        {{ section.settings.image_title }}
+    </p>
+
+    <div>
+        {{ section.settings.description }}
+    </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Media Info Box",
+    "settings": [
+        {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "image_title",
+        "label": "Image Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "id": "link",
+        "type": "url",
+        "label": "Link"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_play",
+        "default": true,
+        "label": "Show play button"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Media Info Box",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}
