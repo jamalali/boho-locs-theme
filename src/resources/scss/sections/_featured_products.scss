@@ -1,5 +1,5 @@
 .section--featured-products {
-    padding: 48px 24px 0;
+    padding: 48px 0;
     
     .featured-products__heading {
         @include header-font-secondary-normal;
@@ -10,6 +10,7 @@
 
     .featured-products__product {
         margin-bottom: 48px;
+        padding: 0 9px;
 
         .product__image-area {
             position: relative;
