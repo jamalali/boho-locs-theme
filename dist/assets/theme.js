@@ -9012,7 +9012,7 @@ module.exports = function (regExp, replace) {
 
 __webpack_require__(328);
 
-var _mobileMenu = __webpack_require__(330);
+var _mobileMenu = __webpack_require__(329);
 
 var MobileMenu = _interopRequireWildcard(_mobileMenu);
 
@@ -9027,8 +9027,7 @@ MobileMenu.init();
 module.exports = __webpack_require__.p + "tmp_src/resources/scss/.css.liquid";
 
 /***/ }),
-/* 329 */,
-/* 330 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

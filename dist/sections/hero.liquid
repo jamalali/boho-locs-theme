@@ -1,0 +1,94 @@
+<section class="hero">
+
+  {% if section.settings.mobile_image != blank %}
+    <div class="hero__bg hero--mobile__bg" style="background-image: url('{{ section.settings.mobile_image | img_url: '1920x' }}');"></div>
+  {% endif %}
+
+  {% if section.settings.image != blank %}
+    <div class="hero__bg hero--desktop__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
+  {% endif %}
+
+  <div class="hero__inner" style="color: {{ section.settings.text_color }};">
+
+    {% if section.settings.sub_heading != blank %}
+      <h3 class="hero__sub-heading">
+        {{ section.settings.sub_heading }}
+      </h3>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="hero__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="hero__description">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="button hero__cta" style="color: {{ section.settings.text_color }}; border-color: {{ section.settings.text_color }};">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+       {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub heading"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#000"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}

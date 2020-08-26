@@ -1,7 +1,17 @@
+$small: 480px;
+$medium: 768px;
+$large: 769px;
+$smallDesktop: 1024px;
+$mediumDesktop: 1200px;
+$smallDesktop2: $smallDesktop + 1px;
+$laptop: 1368px;
+
 $black: #000000;
 $yellow: #eef315;
 
 $body-text-color: $black;
+$body-font-family: "Louize Display Regular", serif;
 
-$header-font-primary: 'GT America Expanded';
-$header-font-secondary: 'GT America Condensed';
+$button-font-family: "GT America Expanded", sans-serif;
+
+$header-height: 42px;

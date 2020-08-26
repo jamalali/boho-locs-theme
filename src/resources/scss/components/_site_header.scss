@@ -2,7 +2,7 @@ header.site-header {
     
     .inner {
         display: flex;
-        height: 42px;
+        height: $header-height;
         padding: 12px 18px 12px;
         background: $yellow;
 
@@ -39,6 +39,7 @@ header.site-header {
         width: 100%;
         left: -100%;
         transition: left .5s;
+        z-index: 2;
 
         .header {
             margin-bottom: 36px;
@@ -94,7 +95,6 @@ header.site-header {
 
                 > a {
                     @include header-font-secondary-bold;
-                    font-size: 16px;
                 }
             }
         }
@@ -103,7 +103,6 @@ header.site-header {
             > .link-item {
                 > a {
                     @include header-font-secondary-normal;
-                    font-size: 16x;
                 }
             }
         }

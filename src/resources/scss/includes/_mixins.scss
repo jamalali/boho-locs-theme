@@ -1,19 +1,33 @@
-@mixin flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
+@mixin button-font {
+  font-family: $button-font-family;
+  text-transform: uppercase;
 }
 
 @mixin header-font-secondary-normal {
-  font-family: $header-font-secondary;
-  font-weight: 400;
+  font-family: "GT America Condensed", sans-serif;
   text-transform: uppercase;
 }
 
 @mixin header-font-secondary-bold {
-  font-family: $header-font-secondary;
-  font-weight: 700;
+  font-family: "GT America Condensed Bold", sans-serif;
   text-transform: uppercase;
+  font-weight: normal;
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
 }
