@@ -1,0 +1,60 @@
+<section class="section section--icon-info-list">
+
+    <div class="icon-info-list__items">
+        {% for block in section.blocks %}
+            <div class="icon-info-list__item-area" {{ block.shopify_attributes }}>
+                <div class="icon-info-list__icon">
+                    <img src="{{ block.settings.icon | img_url: '500x' }}" alt="{{ block.settings.info }}" class="product__image" />
+                </div>
+                <div class="icon-info-list__info">
+                    {{ block.settings.info }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Icon Info List",
+    "settings": [
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#000"
+    },
+    {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#fff"
+    }
+    ],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Item",
+        "settings": [
+          {
+            "id": "icon",
+            "type": "image_picker",
+            "label": "Icon"
+          },
+          {
+            "id": "info",
+            "type": "text",
+            "label": "Info"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icon Info List",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}
