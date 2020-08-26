@@ -1,0 +1,42 @@
+.section--featured-products {
+    padding: 48px 24px 0;
+    
+    .featured-products__heading {
+        @include header-font-secondary-normal;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .featured-products__product {
+        margin-bottom: 48px;
+
+        .product__image-area {
+            position: relative;
+
+            .product__image-overlay {
+                background: $white;
+                position: absolute;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                opacity: 0;
+                transition: opacity .2s;
+            }
+
+            &:hover .product__image-overlay {
+                opacity: .5;
+            }
+        }
+
+        .product__image {
+            margin-bottom: 12px;
+        }
+
+        .product__title {
+            @include header-font-secondary-normal;
+            font-weight: 700;
+            font-size: 14px;
+        }
+    }
+}

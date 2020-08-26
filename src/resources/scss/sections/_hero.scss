@@ -1,4 +1,4 @@
-.hero {
+.section--hero {
     height: calc(100vh - #{$header-height});
     position: relative;
 
@@ -13,10 +13,17 @@
 
     .hero--mobile__bg {
         
+        @include medium-up {
+            display: none;
+        }
     }
 
     .hero--desktop__bg {
         display: none;
+
+        @include medium-up {
+            display: block;
+        }
     }
 
     .hero__inner {
@@ -58,5 +65,9 @@
         display: inline-block;
         border: 1px solid transparent;
         padding: 0 55px;
+
+        &::hover {
+            color: $body-text-color;
+        }
     }
 }

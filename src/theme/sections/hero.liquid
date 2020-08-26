@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="section section--hero">
 
   {% if section.settings.mobile_image != blank %}
     <div class="hero__bg hero--mobile__bg" style="background-image: url('{{ section.settings.mobile_image | img_url: '1920x' }}');"></div>
@@ -29,7 +29,7 @@
     {% endif %}
 
     {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      <a href="{{ section.settings.button_link }}" class="button hero__cta" style="color: {{ section.settings.text_color }}; border-color: {{ section.settings.text_color }};">
+      <a href="{{ section.settings.button_link }}" class="button hero__cta"">
         {{ section.settings.button_label }}
       </a>
     {% endif %}
@@ -37,6 +37,17 @@
   </div>
 
 </section>
+
+<style>
+  .section--hero .hero__cta {
+    color: {{ section.settings.text_color }};
+    border-color: {{ section.settings.text_color }};
+  }
+  .section--hero .hero__cta:hover {
+    color: {{ section.settings.button_hover_color }};
+    background: {{ section.settings.text_color }};
+  }
+</style>
 
 {% schema %}
   {
@@ -82,6 +93,22 @@
         "type": "url",
         "id": "button_link",
         "label": "Button link"
+      },
+      {
+        "type": "select",
+        "id": "button_hover_color",
+        "label": "Button Hover Color",
+        "options": [
+          {
+
+            "value": "#000",
+            "label": "Black"
+          },
+          {
+            "value": "#fff",
+            "label": "White"
+          }
+        ]
       }
     ],
     "presets": [

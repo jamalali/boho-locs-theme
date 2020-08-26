@@ -18,6 +18,7 @@
     "get-node-dimensions": "^1.2.1",
     "google-maps": "^3.3.0",
     "imagesloaded": "^4.1.4",
+    "jquery": "^3.5.1",
     "leaflet": "^1.4.0",
     "leaflet.gridlayer.googlemutant": "^0.7.1",
     "lightslider": "^1.1.6",

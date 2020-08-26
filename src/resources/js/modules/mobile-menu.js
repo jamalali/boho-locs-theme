@@ -1,3 +1,7 @@
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
+
 function init() {
 
     var toggles = document.getElementsByClassName('mobile-menu-toggle');

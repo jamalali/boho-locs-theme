@@ -20,14 +20,39 @@
   transform: translateY(-50%);
 }
 
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-    @content;
+// Breakpoint helpers
+@mixin small-only {
+  @media screen and (max-width: #{map-get($breakpoints, "medium") - 1px}) {
+      @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
+@mixin medium-up {
+  @media screen and (min-width: #{map-get($breakpoints, "medium")}) {
+      @content;
+  }
+}
+
+@mixin medium-only {
+  @media screen and (min-width: #{map-get($breakpoints, "medium")}) and (max-width: #{map-get($breakpoints, "large") - 1px}) {
+      @content;
+  }
+}
+
+@mixin large-up {
+  @media screen and (min-width: #{map-get($breakpoints, "large")}) {
+      @content;
+  }
+}
+
+@mixin xlarge-up {
+  @media screen and (min-width: #{map-get($breakpoints, "xlarge")}) {
+      @content;
+  }
+}
+
+@mixin xxlarge-up {
+  @media screen and (min-width: #{map-get($breakpoints, "xxlarge")}) {
+      @content;
   }
 }
