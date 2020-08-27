@@ -1,0 +1,37 @@
+<section class="section section--marquee">
+    <p>
+        LEARN MORE → LEARN MORE → LEARN MORE →
+    </p>
+</section>
+
+{% schema %}
+  {
+    "name": "Marquee",
+    "settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "products",
+        "name": "Products",
+        "settings": [
+          {
+            "id": "product",
+            "type": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Marquee",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}

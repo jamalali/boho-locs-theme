@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import 'slick-carousel';
+
 function init() {
     $(document).ready(function() {
         $('.featured-products__products').slick({

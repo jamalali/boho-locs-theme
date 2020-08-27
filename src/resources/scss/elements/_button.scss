@@ -1,13 +1,37 @@
 .button {
-    border: none;
-    // background: none;
+    font-family: $button-font-family;
+    border: solid $body-text-color 1px;
+    background: $yellow;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 34px;
+    display: inline-block;
+    padding: 0 50px;
+    transition: all .2s;
+
+    &:hover {
+        background: $body-text-color;
+        color: $white;
+    }
+
+    &.button--transparent {
+        background: transparent;
+    }
 
     &.button--play {
+        border: none;
         width: 45px;
         height: 45px;
         background: $black;
-        position: relative;
         cursor: pointer;
+        padding: 0;
+        line-height: 0;
+        display: flex;
+        align-items: center;
+
+        svg {
+           flex-grow: 1;
+        }
 
         &::after {
             content: " ";

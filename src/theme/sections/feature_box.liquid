@@ -1,0 +1,87 @@
+<section class="section section--feature-box">
+
+    {% if section.settings.image != blank or section.settings.overlay_text != blank %}
+        <div class="feature-box__header-area">
+
+            {% if section.settings.image != blank %}
+                <img class="feature-box__image" src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.overlay_text }}" />
+            {% endif %}
+
+            {% if section.settings.overlay_text != blank %}
+                <h2 class="feature-box__overlay-text" style="color: {{ section.settings.overlay_text_color }};">
+                    {{ section.settings.overlay_text }}
+                </h2>
+            {% endif %}
+
+        </div>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <h3 class="feature-box__title">
+        {{ section.settings.title }}
+      </h3>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <p class="feature-box__description">
+        {{ section.settings.description }}
+      </p>
+    {% endif %}
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="button feature-box__cta"">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+
+</section>
+
+{% schema %}
+  {
+    "name": "Feature Box",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+       {
+        "type": "text",
+        "id": "overlay_text",
+        "label": "Overlay Text"
+      },
+      {
+        "type": "color",
+        "id": "overlay_text_color",
+        "label": "Overlay Text Color",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Feature Box",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}
