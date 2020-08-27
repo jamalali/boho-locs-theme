@@ -9,11 +9,11 @@
     }
 
     .featured-products__product {
-        margin-bottom: 48px;
         padding: 0 9px;
 
         .product__image-area {
             position: relative;
+            margin-bottom: 12px;
 
             .product__image-overlay {
                 background: $white;
@@ -28,10 +28,6 @@
             &:hover .product__image-overlay {
                 opacity: .5;
             }
-        }
-
-        .product__image {
-            margin-bottom: 12px;
         }
 
         .product__title {

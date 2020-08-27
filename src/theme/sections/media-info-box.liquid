@@ -1,29 +1,32 @@
 <section class="section section--media-info-box">
 
-    <h3>
+    <h3 class="media-info-box__sub_heading">
         {{ section.settings.sub_heading }}
     </h3>
 
-    <h2>
+    <h2 class="media-info-box__heading">
         {{ section.settings.heading }}
     </h2>
 
-    <div>
+    <div class="media-info-box__video-area">
         <a href="{{ section.settings.link }}">
             <img src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.image_title }}" />
+
             {% if section.settings.show_play == true %}
                 <button class="button button--play">
-                    {% render 'icon_search' %}
+                    {% render 'icon_play' %}
                 </button>
             {% endif %}
         </a>
-    <p>
-        {{ section.settings.image_title }}
-    </p>
-
-    <div>
-        {{ section.settings.description }}
     </div>
+
+    <h4 class="media-info-box__title">
+        {{ section.settings.image_title }}
+    </h4>
+
+    <p class="media-info-box_description">
+        {{ section.settings.description }}
+    </p>
 
 </section>
 

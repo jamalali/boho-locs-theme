@@ -1,6 +1,23 @@
 .section--icon-info-list {
+
+    .icon-info-list__items {
+        padding: 24px;
+    }
     
     .icon-info-list__item-area {
         display: flex;
+        align-items: center;
+
+        .icon-info-list__icon {
+            margin-right: 24px;
+        }
+    
+        .icon-info-list__info {
+            @include header-font-secondary-normal;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 14px;
+            padding: 24px 0;
+        }
     }
 }

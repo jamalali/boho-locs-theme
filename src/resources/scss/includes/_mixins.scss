@@ -3,6 +3,11 @@
   text-transform: uppercase;
 }
 
+@mixin body-font {
+  font-family: $body-font-family;
+  font-weight: normal;
+}
+
 @mixin header-font-secondary-normal {
   font-family: "GT America Condensed", sans-serif;
   text-transform: uppercase;

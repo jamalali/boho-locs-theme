@@ -1,0 +1,38 @@
+.section--media-info-box {
+    padding: 48px 24px;
+
+    .media-info-box__sub_heading {
+        @include header-font-secondary-normal;
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .media-info-box__heading {
+        @include body-font;
+        font-size: 34px;
+        margin-bottom: 36px;
+        text-align: center;
+    }
+
+    .media-info-box__video-area {
+        margin-bottom: 12px;
+        position: relative;
+
+        .button--play {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+        }
+    }
+
+    .media-info-box__title {
+        @include header-font-secondary-normal;
+        margin-bottom: 24px;
+    }
+
+    .media-info-box_description {
+        line-height: 24px;
+    }
+}
