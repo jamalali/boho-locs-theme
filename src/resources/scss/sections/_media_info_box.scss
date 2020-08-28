@@ -1,12 +1,29 @@
 .section--media-info-box {
     padding: 48px 24px;
 
+    @include medium-up {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    @include xlarge-up {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
     .media-info-box__sub_heading {
         @include header-font-secondary-normal;
         font-weight: 700;
         font-size: 16px;
         margin-bottom: 24px;
         text-align: center;
+        line-height: 20px;
+
+        @include xlarge-up {
+            margin-bottom: 36px;
+            font-size: 24px;
+            line-height: 30px;
+        }
     }
 
     .media-info-box__heading {
@@ -14,25 +31,79 @@
         font-size: 34px;
         margin-bottom: 36px;
         text-align: center;
-    }
 
-    .media-info-box__video-area {
-        margin-bottom: 12px;
-        position: relative;
+        @include medium-up {
+            font-size: 42px;
+        }
 
-        .button--play {
-            position: absolute;
-            left: 18px;
-            bottom: 18px;
+        @include xlarge-up {
+            margin-bottom: 48px;
+            font-size: 72px;
         }
     }
 
-    .media-info-box__title {
-        @include header-font-secondary-normal;
-        margin-bottom: 24px;
-    }
+    .media-info-box__main-area {
 
-    .media-info-box_description {
-        line-height: 24px;
+        @include medium-up {
+            display: flex;
+            max-width: 75%;
+            margin: 0 auto;
+        }
+
+        .media-info-box__video-area {
+            margin-bottom: 12px;
+
+            @include medium-up {
+                flex-basis: 50%;
+                margin-right: 24px;
+            }
+
+            @include xlarge-up {
+                margin-right: 30px;
+            }
+
+            a {
+                display: block;
+                position: relative;
+
+                img {
+                    min-width: 100%;
+                }
+    
+                .button--play {
+                    position: absolute;
+                    left: 18px;
+                    bottom: 18px;
+                }
+            }
+        }
+
+        .media-info-box__text-area {
+
+            @include medium-up {
+                flex-basis: 50%;
+            }
+
+            .media-info-box__title {
+                @include header-font-secondary-normal;
+                margin-bottom: 24px;
+                line-height: 20px;
+
+                @include xlarge-up {
+                    margin-bottom: 36px;
+                    font-size: 24px;
+                    line-height: 30px;
+                }
+            }
+    
+            .media-info-box_description {
+                line-height: 24px;
+
+                @include xlarge-up {
+                    font-size: 24px;
+                    line-height: 42px;
+                }
+            }
+        }
     }
 }

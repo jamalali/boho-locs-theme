@@ -1,5 +1,6 @@
 <section class="section section--media-info-box">
 
+  <header class="media-info-box__header">
     <h3 class="media-info-box__sub_heading">
         {{ section.settings.sub_heading }}
     </h3>
@@ -7,6 +8,9 @@
     <h2 class="media-info-box__heading">
         {{ section.settings.heading }}
     </h2>
+  </header>
+
+  <main class="media-info-box__main-area">
 
     <div class="media-info-box__video-area">
         <a href="{{ section.settings.link }}">
@@ -20,13 +24,17 @@
         </a>
     </div>
 
-    <h4 class="media-info-box__title">
-        {{ section.settings.image_title }}
-    </h4>
+    <div class="media-info-box__text-area">
+      <h4 class="media-info-box__title">
+          {{ section.settings.image_title }}
+      </h4>
 
-    <p class="media-info-box_description">
-        {{ section.settings.description }}
-    </p>
+      <p class="media-info-box_description">
+          {{ section.settings.description }}
+      </p>
+    </div>
+    
+  </main>
 
 </section>
 

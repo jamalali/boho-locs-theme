@@ -2,56 +2,64 @@
 
     .icon-info-list__items {
         padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         @include medium-up {
-            display: flex;
             padding: 48px 36px;
+            flex-direction: row;
         }
 
         @include xlarge-up {
             justify-content: center;
         }
-    }
+
+        .icon-info-list__item {
+            display: flex;
+            align-items: center;
     
-    .icon-info-list__item-area {
-        display: flex;
-        align-items: center;
-
-        @include medium-up {
-            margin-right: 24px;
-            flex-grow: 1;
-            flex-basis: 0;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-
-        @include xlarge-up {
-            flex-grow: 0;
-            flex-basis: auto;
-        }
-
-        .icon-info-list__icon {
-            margin-right: 24px;
-            min-width: 60px;
-
-            @include xlarge-up {
-                margin-right: 30px;
-            }
-        }
+            @include medium-up {
+                margin-right: 24px;
+                flex-grow: 1;
+                flex-basis: 0;
     
-        .icon-info-list__info {
-            @include header-font-secondary-normal;
-            font-weight: 700;
-            font-size: 13px;
-            line-height: 14px;
-            padding: 24px 0;
-
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+    
             @include xlarge-up {
-                max-width: 280px;
-                font-size: 24px;
-                line-height: 24px;
+                flex-grow: 0;
+                flex-basis: auto;
+            }
+    
+            .icon-info-list__icon {
+                margin-right: 24px;
+                min-width: 60px;
+                position: relative;
+                height: 80px;
+    
+                @include xlarge-up {
+                    margin-right: 30px;
+                }
+
+                img {
+                    @include vertical-center;
+                }
+            }
+        
+            .icon-info-list__info {
+                @include header-font-secondary-normal;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 14px;
+    
+                @include xlarge-up {
+                    max-width: 280px;
+                    font-size: 24px;
+                    line-height: 24px;
+                }
             }
         }
     }
