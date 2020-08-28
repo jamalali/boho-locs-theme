@@ -13,7 +13,7 @@
 
     .hero--mobile__bg {
         
-        @include medium-up {
+        @include xlarge-up {
             display: none;
         }
     }
@@ -21,7 +21,7 @@
     .hero--desktop__bg {
         display: none;
 
-        @include medium-up {
+        @include xlarge-up {
             display: block;
         }
     }
@@ -40,6 +40,15 @@
         font-size: 16px;
         margin-bottom: 24px;
         line-height: 1;
+
+        @include medium-up {
+            font-size: 18px;
+        }
+
+        @include xlarge-up {
+            font-size: 24px;
+            margin-bottom: 64px;
+        }
     }
 
     .hero__heading {
@@ -48,19 +57,49 @@
         font-size: 42px;
         margin-bottom: 36px;
         line-height: 1;
+
+        @include medium-up {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include xlarge-up {
+            font-size: 94px;
+            max-width: none;
+            margin-bottom: 64px;
+        }
     }
 
     .hero__description {
         margin-bottom: 36px;
 
+        @include medium-up {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 300px;
+        }
+
+        @include xlarge-up {
+            margin-bottom: 64px;
+            max-width: 710px;
+        }
+
         p {
             line-height: 24px;
+
+            @include medium-up {
+                font-size: 18px;
+            }
+
+            @include xlarge-up {
+                font-size: 30px;
+                line-height: 40px;
+            }
         }
     }
 
     .hero__cta {
-        @include button-font;
-        font-size: 12px;
         line-height: 34px;
         display: inline-block;
         border: 1px solid transparent;

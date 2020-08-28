@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import 'slick-carousel';
 
 function init() {
@@ -6,7 +5,14 @@ function init() {
         $('.featured-products__products').slick({
             centerMode: true,
             centerPadding: '24px',
-            arrows: false
+            arrows: false,
+            mobileFirst: true,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: "unslick"
+                }
+            ]
         });
     });
 }
