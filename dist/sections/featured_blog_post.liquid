@@ -1,0 +1,32 @@
+<section class="section section--featured-blog-postblog-post">
+
+    {% assign article = articles[section.settings.article] %}
+
+    <h2>
+        {{ article.title }}
+    </h2>
+
+    <h3>
+        {{ article.blog }}
+    </h3>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Blog Article",
+    "settings": [
+        {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog Article",
+            "category": "Boho Sections"
+        }
+    ]
+  }
+{% endschema %}

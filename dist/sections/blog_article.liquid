@@ -1,0 +1,32 @@
+<section class="section section--blog-article">
+
+    {% assign article = articles[section.settings.article] %}
+
+    <h3 class="blog-article__category">
+        {{ article.blog }}
+    </h3>
+
+    <h2 class="blog-article__title">
+        {{ article.title }}
+    </h2>
+
+</section>
+
+{% schema %}
+  {
+    "name": "Blog Article",
+    "settings": [
+        {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Blog Article",
+            "category": "Boho Sections"
+        }
+    ]
+  }
+{% endschema %}

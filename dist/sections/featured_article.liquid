@@ -1,0 +1,34 @@
+<section class="section section--featured-article">
+
+    {% assign article = articles[section.settings.article] %}
+
+    <h3 class="featured-article__category">
+        {{ article.blog }}
+    </h3>
+
+    <h2 class="featured-article__title">
+        {{ article.title }}
+    </h2>
+
+    <img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" class="featured-article__image" />
+
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Article",
+    "settings": [
+        {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Article",
+            "category": "Boho Sections"
+        }
+    ]
+  }
+{% endschema %}
