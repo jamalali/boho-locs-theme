@@ -1,37 +1,51 @@
 <section class="section section--media-info-box">
 
   <header class="media-info-box__header">
-    <h3 class="media-info-box__sub_heading">
-        {{ section.settings.sub_heading }}
-    </h3>
 
-    <h2 class="media-info-box__heading">
-        {{ section.settings.heading }}
-    </h2>
+    {% if section.settings.sub_heading != blank %}
+      <h3 class="media-info-box__sub_heading">
+          {{ section.settings.sub_heading }}
+      </h3>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="media-info-box__heading">
+          {{ section.settings.heading }}
+      </h2>
+    {% endif %}
   </header>
 
   <main class="media-info-box__main-area">
 
     <div class="media-info-box__video-area">
-        <a href="{{ section.settings.link }}">
-            <img src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.image_title }}" />
+        <a href="{% if section.settings.link != blank %}{{ section.settings.link }}{% else %}#{% endif %}">
+
+            {% if section.settings.image != blank %}
+              <img src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.image_title }}" />
+            {% endif %}
 
             {% if section.settings.show_play == true %}
                 <button class="button button--play">
                     {% render 'icon_play' %}
                 </button>
             {% endif %}
+
         </a>
     </div>
 
     <div class="media-info-box__text-area">
-      <h4 class="media-info-box__title">
-          {{ section.settings.image_title }}
-      </h4>
 
-      <p class="media-info-box_description">
-          {{ section.settings.description }}
-      </p>
+      {% if section.settings.image_title != blank %}
+        <h4 class="media-info-box__title">
+            {{ section.settings.image_title }}
+        </h4>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="media-info-box_description">
+            {{ section.settings.description }}
+        </p>
+      {% endif %}
     </div>
     
   </main>

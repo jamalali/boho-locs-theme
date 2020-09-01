@@ -39,11 +39,11 @@
 </section>
 
 <style>
-  .section--hero .hero__cta {
+  #shopify-section-{{ section.id }} .section--hero .hero__cta {
     color: {{ section.settings.text_color }};
     border-color: {{ section.settings.text_color }};
   }
-  .section--hero .hero__cta:hover {
+  #shopify-section-{{ section.id }} .section--hero .hero__cta:hover {
     color: {{ section.settings.button_hover_color }};
     background: {{ section.settings.text_color }};
   }

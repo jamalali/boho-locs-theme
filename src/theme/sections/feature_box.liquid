@@ -1,7 +1,7 @@
 <section class="section section--feature-box">
 
     {% if section.settings.image != blank or section.settings.overlay_text != blank %}
-        <div class="feature-box__header-area">
+        <header class="feature-box__header">
 
             {% if section.settings.image != blank %}
                 <img class="feature-box__image" src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.overlay_text }}" />
@@ -13,7 +13,7 @@
                 </h2>
             {% endif %}
 
-        </div>
+        </header>
     {% endif %}
 
     {% if section.settings.title != blank %}

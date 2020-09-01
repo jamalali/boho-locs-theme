@@ -1,0 +1,65 @@
+<section class="section section--featured-page">
+
+    {% if section.settings.image != blank %}
+        <div class="featured-page__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="featured-page__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="button button--transparent featured-page__cta"">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} .section--featured-page .featured-page__heading {
+    color: {{ section.settings.text_color }};
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Featured Page",
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Text Color",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Page",
+        "category": "Boho Sections"
+      }
+    ]
+  }
+{% endschema %}
