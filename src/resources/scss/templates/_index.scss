@@ -1,0 +1,26 @@
+.template--index {
+
+    > main {
+        display: flex;
+        flex-wrap: wrap;
+
+        .shopify-section {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+
+        .section--quiz-intro {
+            
+            @include medium-up {
+                flex-basis: 50%;
+            }
+        }
+
+        .section--featured-page {
+
+            @include medium-up {
+                flex-basis: 50%;
+            }
+        }
+    }
+}

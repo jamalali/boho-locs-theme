@@ -1,3 +1,116 @@
 .section--collage {
-    
+    text-align: center;
+    padding: 48px 17px 0;
+
+    @include medium-up {
+        padding: 64px 36px;
+    }
+
+    @include xlarge-up {
+        padding: 120px 80px;
+    }
+
+    .collage__sub-heading {
+        @include header-font-secondary-normal;
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 24px;
+
+        @include xlarge-up {
+            margin-bottom: 36px;
+            font-size: 24px;
+            line-height: 18px;
+        }
+    }
+
+    .collage__heading {
+        @include body-font;
+        font-size: 34px;
+        margin-bottom: 36px;
+
+        @include xlarge-up {
+            margin-bottom: 64px;
+            font-size: 62px;
+            line-height: 78px;
+        }
+    }
+
+    .collage__intro {
+        margin-bottom: 48px;
+
+        @include xlarge-up {
+            margin-bottom: 120px;
+            font-size: 24px;
+            line-height: 42px;
+        }
+
+        p {
+            line-height: 24px;
+        }
+    }
+
+    .collage__body {
+        position: relative;
+    }
+
+    .collage__images {
+
+        .collage__image--1 {
+            width: 24%;
+            float: left;
+            margin-bottom: 196px;
+        }
+
+        .collage__image--2 {
+            width: 27%;
+            float: right;
+            margin-bottom: 287px;
+            margin-right: 28px;
+        }
+
+        .collage__image--3 {
+            width: 44%;
+            float: left;
+            clear: left;
+            margin-left: 80px;
+        }
+
+        .collage__image--4 {
+            width: 44%;
+            float: right;
+        }
+    }
+
+    .collage__block_text {
+        background-color: #353434;
+        padding: 48px;
+
+        @include medium-up {
+            width: 58%;
+            margin-left: auto;
+        }
+
+        @include xlarge-up {
+            @include horizontal-center;
+            padding: 80px;
+            width: 47%;
+            margin-top: 93px;
+        }
+
+        p {
+            font-size: 30px;
+            color: $timberwolf;
+            line-height: 40px;
+
+            @include medium-up {
+                font-size: 34px;
+                line-height: 44px;
+            }
+
+            @include xlarge-up {
+                font-size: 72px;
+                line-height: 84px;
+            }
+        }
+    }
 }

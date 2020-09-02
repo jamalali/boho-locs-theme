@@ -1,4 +1,4 @@
-<section class="section section--quiz-intro">
+<div class="section__inner">
 
     {% if section.settings.sub_heading != blank %}
         <h3 class="quiz-intro__sub_heading">
@@ -13,21 +13,21 @@
     {% endif %}
 
     {% if section.settings.description != blank %}
-        <p class="quiz-intro_description">
+        <p class="quiz-intro__description">
             {{ section.settings.description }}
         </p>
     {% endif %}
 
     {% if section.settings.question != blank %}
-        <p class="quiz-intro_question">
+        <p class="quiz-intro__question">
             {{ section.settings.question }}
         </p>
     {% endif %}
 
-    <div class="quiz-intro_answers">
+    <div class="quiz-intro__answers">
         {% for block in section.blocks %}
             {% if block.type == 'answer' %}
-                <div class="quiz-intro_answer" {{ block.shopify_attributes }}>
+                <div class="quiz-intro__answer" {{ block.shopify_attributes }}>
                     {{ block.settings.answer }}
                 </div>
             {% endif %}
@@ -40,11 +40,19 @@
         </a>
     {% endif %}
 
-</section>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: #c2c2c2;
+  }
+</style>
 
 {% schema %}
   {
     "name": "Quiz Intro",
+    "class": "section--quiz-intro",
+    "tag": "section",
     "settings": [
       {
         "type": "text",

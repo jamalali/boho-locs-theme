@@ -1,4 +1,4 @@
-<section class="section section--feature-box">
+<div class="section__inner">
 
     {% if section.settings.image != blank or section.settings.overlay_text != blank %}
         <header class="feature-box__header">
@@ -34,11 +34,13 @@
       </a>
     {% endif %}
 
-</section>
+</div>
 
 {% schema %}
   {
     "name": "Feature Box",
+    "class": "section section--feature-box",
+    "tag": "section",
     "settings": [
       {
         "type": "image_picker",

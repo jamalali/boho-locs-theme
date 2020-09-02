@@ -1,4 +1,4 @@
-.section--featured-products {
+.section--featured-products .section__inner {
     padding: 48px 0;
 
     @include medium-up {
@@ -25,9 +25,12 @@
     }
 
     .featured-products__products {
-        display: flex;
-        padding-left: 18px;
-        padding-right: 18px;
+
+        @include medium-up {
+            display: flex;
+            padding-left: 27px;
+            padding-right: 27px;
+        }
 
         @include xlarge-up {
             padding-left: 65px;

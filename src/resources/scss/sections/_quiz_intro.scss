@@ -1,3 +1,29 @@
-.section--quiz-intro {
-    
+.section--quiz-intro .section__inner {
+    text-align: center;
+    padding: 205px 24px 48px;
+
+    .quiz-intro__sub_heading {
+        display: none;
+        @include header-font-secondary-normal;
+        font-weight: 700;
+    }
+
+    .quiz-intro__heading {
+        font-family: $body-font-family;
+        font-size: 34px;
+        font-weight: normal;
+        margin: 0 20% 24px;
+    }
+
+    .quiz-intro__question {
+        display: none;
+    }
+
+    .quiz-intro__answers {
+        display: none;
+    }
+
+    .quiz-intro__description {
+        margin: 0 8% 36px;
+    }
 }

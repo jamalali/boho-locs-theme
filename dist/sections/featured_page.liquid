@@ -1,4 +1,4 @@
-<section class="section section--featured-page">
+<div class="section__inner">
 
     {% if section.settings.image != blank %}
         <div class="featured-page__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
@@ -16,17 +16,32 @@
       </a>
     {% endif %}
 
-</section>
+</div>
 
 <style>
-  #shopify-section-{{ section.id }} .section--featured-page .featured-page__heading {
+  #shopify-section-{{ section.id }} {
+    background-color: #9b9b9b;
+  }
+
+  #shopify-section-{{ section.id }}.section--featured-page .featured-page__heading {
     color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }}.section--featured-page .featured-page__cta {
+    color: {{ section.settings.text_color }};
+    border-color: {{ section.settings.text_color }};
+  }
+  #shopify-section-{{ section.id }}.section--featured-page .featured-page__cta:hover {
+    color: #fff;
+    background: {{ section.settings.text_color }};
   }
 </style>
 
 {% schema %}
   {
     "name": "Featured Page",
+    "class": "section--featured-page",
+    "tag": "section",
     "settings": [
         {
         "type": "image_picker",

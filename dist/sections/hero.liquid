@@ -1,4 +1,4 @@
-<section class="section section--hero">
+<div class="section__inner">
 
   {% if section.settings.mobile_image != blank %}
     <div class="hero__bg hero--mobile__bg" style="background-image: url('{{ section.settings.mobile_image | img_url: '1920x' }}');"></div>
@@ -36,14 +36,14 @@
 
   </div>
 
-</section>
+</div>
 
 <style>
-  #shopify-section-{{ section.id }} .section--hero .hero__cta {
+  #shopify-section-{{ section.id }}.section--hero .hero__cta {
     color: {{ section.settings.text_color }};
     border-color: {{ section.settings.text_color }};
   }
-  #shopify-section-{{ section.id }} .section--hero .hero__cta:hover {
+  #shopify-section-{{ section.id }}.section--hero .hero__cta:hover {
     color: {{ section.settings.button_hover_color }};
     background: {{ section.settings.text_color }};
   }
@@ -52,6 +52,8 @@
 {% schema %}
   {
     "name": "Hero",
+    "class": "section section--hero",
+    "tag": "section",
     "settings": [
       {
         "type": "image_picker",

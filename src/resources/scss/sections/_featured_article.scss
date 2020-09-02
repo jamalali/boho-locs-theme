@@ -1,0 +1,26 @@
+.section--featured-article {
+
+    .section__inner {
+        
+    }
+
+    .featured-article__content {
+        background: $black;
+        padding: 36px 24px;
+        color: $timberwolf;
+        text-align: center;
+        margin: 0 24px;
+
+        .featured-article__category {
+            @include header-font-secondary-normal;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .featured-article__title {
+            @include body-font;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+    }
+}

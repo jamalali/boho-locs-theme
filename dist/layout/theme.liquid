@@ -12,7 +12,7 @@
   
   {{ 'theme.css' | asset_url | stylesheet_tag }}
 </head>
-<body>
+<body class="template--{{ template | split: '.' | first }}">
 
   {% render 'site_header' %}
 

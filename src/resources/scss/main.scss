@@ -8,9 +8,9 @@
 @import "elements/button";
 @import "elements/hamburger_icon";
 
-@import "sections/blog_article";
 @import "sections/collage";
 @import "sections/feature_box";
+@import "sections/featured_article";
 @import "sections/featured_page";
 @import "sections/featured_products";
 @import "sections/hero";
@@ -18,6 +18,8 @@
 @import "sections/marquee";
 @import "sections/media_info_box";
 @import "sections/quiz_intro";
+
+@import "templates/index";
 
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";

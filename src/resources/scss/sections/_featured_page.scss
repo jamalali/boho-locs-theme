@@ -1,0 +1,13 @@
+.section--featured-page {
+
+    .section__inner {
+        padding: 174px 48px 48px;
+        text-align: center;
+    }
+
+    .featured-page__heading {
+        @include body-font;
+        font-size: 48px;
+        margin-bottom: 48px;
+    }
+}

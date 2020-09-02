@@ -1,4 +1,4 @@
-<section class="section section--featured-products">
+<div class="section__inner">
 
     {% if section.settings.heading != blank %}
       <h2 class="featured-products__heading">
@@ -24,11 +24,13 @@
         {% endfor %}
     </div>
 
-</section>
+</div>
 
 {% schema %}
   {
     "name": "Featured Products",
+    "class": "section section--featured-products",
+    "tag": "section",
     "settings": [
     {
         "type": "text",

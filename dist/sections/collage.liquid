@@ -1,35 +1,58 @@
-<section class="section section--collage">
+<header class="collage__header">
 
-    {% if section.settings.sub_heading != blank %}
-      <h3 class="collage__sub-heading">
-        {{ section.settings.sub_heading }}
-      </h3>
-    {% endif %}
+  {% if section.settings.sub_heading != blank %}
+    <h3 class="collage__sub-heading">
+      {{ section.settings.sub_heading }}
+    </h3>
+  {% endif %}
 
-    {% if section.settings.heading != blank %}
-      <h2 class="collage__heading">
-        {{ section.settings.heading }}
-      </h2>
-    {% endif %}
+  {% if section.settings.heading != blank %}
+    <h2 class="collage__heading">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
 
-    {% if section.settings.description != blank %}
-      <div class="collage__description">
-        {{ section.settings.description }}
-      </div>
-    {% endif %}
+  {% if section.settings.intro != blank %}
+    <div class="collage__intro">
+      <p>
+        {{ section.settings.intro }}
+      </p>
+    </div>
+  {% endif %}
 
-    
+</header>
+
+<main class="collage__body">
+
+  <div class="collage__images">
     {% for block in section.blocks %}
         {% if block.type == 'image' %}
             <img class="collage__image collage__image--{{ forloop.index }}" {{ block.shopify_attributes }} src="{{ block.settings.image | img_url: '500x' }}" alt="" />
         {% endif %}
     {% endfor %}
+  </div>
 
-</section>
+  {% if section.settings.block_text != blank %}
+    <div class="collage__block_text">
+      <p>
+        {{ section.settings.block_text }}
+      </p>
+    </div>
+  {% endif %}
+
+  </main>
+
+<style>
+#shopify-section-{{ section.id }} {
+    background-color: #e4d9d5;
+  }
+</style>
 
 {% schema %}
   {
     "name": "Collage",
+    "class": "section section--collage",
+    "tag": "section",
     "settings": [
       {
         "type": "text",
@@ -43,8 +66,13 @@
       },
       {
         "type": "textarea",
-        "id": "description",
-        "label": "Description"
+        "id": "intro",
+        "label": "Intro"
+      },
+      {
+        "type": "textarea",
+        "id": "block_text",
+        "label": "Block Text"
       }
     ],
     "blocks": [
