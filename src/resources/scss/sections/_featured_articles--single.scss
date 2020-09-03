@@ -1,0 +1,100 @@
+.section--featured-articles .featured-articles--single {
+
+    .featured-articles__article {
+        position: relative;
+        padding-bottom: 55px;
+
+        @include medium-up {
+            display: flex;
+        }
+
+        .featured-articles__image {
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+
+            @include medium-up {
+                min-height: 440px;
+                order: 2;
+                flex-basis: 50%;
+            }
+
+            img {
+                // TODO: Test this floating image with different aspect ratio images
+                @include center;
+                max-width: none;
+                height: 100%;
+            }
+        }
+
+        .featured-articles__content {
+            background: $black;
+            padding: 36px 24px;
+            color: $brand-color-2;
+            text-align: center;
+            margin: 0 24px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            @include medium-up {
+                padding: 64px 36px;
+                position: relative;
+                margin: 0;
+                order: 1;
+                flex-basis: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            @include xlarge-up {
+                padding: 120px 115px;
+            }
+
+            a {
+                color: $brand-color-2;
+            }
+
+            .featured-articles__category {
+                @include header-font-secondary-normal;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 18px;
+                margin-bottom: 24px;
+
+                @include xlarge-up {
+                    font-size: 24px;
+                    line-height: 30px;
+                    margin-bottom: 36px;
+                }
+            }
+
+            .featured-articles__title {
+                @include body-font;
+                font-size: 24px;
+                margin-bottom: 24px;
+
+                @include medium-up {
+                    font-size: 34px;
+                    line-height: 38px;
+                }
+
+                @include xlarge-up {
+                    font-size: 82px;
+                    line-height: 94px;
+                    margin-bottom: 64px;
+                }
+            }
+
+            .featured-articles__date-author {
+                font-size: 12px;
+
+                @include xlarge-up {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,120 @@
+.section--featured-articles .featured-articles--multi {
+
+    @include medium-up {
+        display: flex;
+        padding: 0 6px;
+    }
+
+    @include xlarge-up {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    // Need to negate some Slick Slider styles to get equal height slides
+    // Mobile only
+    .slick-track {
+        display: flex;
+    }
+    
+    .slick-slide {
+        height: auto;
+        min-height: 0;
+
+        > div {
+            height: 100%;
+        }
+
+        &:last-child {
+            .featured-articles__article {
+                border-right: solid 1px $black;
+            }
+        }
+    }
+
+    .featured-articles__article {
+        padding: 36px 24px;
+        border: solid 1px $black;
+        border-right: none;
+        height: 100%;
+
+        @include medium-up {
+            height: auto;
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+
+        @include large-up {
+            padding: 48px 30px;
+        }
+
+        &:last-child {
+            
+            @include medium-up {
+                border-right: solid 1px $black;
+            }
+        }
+
+        .featured-articles__image {
+            margin-bottom: 24px;
+
+            @include large-up {
+                margin-bottom: 36px;
+            }
+
+            img {
+                
+            }
+        }
+
+        .featured-articles__content {
+
+            @include medium-up {
+                
+            }
+
+            @include xlarge-up {
+                
+            }
+
+            a {
+                
+            }
+
+            .featured-articles__category {
+                @include header-font-secondary-normal;
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 18px;
+                margin-bottom: 24px;
+
+                @include large-up {
+                    margin-bottom: 36px;
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+            }
+
+            .featured-articles__title {
+                @include body-font;
+                font-size: 24px;
+                line-height: 28px;
+                margin-bottom: 24px;
+
+                @include large-up {
+                    margin-bottom: 48px;
+                    font-size: 42px;
+                    line-height: 42px;
+                }
+            }
+
+            .featured-articles__date-author {
+                font-size: 12px;
+                line-height: 28px;
+
+                @include xlarge-up {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

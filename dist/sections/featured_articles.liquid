@@ -1,0 +1,97 @@
+{% assign slider_settings = '' %}
+
+{% if section.blocks.size == 1 %}
+    {% assign size_class = 'single' %}
+{% else %}
+    {% assign size_class = 'multi slick-slider' %}
+    {% capture slider_settings %}
+        data-slick='{
+            "centerMode": true,
+            "centerPadding": "48px",
+            "infinite": false,
+            "arrows": false,
+            "mobileFirst": true,
+            "arrows": false,
+            "responsive": [
+                {
+                    "breakpoint": 767,
+                    "settings": "unslick"
+                }
+            ]
+        }'
+    {% endcapture %}
+{% endif %}
+
+<div class="featured-articles__inner featured-articles--{{ size_class }}" {{ slider_settings }}>
+    {% for block in section.blocks %}
+
+        {% assign article = articles[block.settings.article] %}
+
+        <div class="featured-articles__article" {{ block.shopify_attributes }}>
+
+            <div class="featured-articles__image">
+                <img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" />
+            </div>
+
+            <div class="featured-articles__content">
+
+                {% assign words = article.url | split: '/' %}
+                {% assign category_handle = words[2] %}
+                {% assign article_blog = blogs[category_handle] %}
+
+                <h3 class="featured-articles__category">
+                    <a href="{{ article_blog.url }}">
+                        {{ article_blog.title }}
+                    </a>
+                </h3>
+
+                <h2 class="featured-articles__title">
+                    <a href="{{ article.url }}">
+                        {{ article.title }}
+                    </a>
+                </h2>
+
+                <p class="featured-articles__date-author">
+                    {{ article.published_at | date: "%B %e, %Y" }} - {{ article.author }}
+                </p>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+</div>
+
+<style>
+#shopify-section-{{ section.id }} {
+    background-color: #e4d9d5;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Featured Article(s)",
+    "class": "section--featured-articles",
+    "tag": "section",
+    "blocks": [
+      {
+        "type": "article",
+        "name": "Article",
+        "limit": 3,
+        "settings": [
+          {
+            "type": "article",
+            "id": "article",
+            "label": "Article"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Featured Article(s)",
+            "category": "Boho Sections"
+        }
+    ]
+  }
+{% endschema %}

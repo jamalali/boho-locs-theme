@@ -388,29 +388,101 @@ header.site-header .mobile-menu-area {
         line-height: 42px;
         margin-bottom: 64px; } }
 
-.section--featured-article {
+@media screen and (min-width: 768px) {
+  .section--featured-articles .featured-articles--multi {
+    display: flex;
+    padding: 0 6px; } }
+
+@media screen and (min-width: 1200px) {
+  .section--featured-articles .featured-articles--multi {
+    padding-left: 80px;
+    padding-right: 80px; } }
+
+.section--featured-articles .featured-articles--multi .slick-track {
+  display: flex; }
+
+.section--featured-articles .featured-articles--multi .slick-slide {
+  height: auto;
+  min-height: 0; }
+  .section--featured-articles .featured-articles--multi .slick-slide > div {
+    height: 100%; }
+  .section--featured-articles .featured-articles--multi .slick-slide:last-child .featured-articles__article {
+    border-right: solid 1px #000000; }
+
+.section--featured-articles .featured-articles--multi .featured-articles__article {
+  padding: 36px 24px;
+  border: solid 1px #000000;
+  border-right: none;
+  height: 100%; }
+  @media screen and (min-width: 768px) {
+    .section--featured-articles .featured-articles--multi .featured-articles__article {
+      height: auto;
+      padding-left: 18px;
+      padding-right: 18px; } }
+  @media screen and (min-width: 1024px) {
+    .section--featured-articles .featured-articles--multi .featured-articles__article {
+      padding: 48px 30px; } }
+  @media screen and (min-width: 768px) {
+    .section--featured-articles .featured-articles--multi .featured-articles__article:last-child {
+      border-right: solid 1px #000000; } }
+  .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
+    margin-bottom: 24px; }
+    @media screen and (min-width: 1024px) {
+      .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
+        margin-bottom: 36px; } }
+  .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
+    font-family: "GT America Condensed", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 24px; }
+    @media screen and (min-width: 1024px) {
+      .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
+        margin-bottom: 36px;
+        font-size: 18px;
+        line-height: 24px; } }
+  .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__title {
+    font-family: "Louize Display Regular", serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 24px; }
+    @media screen and (min-width: 1024px) {
+      .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__title {
+        margin-bottom: 48px;
+        font-size: 42px;
+        line-height: 42px; } }
+  .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__date-author {
+    font-size: 12px;
+    line-height: 28px; }
+    @media screen and (min-width: 1200px) {
+      .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__date-author {
+        font-size: 16px; } }
+
+.section--featured-articles .featured-articles--single .featured-articles__article {
   position: relative;
   padding-bottom: 55px; }
   @media screen and (min-width: 768px) {
-    .section--featured-article {
+    .section--featured-articles .featured-articles--single .featured-articles__article {
       display: flex; } }
-  .section--featured-article .featured-article__image {
+  .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__image {
     position: relative;
     overflow: hidden;
     min-height: 400px; }
     @media screen and (min-width: 768px) {
-      .section--featured-article .featured-article__image {
+      .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__image {
         min-height: 440px;
         order: 2;
         flex-basis: 50%; } }
-    .section--featured-article .featured-article__image img {
+    .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__image img {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       max-width: none;
       height: 100%; }
-  .section--featured-article .featured-article__content {
+  .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content {
     background: #000000;
     padding: 36px 24px;
     color: #e4d9d5;
@@ -421,7 +493,7 @@ header.site-header .mobile-menu-area {
     right: 0;
     bottom: 0; }
     @media screen and (min-width: 768px) {
-      .section--featured-article .featured-article__content {
+      .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content {
         padding: 64px 36px;
         position: relative;
         margin: 0;
@@ -431,11 +503,11 @@ header.site-header .mobile-menu-area {
         flex-direction: column;
         justify-content: center; } }
     @media screen and (min-width: 1200px) {
-      .section--featured-article .featured-article__content {
+      .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content {
         padding: 120px 115px; } }
-    .section--featured-article .featured-article__content a {
+    .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content a {
       color: #e4d9d5; }
-    .section--featured-article .featured-article__content .featured-article__category {
+    .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__category {
       font-family: "GT America Condensed", sans-serif;
       text-transform: uppercase;
       font-size: 12px;
@@ -443,28 +515,28 @@ header.site-header .mobile-menu-area {
       line-height: 18px;
       margin-bottom: 24px; }
       @media screen and (min-width: 1200px) {
-        .section--featured-article .featured-article__content .featured-article__category {
+        .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__category {
           font-size: 24px;
           line-height: 30px;
           margin-bottom: 36px; } }
-    .section--featured-article .featured-article__content .featured-article__title {
+    .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__title {
       font-family: "Louize Display Regular", serif;
       font-weight: normal;
       font-size: 24px;
       margin-bottom: 24px; }
       @media screen and (min-width: 768px) {
-        .section--featured-article .featured-article__content .featured-article__title {
+        .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__title {
           font-size: 34px;
           line-height: 38px; } }
       @media screen and (min-width: 1200px) {
-        .section--featured-article .featured-article__content .featured-article__title {
+        .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__title {
           font-size: 82px;
           line-height: 94px;
           margin-bottom: 64px; } }
-    .section--featured-article .featured-article__content .featured-aritcle__date-author {
+    .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__date-author {
       font-size: 12px; }
       @media screen and (min-width: 1200px) {
-        .section--featured-article .featured-article__content .featured-aritcle__date-author {
+        .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__date-author {
           font-size: 24px; } }
 
 .section--featured-page .section__inner {
