@@ -1,6 +1,8 @@
 {% assign article = articles[section.settings.article] %}
 
-<img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" class="featured-article__image" />
+<div class="featured-article__image">
+    <img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" />
+</div>
 
 <div class="featured-article__content">
 
@@ -9,18 +11,26 @@
     {% assign article_blog = blogs[category_handle] %}
 
     <h3 class="featured-article__category">
-        {{ article_blog.title }}
+        <a href="{{ article_blog.url }}">
+            {{ article_blog.title }}
+        </a>
     </h3>
 
     <h2 class="featured-article__title">
-        {{ article.title }}
+        <a href="{{ article.url }}">
+            {{ article.title }}
+        </a>
     </h2>
+
+    <p class="featured-aritcle__date-author">
+        {{ article.published_at | date: "%B %e, %Y" }} - {{ article.author }}
+    </p>
 
 </div>
 
 <style>
 #shopify-section-{{ section.id }} {
-    background-color: #a2a2a2;
+    background-color: #e4d9d5;
   }
 </style>
 
