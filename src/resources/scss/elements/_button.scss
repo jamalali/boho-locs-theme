@@ -1,7 +1,7 @@
 .button {
     @include button-font;
     border: solid $body-text-color 1px;
-    background: $yellow;
+    background: $brand-color-1;
     font-size: 12px;
     line-height: 34px;
     display: inline-block;

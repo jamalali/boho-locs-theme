@@ -1,31 +1,33 @@
-<div class="section__inner" style="background-color: #a2a2a2;">
+{% assign article = articles[section.settings.article] %}
 
-    {% assign article = articles[section.settings.article] %}
+<img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" class="featured-article__image" />
 
-    <img src="{{ article.image | img_url: '1024x' }}" alt="{{ article.title }}" class="featured-article__image" />
+<div class="featured-article__content">
 
-    <div class="featured-article__content">
+    {% assign words = article.url | split: '/' %}
+    {% assign category_handle = words[2] %}
+    {% assign article_blog = blogs[category_handle] %}
 
-        {% assign words = article.url | split: '/' %}
-        {% assign category_handle = words[2] %}
-        {% assign article_blog = blogs[category_handle] %}
+    <h3 class="featured-article__category">
+        {{ article_blog.title }}
+    </h3>
 
-        <h3 class="featured-article__category">
-            {{ article_blog.title }}
-        </h3>
-
-        <h2 class="featured-article__title">
-            {{ article.title }}
-        </h2>
-
-    </div>
+    <h2 class="featured-article__title">
+        {{ article.title }}
+    </h2>
 
 </div>
+
+<style>
+#shopify-section-{{ section.id }} {
+    background-color: #a2a2a2;
+  }
+</style>
 
 {% schema %}
   {
     "name": "Featured Article",
-    "class": "section section--featured-article",
+    "class": "section--featured-article",
     "tag": "section",
     "settings": [
         {

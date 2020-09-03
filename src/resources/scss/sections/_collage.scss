@@ -54,40 +54,74 @@
     }
 
     .collage__images {
+        padding: 0 20px;
+        
+        @include medium-up {
+            width: 46%;
+            padding: 75px 0 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        @include xlarge-up {
+            width: 100%;
+            padding: 0;
+            z-index: inherit;
+        }
 
         .collage__image--1 {
-            width: 24%;
-            float: left;
-            margin-bottom: 196px;
+
+            @include xlarge-up {
+                width: 24%;
+                float: left;
+                margin-bottom: 196px;
+            }
         }
 
         .collage__image--2 {
-            width: 27%;
-            float: right;
-            margin-bottom: 287px;
-            margin-right: 28px;
+
+            @include xlarge-up {
+                width: 27%;
+                float: right;
+                margin-bottom: 287px;
+                margin-right: 28px;
+            }
         }
 
         .collage__image--3 {
-            width: 44%;
-            float: left;
-            clear: left;
-            margin-left: 80px;
+
+            @include xlarge-up {
+                width: 44%;
+                float: left;
+                clear: left;
+                margin-left: 80px;
+            }
         }
 
         .collage__image--4 {
-            width: 44%;
-            float: right;
+
+            @include xlarge-up {
+                width: 44%;
+                float: right;
+                position: relative;
+                z-index: 1;
+            }
         }
     }
 
     .collage__block_text {
         background-color: #353434;
         padding: 48px;
+        margin-top: -34px;
+        position: relative;
 
         @include medium-up {
             width: 58%;
-            margin-left: auto;
+            margin-top: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding-bottom: 64px;
         }
 
         @include xlarge-up {
@@ -99,8 +133,9 @@
 
         p {
             font-size: 30px;
-            color: $timberwolf;
+            color: $brand-color-2;
             line-height: 40px;
+            margin-bottom: 36px;
 
             @include medium-up {
                 font-size: 34px;
@@ -108,8 +143,21 @@
             }
 
             @include xlarge-up {
+                font-size: 52px;
+                line-height: 64px;
+                margin-bottom: 0;
+            }
+
+            @include xxlarge-up {
                 font-size: 72px;
                 line-height: 84px;
+            }
+        }
+
+        .collage__image-pagination {
+
+            @include xlarge-up {
+                display: none;
             }
         }
     }

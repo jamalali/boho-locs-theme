@@ -1,26 +1,39 @@
 .section--featured-article {
 
-    .section__inner {
-        
-    }
-
     .featured-article__content {
         background: $black;
         padding: 36px 24px;
-        color: $timberwolf;
+        color: $brand-color-2;
         text-align: center;
         margin: 0 24px;
 
-        .featured-article__category {
-            @include header-font-secondary-normal;
-            font-size: 12px;
-            font-weight: 700;
+        @include medium-up {
+            display: flex;
         }
 
-        .featured-article__title {
-            @include body-font;
-            font-size: 24px;
-            margin-bottom: 24px;
+        .featured-article__image {
+            order: 2;
+            flex-basis: 50%;
+        }
+
+        .featured-article__content {
+
+            @include medium-up {
+                order: 1;
+                flex-grow: 1;
+            }
+
+            .featured-article__category {
+                @include header-font-secondary-normal;
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .featured-article__title {
+                @include body-font;
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
         }
     }
 }

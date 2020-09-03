@@ -19962,10 +19962,14 @@ __webpack_require__(332);
 
 function init() {
     $(document).ready(function () {
+
+        $('.slick-slider').slick();
+
         $('.featured-products__products').slick({
             centerMode: true,
             centerPadding: '24px',
             arrows: false,
+            infinite: false,
             mobileFirst: true,
             responsive: [{
                 breakpoint: 767,

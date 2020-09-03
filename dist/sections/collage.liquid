@@ -24,7 +24,20 @@
 
 <main class="collage__body">
 
-  <div class="collage__images">
+  <div class="collage__images slick-slider" data-slick='{
+                "arrows": false,
+                "mobileFirst": true,
+                "dots": true,
+                "autoplay": true,
+                "arrows": false,
+                "appendDots" : "#shopify-section-{{ section.id }} .collage__image-pagination",
+                "responsive": [
+                    {
+                        "breakpoint": 1199,
+                        "settings": "unslick"
+                    }
+                ]
+            }'>
     {% for block in section.blocks %}
         {% if block.type == 'image' %}
             <img class="collage__image collage__image--{{ forloop.index }}" {{ block.shopify_attributes }} src="{{ block.settings.image | img_url: '500x' }}" alt="" />
@@ -37,10 +50,12 @@
       <p>
         {{ section.settings.block_text }}
       </p>
+
+      <div class="collage__image-pagination"></div>
     </div>
   {% endif %}
 
-  </main>
+</main>
 
 <style>
 #shopify-section-{{ section.id }} {
