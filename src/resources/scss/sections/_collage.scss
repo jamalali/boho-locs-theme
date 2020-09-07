@@ -55,6 +55,7 @@
 
     .collage__images {
         padding: 0 20px;
+        z-index: 1;;
         
         @include medium-up {
             width: 46%;

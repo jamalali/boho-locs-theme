@@ -113,14 +113,22 @@ header.site-header .mobile-menu-area {
       position: relative; }
       header.site-header .mobile-menu-area .child-links > .link-item.is-parent > a .chevron {
         position: absolute;
-        right: 0; }
+        right: 0;
+        transform: rotate(180deg);
+        transition: transform .25s; }
+    header.site-header .mobile-menu-area .child-links > .link-item.is-parent .grand-child-links {
+      display: none; }
+      header.site-header .mobile-menu-area .child-links > .link-item.is-parent .grand-child-links > .link-item > a {
+        font-family: "GT America Condensed", sans-serif;
+        text-transform: uppercase; }
+    header.site-header .mobile-menu-area .child-links > .link-item.is-parent.is-parent--active .chevron {
+      transform: rotate(0deg); }
+    header.site-header .mobile-menu-area .child-links > .link-item.is-parent.is-parent--active .grand-child-links {
+      display: block; }
     header.site-header .mobile-menu-area .child-links > .link-item > a {
       font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
       font-weight: normal; }
-  header.site-header .mobile-menu-area .grand-child-links > .link-item > a {
-    font-family: "GT America Condensed", sans-serif;
-    text-transform: uppercase; }
 
 .button {
   font-family: "GT America Expanded", sans-serif;
@@ -230,7 +238,8 @@ header.site-header .mobile-menu-area {
   .section--collage .collage__body {
     position: relative; }
   .section--collage .collage__images {
-    padding: 0 20px; }
+    padding: 0 20px;
+    z-index: 1; }
     @media screen and (min-width: 768px) {
       .section--collage .collage__images {
         width: 46%;
@@ -746,47 +755,51 @@ header.site-header .mobile-menu-area {
           font-size: 24px;
           line-height: 24px; } }
 
-.section--marquee .section__inner {
+.section--marquee .marquee__inner {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fefefe;
-  color: #333; }
-  .section--marquee .section__inner p {
+  background: #000000;
+  border-top: solid 2px #000000;
+  border-bottom: solid 2px #000000; }
+  .section--marquee .marquee__inner .marquee__content {
+    white-space: nowrap;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    line-height: 50px;
-    text-align: center;
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
-    -moz-animation: scroll-left 2s linear infinite;
-    -webkit-animation: scroll-left 2s linear infinite;
-    animation: scroll-left 20s linear infinite; }
+    right: 0px; }
+    .section--marquee .marquee__inner .marquee__content:hover {
+      animation-play-state: paused; }
+  .section--marquee .marquee__inner .marquee__list-item {
+    font-family: "GT America Expanded", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 50px; }
+    .section--marquee .marquee__inner .marquee__list-item::after {
+      content: "→";
+      margin-left: 10px; }
+  .section--marquee .marquee__inner a {
+    font-family: "GT America Expanded", sans-serif;
+    color: #ffffff; }
 
 @-moz-keyframes scroll-left {
   0% {
-    -moz-transform: translateX(100%); }
+    -moz-transform: translateX(-100%); }
   100% {
-    -moz-transform: translateX(-100%); } }
+    -moz-transform: translateX(100%); } }
 
 @-webkit-keyframes scroll-left {
   0% {
-    -webkit-transform: translateX(100%); }
+    -webkit-transform: translateX(-100%); }
   100% {
-    -webkit-transform: translateX(-100%); } }
+    -webkit-transform: translateX(100%); } }
 
-@keyframes scroll-left {
+@keyframes scroll-right {
   0% {
-    -moz-transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%); }
+    transform: translateX(-100%); }
   100% {
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%); } }
+    transform: translateX(0%); } }
 
 .section--media-info-box .section__inner {
   padding: 48px 24px; }

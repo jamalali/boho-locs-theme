@@ -89,20 +89,34 @@ header.site-header {
                         .chevron {
                             position: absolute;
                             right: 0;
+                            transform: rotate(180deg);
+                            transition: transform .25s;
                         }
+                    }
+
+                    .grand-child-links {
+                        display: none;
+            
+                        > .link-item {
+                            > a {
+                                @include header-font-secondary-normal;
+                            }
+                        }
+                    }
+
+                    &.is-parent--active {
+                         .chevron {
+                            transform: rotate(0deg);
+                         }
+
+                         .grand-child-links {
+                            display: block;
+                         }
                     }
                 }
 
                 > a {
                     @include header-font-secondary-bold;
-                }
-            }
-        }
-
-        .grand-child-links {
-            > .link-item {
-                > a {
-                    @include header-font-secondary-normal;
                 }
             }
         }

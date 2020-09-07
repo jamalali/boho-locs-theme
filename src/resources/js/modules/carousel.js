@@ -1,11 +1,7 @@
 import 'slick-carousel';
 
 function init() {
-    $(document).ready(function() {
-
-        $('.slick-slider').slick();
-        
-    });
+    $('.slick-slider').slick();
 }
 
 export { init };

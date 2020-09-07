@@ -3,10 +3,14 @@
     <div class="icon-info-list__items">
         {% for block in section.blocks %}
             <div class="icon-info-list__item" {{ block.shopify_attributes }}>
-                <img src="{{ block.settings.icon | img_url: '500x' }}" alt="{{ block.settings.info }}" class="icon-info-list__icon" />
-                <p class="icon-info-list__info" style="color: {{ section.settings.text_color }};">
-                    {{ block.settings.info }}
-                </p>
+
+              <div class="icon-info-list__icon">
+                <img src="{{ block.settings.icon | img_url: '500x' }}" alt="{{ block.settings.info }}" />
+              </div>
+
+              <p class="icon-info-list__info" style="color: {{ section.settings.text_color }};">
+                  {{ block.settings.info }}
+              </p>
             </div>
         {% endfor %}
     </div>

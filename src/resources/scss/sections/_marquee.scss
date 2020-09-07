@@ -1,53 +1,77 @@
-.section--marquee .section__inner {
+.section--marquee .marquee__inner {
     height: 50px;
     overflow: hidden;
     position: relative;
-    background: #fefefe;
-    color: #333;
+    background: $black;
+    border-top: solid 2px $black;
+    border-bottom: solid 2px $black;
 
-    p {
+    .marquee__content {
+        white-space: nowrap;
         position: absolute;
-        width: 100%;
-        height: 100%;
-        margin: 0;
+        right: 0px;
+
+        // -moz-transform: translateX(-100%);
+        // -webkit-transform: translateX(-100%);
+        // transform: translateX(-100%);
+        // -moz-animation: scroll-left 2s linear infinite;
+        // -webkit-animation: scroll-left 2s linear infinite;
+        // animation: scroll-right 20s linear infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    .marquee__list-item {
+        font-family: "GT America Expanded", sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        color: $white;
+        // position: absolute;
+        display: inline-block;
+        margin-right: 10px;
         line-height: 50px;
-        text-align: center;
-        -moz-transform: translateX(100%);
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-        -moz-animation: scroll-left 2s linear infinite;
-        -webkit-animation: scroll-left 2s linear infinite;
-        animation: scroll-left 20s linear infinite;
+
+        &::after {
+            content: "→";
+            margin-left: 10px;
+        }
+    }
+
+    a {
+        font-family: "GT America Expanded", sans-serif;
+        color: $white;
     }
     
     @-moz-keyframes scroll-left {
         0% {
-            -moz-transform: translateX(100%);
+            -moz-transform: translateX(-100%);
         }
         100% {
-            -moz-transform: translateX(-100%);
+            -moz-transform: translateX(100%);
         }
     }
     
     @-webkit-keyframes scroll-left {
         0% {
-            -webkit-transform: translateX(100%);
+            -webkit-transform: translateX(-100%);
         }
         100% {
-            -webkit-transform: translateX(-100%);
+            -webkit-transform: translateX(100%);
         }
     }
     
-    @keyframes scroll-left {
+    @keyframes scroll-right {
         0% {
-            -moz-transform: translateX(100%);
-            -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+            // -moz-transform: translateX(-100%);
+            // -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
         }
         100% {
-            -moz-transform: translateX(-100%);
-            -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+            // -moz-transform: translateX(100%);
+            // -webkit-transform: translateX(100%);
+            transform: translateX(0%);
         }
     }
 }

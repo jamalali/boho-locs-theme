@@ -19895,11 +19895,13 @@ var _jquery = __webpack_require__(123);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _mobileMenu = __webpack_require__(330);
+var _marquee = __webpack_require__(330);
+
+var _mobileMenu = __webpack_require__(331);
 
 var MobileMenu = _interopRequireWildcard(_mobileMenu);
 
-var _carousel = __webpack_require__(331);
+var _carousel = __webpack_require__(332);
 
 var Carousel = _interopRequireWildcard(_carousel);
 
@@ -19912,6 +19914,14 @@ window.$ = _jquery2.default;
 
 MobileMenu.init();
 Carousel.init();
+
+// Setup marquees
+var marquees = document.querySelectorAll('.esc-marquee');
+
+for (var i = 0; i < marquees.length; i++) {
+    var marquee = new _marquee.Marquee(marquees[i]);
+    marquee.init();
+}
 
 /***/ }),
 /* 329 */
@@ -19929,22 +19939,72 @@ module.exports = __webpack_require__.p + "tmp_src/resources/scss/.css.liquid";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function init() {
 
-    var toggles = document.getElementsByClassName('mobile-menu-toggle');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-    // var toggle = document.querySelector('.mobile-menu-toggle');
-    var header = document.querySelector('.site-header');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    for (var i = 0; i < toggles.length; i++) {
-        toggles[i].addEventListener('click', function (event) {
-            event.preventDefault();
-            header.classList.toggle('mobile-menu-open');
-        });
+var Marquee = exports.Marquee = function () {
+    function Marquee(container) {
+        _classCallCheck(this, Marquee);
+
+        this.container = container;
+        this.content = container.querySelector('.marquee__content');
+
+        this.rightSideOfContainer = container.getBoundingClientRect().right;
+
+        this.currentRightValue = 0;
+        this.isPaused = false;
     }
-}
 
-exports.init = init;
+    _createClass(Marquee, [{
+        key: 'init',
+        value: function init() {
+            var _this = this;
+
+            setInterval(function () {
+
+                if (_this.isPaused == false) {
+
+                    /*
+                    Because we are going left-to-right (text is aligned right) we look at last item in the list and 
+                    check if it goes out of the visible area.
+                    We do this by comparing the left position of the last list item to the right position of the containing element.
+                    */
+
+                    var lastItem = _this.content.querySelector('.marquee__list-item:last-child');
+
+                    var leftSideOfLastItem = lastItem.getBoundingClientRect().left;
+
+                    /*
+                    If last list item is out of viewable area, move it to the beginning of the list. 
+                    Also, set the current right value to -1 so we won't stutter 
+                    */
+
+                    if (leftSideOfLastItem >= _this.rightSideOfContainer) {
+                        _this.currentRightValue = -1;
+                        _this.content.prepend(lastItem);
+                    }
+
+                    // The part that keeps it all going: animating the right value of the list.
+                    _this.content.style.right = _this.currentRightValue + 'px';
+                    _this.currentRightValue--;
+                }
+            }, 30);
+
+            // Setup hover events to pause
+            this.container.addEventListener("mouseenter", function (event) {
+                _this.isPaused = true;
+            });
+
+            this.container.addEventListener("mouseleave", function (event) {
+                _this.isPaused = false;
+            });
+        }
+    }]);
+
+    return Marquee;
+}();
 
 /***/ }),
 /* 331 */
@@ -19956,21 +20016,62 @@ exports.init = init;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.init = undefined;
-
-__webpack_require__(332);
-
 function init() {
-    $(document).ready(function () {
 
-        $('.slick-slider').slick();
-    });
+    var toggles = document.getElementsByClassName('mobile-menu-toggle');
+    var header = document.querySelector('.site-header');
+
+    for (var i = 0; i < toggles.length; i++) {
+        toggles[i].addEventListener('click', function (event) {
+            event.preventDefault();
+            header.classList.toggle('mobile-menu-open');
+        });
+    }
+
+    // Setup events
+    var parentLinks = document.querySelectorAll('.child-links .link-item.is-parent');
+
+    var _loop = function _loop() {
+
+        var parent = parentLinks[i];
+        var toggle = parent.querySelector('.dropdown-toggle');
+        var grandChildLinks = parent.querySelector('.grand-child-links');
+
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            parent.classList.toggle('is-parent--active');
+        });
+    };
+
+    for (var i = 0; i < parentLinks.length; i++) {
+        _loop();
+    }
 }
 
 exports.init = init;
 
 /***/ }),
 /* 332 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.init = undefined;
+
+__webpack_require__(333);
+
+function init() {
+    $('.slick-slider').slick();
+}
+
+exports.init = init;
+
+/***/ }),
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
