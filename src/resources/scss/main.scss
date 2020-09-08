@@ -3,22 +3,13 @@
 @import "includes/globals.scss";
 @import "includes/fonts.scss";
 
-@import "components/site_header";
+@import "components/mobile_menu";
 
 @import "elements/button";
 @import "elements/hamburger_icon";
 
-@import "sections/collage";
-@import "sections/feature_box";
-@import "sections/featured_articles--multi";
-@import "sections/featured_articles--single";
-@import "sections/featured_page";
-@import "sections/featured_products";
-@import "sections/hero";
-@import "sections/icon_info_list";
-@import "sections/marquee";
-@import "sections/media_info_box";
-@import "sections/quiz_intro";
+@import "sections/general";
+@import "sections/all";
 
 @import "templates/index";
 

@@ -1,0 +1,18 @@
+.section {
+    background-color: $timberwolf;
+}
+
+.section--blue {
+    background-image: url('blue.svg');
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: -670px -460px;
+
+    @include  medium-up {
+        background-size: 1100px;
+    }
+
+    @include  xlarge-up {
+        background-size: 1300px;
+    }
+}

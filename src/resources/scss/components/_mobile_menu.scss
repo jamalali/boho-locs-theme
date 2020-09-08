@@ -1,0 +1,129 @@
+.mobile-menu-area {
+    padding: 36px 24px 48px;
+    background: $yellow;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    left: -100%;
+    transition: left .5s;
+    z-index: 2;
+
+    .top {
+        margin-bottom: 36px;
+        display: flex;
+
+        .mobile-menu-toggle {
+            svg {
+                vertical-align: middle;
+            }
+        }
+
+        .currency-selector {
+            flex-grow: 1;
+            margin-right: 24px;
+            text-align: right;
+
+            select {
+                @include header-font-secondary-normal;
+                font-size: $body-text-size;
+                font-weight: 700;
+                border: 0;
+                background: url('icon_chevron_down.png') transparent no-repeat right center;
+                background-size: 9px;
+                padding-right: 11px;
+
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+
+            /* Hide arrow icon in IE browsers */
+            .currency::-ms-expand {
+                display: none;
+            }
+        }
+
+        .nav-links {
+            text-align: right;
+
+            li {
+                display: inline;
+                margin-left: 12px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .links {
+        a {
+            display: block;
+            line-height: 24px;
+        }
+
+        > .link-item {
+            margin-bottom: 48px;
+
+            > a {
+                @include header-font-secondary-normal;
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    .child-links {
+        > .link-item {
+            border-bottom: solid 1px $body-text-color;
+            padding: 12px 0;
+
+            &.is-parent {
+
+                > a {
+                    position: relative;
+
+                    .chevron {
+                        position: absolute;
+                        right: 0;
+                        transform: rotate(180deg);
+                        transition: transform .25s;
+                    }
+                }
+
+                .grand-child-links {
+                    display: none;
+        
+                    > .link-item {
+                        > a {
+                            @include header-font-secondary-normal;
+                        }
+                    }
+                }
+
+                &.is-parent--active {
+                     .chevron {
+                        transform: rotate(0deg);
+                     }
+
+                     .grand-child-links {
+                        display: block;
+                     }
+                }
+            }
+
+            > a {
+                @include header-font-secondary-bold;
+            }
+        }
+    }
+}
+
+// Mobile menu open
+header.site-header {
+    &.mobile-menu-open .mobile-menu-area {
+        left: 0;
+    }
+}

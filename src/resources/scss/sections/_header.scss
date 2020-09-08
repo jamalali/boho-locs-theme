@@ -1,0 +1,29 @@
+header.site-header {
+    
+    .inner {
+        display: flex;
+        align-items: center;
+        height: $header-height;
+        padding: 12px 18px 12px;
+        background: $brand-color-1;
+
+        .left-area {
+            margin-right: 18px;
+        }
+
+        .logo-area {
+            .logo {
+                width: 100px;
+            }
+        }
+
+        .right-area {
+            flex-grow: 1;
+            text-align: right;
+
+            .cart-link {
+                margin-left: 18px;
+            }
+        }
+    }
+}

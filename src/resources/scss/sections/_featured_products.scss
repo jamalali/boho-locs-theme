@@ -17,6 +17,7 @@
         text-align: center;
         margin-bottom: 24px;
         font-size: 16px;
+        color: $blue;
 
         @include xlarge-up {
             margin-bottom: 36px;
@@ -49,6 +50,7 @@
         .product__image-area {
             position: relative;
             margin-bottom: 12px;
+            border: solid $black 1px;
 
             @include xlarge-up {
                 margin-bottom: 18px;
@@ -69,7 +71,7 @@
             }
 
             .product__image {
-                width: 100%;;
+                width: 100%;
             }
         }
 
