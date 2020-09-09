@@ -34,20 +34,26 @@
                         
                         {% if link.handle == 'shop' and section.settings.shop_menu_image != nil %}
                             <li class="menu-image">
-                                <img class="logo" src="{{ section.settings.shop_menu_image | img_url: '333x' }}" alt="Boho Locs - Shop" />
+                                <a href="{{ section.settings.shop_menu_image_link }}">
+                                    <img class="logo" src="{{ section.settings.shop_menu_image | img_url: '333x' }}" alt="Boho Locs - Shop" />
+                                </a>
                             </li>
                         {% endif %}
 
                         {% if link.handle == 'boho-101' %}
                             {% if section.settings.boho_101_menu_image_1 != nil %}
                                 <li class="menu-image">
-                                    <img class="logo" src="{{ section.settings.boho_101_menu_image_1 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                    <a href="{{ section.settings.boho_101_menu_image_1_link }}">
+                                        <img class="logo" src="{{ section.settings.boho_101_menu_image_1 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                    </a>
                                 </li>
                             {% endif %}
 
                             {% if section.settings.boho_101_menu_image_2 != nil %}
                                 <li class="menu-image">
-                                    <img class="logo" src="{{ section.settings.boho_101_menu_image_2 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                    <a href="{{ section.settings.boho_101_menu_image_2_link }}">
+                                        <img class="logo" src="{{ section.settings.boho_101_menu_image_2 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                    </a>
                                 </li>
                             {% endif %}
                         {% endif %}
