@@ -3,7 +3,7 @@
 }
 
 .section--blue {
-    background-image: url('blue.svg');
+    background-image: url('splash_blue.png');
     background-repeat: no-repeat;
     background-size: 1000px;
     background-position: -670px -460px;
@@ -14,5 +14,16 @@
 
     @include  xlarge-up {
         background-size: 1300px;
+    }
+}
+
+.section--red {
+    background-image: url('splash_red.png');
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    background-position: right -560px bottom -560px;
+
+    @include  medium-up {
+        background-size: 1100px;
     }
 }

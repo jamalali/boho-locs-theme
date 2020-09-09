@@ -9,12 +9,17 @@ $breakpoints: (
 
 $black: #000000;
 $white: #ffffff;
-$yellow: #eef315;
-$timberwolf: #e4d9d5;
-$blue: #93a0ee;
 
-$brand-color-1: $yellow;
+// Brand Colors
+$lemon: #eef315;
+$timberwolf: #e4d9d5;
+$portage: #93a0ee;
+$salmon: #ff776d;
+
+$brand-color-1: $lemon;
 $brand-color-2: $timberwolf;
+$brand-color-3: $portage;
+$brand-color-4: $salmon;
 
 $body-text-size: 16px;
 $body-text-color: $black;

@@ -2,12 +2,6 @@
 
     @include medium-up {
         display: flex;
-        padding: 0 6px;
-    }
-
-    @include xlarge-up {
-        padding-left: 80px;
-        padding-right: 80px;
     }
 
     // Need to negate some Slick Slider styles to get equal height slides
@@ -41,6 +35,8 @@
             height: auto;
             padding-left: 18px;
             padding-right: 18px;
+            border: none;
+            border-right: solid 1px $black;
         }
 
         @include large-up {
@@ -50,7 +46,7 @@
         &:last-child {
             
             @include medium-up {
-                border-right: solid 1px $black;
+                border-right: none;
             }
         }
 

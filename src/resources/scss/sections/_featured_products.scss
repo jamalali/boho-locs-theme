@@ -1,4 +1,4 @@
-.section--featured-products .section__inner {
+.section--featured-products {
     padding: 48px 0;
 
     @include medium-up {
@@ -17,7 +17,7 @@
         text-align: center;
         margin-bottom: 24px;
         font-size: 16px;
-        color: $blue;
+        color: $brand-color-3;
 
         @include xlarge-up {
             margin-bottom: 36px;

@@ -3,8 +3,8 @@
     overflow: hidden;
     position: relative;
     background: $black;
-    border-top: solid 2px $black;
-    border-bottom: solid 2px $black;
+    border-top: solid 1px $black;
+    border-bottom: solid 1px $black;
 
     .marquee__content {
         white-space: nowrap;
@@ -31,17 +31,18 @@
         // position: absolute;
         display: inline-block;
         margin-right: 10px;
-        line-height: 50px;
+        line-height: 48px;
 
         &::after {
             content: "→";
             margin-left: 10px;
+            color: inherit;
         }
-    }
 
-    a {
-        font-family: "GT America Expanded", sans-serif;
-        color: $white;
+        a {
+            font-family: "GT America Expanded", sans-serif;
+            color: inherit;
+        }
     }
     
     @-moz-keyframes scroll-left {
