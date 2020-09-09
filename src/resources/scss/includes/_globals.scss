@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
     font-family: $body-font-family;
     font-size: $body-text-size;

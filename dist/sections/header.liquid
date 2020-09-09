@@ -1,49 +1,102 @@
-<header class="site-header">
-
-    <div class="inner">
-
-        <div class="left-area">
-            <a href="#" class="mobile-menu-toggle">
-                <div class="hamburger-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </a>
+<div class="inner">
+    
+    <a href="#" class="mobile-menu-toggle">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+    </a>
 
-        <a href="/" class="logo-area">
+    <div class="logo-area">
+        <a href="/">
             {% if section.settings.logo != nil %}
                 <img class="logo" src="{{ section.settings.logo | img_url: 'master' }}" alt="Boho Locs Logo" />
             {% else %}
                 Home
             {% endif %}
         </a>
-
-        <div class="right-area">
-            <a href="#" class="search-link">
-                {% render 'icon_search' %}
-            </a>
-            <a href="/cart" class="cart-link">
-                {% render 'icon_shopping_bag' %}
-            </a>
-        </div>
-
     </div>
 
-    {% render 'mobile_menu' %}
+    {% render 'desktop_menu' %}
 
-</header>
+    <ul class="right-area">
+
+        <li class="currency-selector">
+            {% render 'currency_selector' %}
+        </li>
+
+        <li class="search-link">
+            <a href="#">
+                {% render 'icon_search' %}
+            </a>
+        </li>
+
+        <li class="account-link">
+            <a href="/account">
+                {% render 'icon_profile' %}
+            </a>
+        </li>
+
+        <li class="wishlist">
+            <a href="/wishlist">
+                {% render 'icon_heart' %}
+            </a>
+        </li>
+
+        <li class="cart-link">
+            <a href="/cart">
+                {% render 'icon_shopping_bag' %}
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+{% render 'mobile_menu' %}
 
 {% schema %}
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "logo",
-        "label": "Logo image"
-      }
-    ]
-  }
+    {
+        "name": "Header",
+        "class": "site-header",
+        "tag": "header",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo image"
+            },
+            {
+                "type": "image_picker",
+                "id": "shop_menu_image",
+                "label": "Shop Menu Image"
+            },
+            {
+                "type": "url",
+                "id": "shop_menu_image_link",
+                "label": "Shop Menu Image lLnk"
+            },
+            {
+                "type": "image_picker",
+                "id": "boho_101_menu_image_1",
+                "label": "Boho 101 Menu Image 1"
+            },
+            {
+                "type": "url",
+                "id": "boho_101_menu_image_1_link",
+                "label": "Boho 101 Menu Image 1 lLnk"
+            },
+            {
+                "type": "image_picker",
+                "id": "boho_101_menu_image_2",
+                "label": "Boho 101 Menu Image 2"
+            },
+            {
+                "type": "url",
+                "id": "boho_101_menu_image_2_link",
+                "label": "Boho 101 Menu Image 2 lLnk"
+            }
+        ]
+    }
 {% endschema %}

@@ -1,39 +1,7 @@
-<div class="mobile-menu-area">
-
-    <div  class="top">
-        <a href="#" class="mobile-menu-toggle">
-            {% render 'icon_times' %}
-        </a>
-        
-        {% render 'currency_selector' %}
-
-        <ul class="nav-links">
-            <li>
-                <a href="/search">
-                    {% render 'icon_search' %}
-                </a>
-            </li>
-            <li>
-                <a href="/wishlist">
-                    {% render 'icon_heart' %}
-                </a>
-            </li>
-            <li>
-                <a href="/account">
-                    {% render 'icon_profile' %}
-                </a>
-            </li>
-            <li>
-                <a href="/cart">
-                    {% render 'icon_shopping_bag' %}
-                </a>
-            </li>
-        </ul>
-
-    </div>
+<div class="desktop-menu-area">
 
     <ul class="links">
-        {% for link in linklists.mobile-menu.links %}
+        {% for link in linklists.desktop-menu.links %}
             <li class="link-item {{ link.handle }} {% if link.links != blank %}is-parent{% endif %}">
                 <a href="{{ link.url }}">
                     {{ link.title }}
@@ -41,20 +9,16 @@
 
                 {% if link.links != blank %}
                     <ul class="child-links">
+
                         {% for child_link in link.links %}
                             <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
                                 <a href="{{ child_link.url }}" class="dropdown-toggle">
                                     {{ child_link.title }}
-
-                                    {% if child_link.links != blank %}
-                                        <span class="chevron">
-                                            {% render 'icon_chevron' %}
-                                        </span>
-                                    {% endif %}
                                 </a>
 
                                 {% if child_link.links != blank %}
                                     <ul class="grand-child-links">
+
                                         {% for grand_child_link in child_link.links %}
                                             <li class="link-item {{ grand_child_link.handle }}">
                                                 <a href="{{ grand_child_link.url }}">
@@ -62,10 +26,32 @@
                                                 </a>
                                             </li>
                                         {% endfor %}
+
                                     </ul>
                                 {% endif %}
                             </li>
                         {% endfor %}
+                        
+                        {% if link.handle == 'shop' and section.settings.shop_menu_image != nil %}
+                            <li class="menu-image">
+                                <img class="logo" src="{{ section.settings.shop_menu_image | img_url: '333x' }}" alt="Boho Locs - Shop" />
+                            </li>
+                        {% endif %}
+
+                        {% if link.handle == 'boho-101' %}
+                            {% if section.settings.boho_101_menu_image_1 != nil %}
+                                <li class="menu-image">
+                                    <img class="logo" src="{{ section.settings.boho_101_menu_image_1 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                </li>
+                            {% endif %}
+
+                            {% if section.settings.boho_101_menu_image_2 != nil %}
+                                <li class="menu-image">
+                                    <img class="logo" src="{{ section.settings.boho_101_menu_image_2 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                        
                     </ul>
                 {% endif %}
             </li>

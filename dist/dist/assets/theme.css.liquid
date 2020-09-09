@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0; }
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
 body {
   font-family: "Louize Display Regular", serif;
   font-size: 16px;
@@ -60,6 +65,102 @@ ul {
   font-weight: normal;
   font-style: normal; }
 
+.currency-selector {
+  /* Hide arrow icon in IE browsers */ }
+  .currency-selector select {
+    font-family: "GT America Condensed", sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    background: url("icon_chevron_down.png") transparent no-repeat right center;
+    background-size: 9px;
+    padding-right: 11px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none; }
+  .currency-selector .currency::-ms-expand {
+    display: none; }
+
+.desktop-menu-area {
+  display: none; }
+  @media screen and (min-width: 1025px) {
+    .desktop-menu-area {
+      display: block; } }
+  .desktop-menu-area .links {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 120px; }
+    .desktop-menu-area .links > .link-item > a {
+      font-family: "GT America Condensed", sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0 9px;
+      display: inline-block;
+      line-height: 90px;
+      position: relative;
+      white-space: nowrap; }
+      @media screen and (min-width: 1200px) {
+        .desktop-menu-area .links > .link-item > a {
+          font-size: 20px; } }
+      .desktop-menu-area .links > .link-item > a::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background-color: #000000;
+        opacity: 0;
+        transition: all .3s; }
+      .desktop-menu-area .links > .link-item > a:hover::after {
+        width: 100%;
+        opacity: 1; }
+    .desktop-menu-area .links > .link-item:hover .child-links {
+      display: flex;
+      transform-origin: top;
+      animation: dropdown .2s ease-out; }
+    .desktop-menu-area .links > .link-item .child-links {
+      display: none;
+      justify-content: space-between;
+      position: absolute;
+      z-index: 2;
+      background: #eef315;
+      width: 100%;
+      left: 0;
+      padding: 30px 18px 30px 313px; }
+      @media screen and (min-width: 1200px) {
+        .desktop-menu-area .links > .link-item .child-links {
+          padding-left: 384px; } }
+      .desktop-menu-area .links > .link-item .child-links > .link-item > a {
+        font-family: "GT America Condensed", sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 30px;
+        white-space: nowrap; }
+        @media screen and (min-width: 1200px) {
+          .desktop-menu-area .links > .link-item .child-links > .link-item > a {
+            font-size: 20px; } }
+      .desktop-menu-area .links > .link-item .child-links > .link-item > a {
+        font-weight: 700; }
+      .desktop-menu-area .links > .link-item .child-links > .link-item .grand-child-links > .link-item > a {
+        font-family: "GT America Condensed", sans-serif;
+        text-transform: uppercase;
+        line-height: 30px;
+        white-space: nowrap; }
+        @media screen and (min-width: 1200px) {
+          .desktop-menu-area .links > .link-item .child-links > .link-item .grand-child-links > .link-item > a {
+            font-size: 20px; } }
+
+@keyframes dropdown {
+  0% {
+    opacity: 0;
+    transform: scaleY(0); }
+  100% {
+    opacity: 1;
+    transform: scaleY(1); } }
+
 .mobile-menu-area {
   padding: 36px 24px 48px;
   background: #eef315;
@@ -70,6 +171,12 @@ ul {
   left: -100%;
   transition: left .5s;
   z-index: 2; }
+  @media screen and (min-width: 768px) {
+    .mobile-menu-area {
+      max-width: 320px; } }
+  @media screen and (min-width: 1025px) {
+    .mobile-menu-area {
+      display: none; } }
   .mobile-menu-area .top {
     margin-bottom: 36px;
     display: flex; }
@@ -78,22 +185,7 @@ ul {
     .mobile-menu-area .top .currency-selector {
       flex-grow: 1;
       margin-right: 24px;
-      text-align: right;
-      /* Hide arrow icon in IE browsers */ }
-      .mobile-menu-area .top .currency-selector select {
-        font-family: "GT America Condensed", sans-serif;
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: 700;
-        border: 0;
-        background: url("icon_chevron_down.png") transparent no-repeat right center;
-        background-size: 9px;
-        padding-right: 11px;
-        -moz-appearance: none;
-        -webkit-appearance: none;
-        appearance: none; }
-      .mobile-menu-area .top .currency-selector .currency::-ms-expand {
-        display: none; }
+      text-align: right; }
     .mobile-menu-area .top .nav-links {
       text-align: right; }
       .mobile-menu-area .top .nav-links li {
@@ -204,7 +296,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
     .hamburger-icon span:nth-child(3) {
       bottom: 0; }
 
-.section {
+.shopify-section {
   background-color: #e4d9d5; }
 
 .section--blue {
@@ -451,7 +543,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       height: auto;
       padding-left: 18px;
       padding-right: 18px; } }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1025px) {
     .section--featured-articles .featured-articles--multi .featured-articles__article {
       padding: 48px 30px; } }
   @media screen and (min-width: 768px) {
@@ -459,7 +551,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       border-right: solid 1px #000000; } }
   .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
     margin-bottom: 24px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1025px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
         margin-bottom: 36px; } }
   .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
@@ -469,7 +561,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
     font-weight: 700;
     line-height: 18px;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1025px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
         margin-bottom: 36px;
         font-size: 18px;
@@ -480,7 +572,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1025px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__title {
         margin-bottom: 48px;
         font-size: 42px;
@@ -648,19 +740,58 @@ header.site-header.mobile-menu-open .mobile-menu-area {
 
 header.site-header .inner {
   display: flex;
-  align-items: center;
   height: 42px;
-  padding: 12px 18px 12px;
+  padding-right: 18px;
+  padding-left: 18px;
   background: #eef315; }
-  header.site-header .inner .left-area {
+  @media screen and (min-width: 1025px) {
+    header.site-header .inner {
+      height: auto; } }
+  header.site-header .inner .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
     margin-right: 18px; }
-  header.site-header .inner .logo-area .logo {
-    width: 100px; }
+    @media screen and (min-width: 1025px) {
+      header.site-header .inner .mobile-menu-toggle {
+        display: none; } }
+  header.site-header .inner .logo-area {
+    display: flex;
+    align-items: center; }
+    @media screen and (min-width: 1025px) {
+      header.site-header .inner .logo-area {
+        height: 90px; } }
+    header.site-header .inner .logo-area .logo {
+      width: 100px; }
+      @media screen and (min-width: 1025px) {
+        header.site-header .inner .logo-area .logo {
+          width: 175px; } }
+      @media screen and (min-width: 1200px) {
+        header.site-header .inner .logo-area .logo {
+          width: 246px; } }
+  @media screen and (min-width: 1025px) {
+    header.site-header .inner .desktop-menu-area {
+      flex-grow: 1; } }
   header.site-header .inner .right-area {
     flex-grow: 1;
-    text-align: right; }
-    header.site-header .inner .right-area .cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: end; }
+    @media screen and (min-width: 1025px) {
+      header.site-header .inner .right-area {
+        height: 90px;
+        flex-grow: 0; } }
+    header.site-header .inner .right-area li {
       margin-left: 18px; }
+      @media screen and (min-width: 1025px) {
+        header.site-header .inner .right-area li {
+          margin-left: 24x; } }
+      header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
+        display: none; }
+        @media screen and (min-width: 1025px) {
+          header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
+            display: inline-block; } }
+      header.site-header .inner .right-area li svg {
+        vertical-align: middle; }
 
 .section--hero .section__inner {
   height: calc(100vh - 42px);

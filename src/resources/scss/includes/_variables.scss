@@ -2,7 +2,7 @@ $small: 480px;
 $breakpoints: (
   small: 0,
   medium: 768px,
-  large: 1024px,
+  large: 1025px,
   xlarge: 1200px,
   xxlarge: 1600px,
 );
@@ -23,3 +23,8 @@ $body-font-family: "Louize Display Regular", serif;
 $button-font-family: "GT America Expanded", sans-serif;
 
 $header-height: 42px;
+$header-height-l: 90px;
+
+$logo-width: 100px;
+$logo-width-l: 175px;
+$logo-width-xl: 246px;

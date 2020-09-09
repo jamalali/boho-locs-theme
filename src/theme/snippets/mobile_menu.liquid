@@ -5,18 +5,7 @@
             {% render 'icon_times' %}
         </a>
         
-        <form method="get" class="currency-selector" autocomplete="off">
-            <select name="currency" onchange="this.form.submit()">
-                {% for currency in shop.enabled_currencies %}
-                    <option value="{{ currency.iso_code }}" {% if currency == cart.currency %}selected{% endif %}>
-                        {{ currency.iso_code }}
-                    </option>
-                {% endfor %}
-                <option value="GBP">
-                    GBP
-                </option>
-            </select>
-        </form>
+        {% render 'currency_selector' %}
 
         <ul class="nav-links">
             <li>

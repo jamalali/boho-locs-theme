@@ -1,0 +1,123 @@
+.desktop-menu-area {
+
+    $bottom-border-size: 5px;
+    $parent-links-side-padding: 120px;
+
+    // Hidden on small devices
+    display: none;
+
+    @include large-up {
+        display: block;
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 120px;
+
+        > .link-item {
+
+            > a {
+                @include header-font-secondary-normal;
+                font-weight: 700;
+                padding: 0 9px;
+                display: inline-block;
+                line-height: $header-height-l;
+                position: relative;
+                white-space: nowrap;
+
+                @include xlarge-up {
+                    font-size: 20px;
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0%;
+                    height: $bottom-border-size;
+                    background-color: $body-text-color;
+                    opacity: 0;
+                    transition: all .3s;
+                }
+
+                &:hover {
+                    &::after {
+                        width: 100%;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &:hover {
+                .child-links {
+                    display: flex;
+                    transform-origin: top;
+                    animation: dropdown .2s ease-out;
+                }
+            }
+
+            .child-links {
+                display: none;
+                // display: flex;
+                justify-content: space-between;
+                position: absolute;
+                z-index: 2;
+                background: $brand-color-1;
+                width: 100%;
+                left: 0;
+                padding: 30px 18px 30px 18px + $logo-width-l + $parent-links-side-padding;
+
+                @include xlarge-up {
+                    padding-left: 18px + $logo-width-xl + $parent-links-side-padding;
+                }
+
+                > .link-item {
+
+                    > a {
+                        @include header-font-secondary-normal;
+                        font-weight: 700;
+                        line-height: 30px;
+                        white-space: nowrap;
+
+                        @include xlarge-up {
+                            font-size: 20px;
+                        }
+                    }
+
+                    > a {
+                        font-weight: 700;
+                    }
+
+                    .grand-child-links {
+                        > .link-item {
+
+                            > a {
+                                @include header-font-secondary-normal;
+                                line-height: 30px;
+                                white-space: nowrap;
+
+                                @include xlarge-up {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes dropdown {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

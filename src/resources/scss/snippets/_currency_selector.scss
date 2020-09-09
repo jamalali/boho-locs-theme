@@ -1,0 +1,21 @@
+.currency-selector {
+
+    select {
+        @include header-font-secondary-normal;
+        font-size: $body-text-size;
+        font-weight: 700;
+        border: 0;
+        background: url('icon_chevron_down.png') transparent no-repeat right center;
+        background-size: 9px;
+        padding-right: 11px;
+
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /* Hide arrow icon in IE browsers */
+    .currency::-ms-expand {
+        display: none;
+    }
+}
