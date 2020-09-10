@@ -93,13 +93,13 @@
                 }
 
                 &.is-parent--active {
-                     .chevron {
+                    .chevron {
                         transform: rotate(0deg);
-                     }
+                    }
 
-                     .grand-child-links {
+                    .grand-child-links {
                         display: block;
-                     }
+                    }
                 }
             }
 

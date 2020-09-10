@@ -82,7 +82,7 @@
                         line-height: 30px;
                         white-space: nowrap;
 
-                        @include xlarge-up {
+                        @include large-up {
                             font-size: 20px;
                         }
                     }
@@ -99,7 +99,7 @@
                                 line-height: 30px;
                                 white-space: nowrap;
 
-                                @include xlarge-up {
+                                @include large-up {
                                     font-size: 20px;
                                 }
                             }

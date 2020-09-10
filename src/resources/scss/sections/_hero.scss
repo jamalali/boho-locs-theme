@@ -2,6 +2,10 @@
     height: calc(100vh - #{$header-height});
     position: relative;
 
+    @include large-up {
+        height: calc(100vh - #{$header-height-l});
+    }
+
     .hero__bg {
         background-size: cover;
         background-repeat: no-repeat;
@@ -13,7 +17,7 @@
 
     .hero--mobile__bg {
         
-        @include xlarge-up {
+        @include large-up {
             display: none;
         }
     }
@@ -21,7 +25,7 @@
     .hero--desktop__bg {
         display: none;
 
-        @include xlarge-up {
+        @include large-up {
             display: block;
         }
     }
@@ -45,7 +49,7 @@
             font-size: 18px;
         }
 
-        @include xlarge-up {
+        @include large-up {
             font-size: 24px;
             margin-bottom: 64px;
         }
@@ -64,7 +68,7 @@
             margin-right: auto;
         }
 
-        @include xlarge-up {
+        @include large-up {
             font-size: 94px;
             max-width: none;
             margin-bottom: 64px;
@@ -80,7 +84,7 @@
             max-width: 300px;
         }
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 64px;
             max-width: 710px;
         }
@@ -92,7 +96,7 @@
                 font-size: 18px;
             }
 
-            @include xlarge-up {
+            @include large-up {
                 font-size: 30px;
                 line-height: 40px;
             }

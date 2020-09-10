@@ -11,7 +11,7 @@
             flex-direction: row;
         }
 
-        @include xlarge-up {
+        @include large-up {
             justify-content: center;
         }
 
@@ -29,7 +29,7 @@
                 }
             }
     
-            @include xlarge-up {
+            @include large-up {
                 flex-grow: 0;
                 flex-basis: auto;
             }
@@ -40,7 +40,7 @@
                 position: relative;
                 height: 80px;
     
-                @include xlarge-up {
+                @include large-up {
                     margin-right: 30px;
                 }
 
@@ -55,7 +55,7 @@
                 font-size: 13px;
                 line-height: 14px;
     
-                @include xlarge-up {
+                @include large-up {
                     max-width: 280px;
                     font-size: 24px;
                     line-height: 24px;

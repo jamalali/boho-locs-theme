@@ -50,7 +50,7 @@
                 justify-content: center;
             }
 
-            @include xlarge-up {
+            @include large-up {
                 padding: 120px 115px;
             }
 
@@ -65,7 +65,7 @@
                 line-height: 18px;
                 margin-bottom: 24px;
 
-                @include xlarge-up {
+                @include large-up {
                     font-size: 24px;
                     line-height: 30px;
                     margin-bottom: 36px;
@@ -82,7 +82,7 @@
                     line-height: 38px;
                 }
 
-                @include xlarge-up {
+                @include large-up {
                     font-size: 82px;
                     line-height: 94px;
                     margin-bottom: 64px;
@@ -92,7 +92,7 @@
             .featured-articles__date-author {
                 font-size: 12px;
 
-                @include xlarge-up {
+                @include large-up {
                     font-size: 24px;
                 }
             }

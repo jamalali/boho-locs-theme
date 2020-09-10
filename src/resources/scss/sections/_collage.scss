@@ -6,7 +6,7 @@
         padding: 64px 36px;
     }
 
-    @include xlarge-up {
+    @include large-up {
         padding: 120px 80px;
     }
 
@@ -16,7 +16,7 @@
         font-size: 16px;
         margin-bottom: 24px;
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 36px;
             font-size: 24px;
             line-height: 18px;
@@ -28,7 +28,7 @@
         font-size: 34px;
         margin-bottom: 36px;
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 64px;
             font-size: 62px;
             line-height: 78px;
@@ -38,7 +38,7 @@
     .collage__intro {
         margin-bottom: 48px;
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 120px;
             font-size: 24px;
             line-height: 42px;
@@ -64,7 +64,7 @@
             z-index: 1;
         }
 
-        @include xlarge-up {
+        @include large-up {
             width: 100%;
             padding: 0;
             z-index: inherit;
@@ -72,7 +72,7 @@
 
         .collage__image--1 {
 
-            @include xlarge-up {
+            @include large-up {
                 width: 24%;
                 float: left;
                 margin-bottom: 196px;
@@ -81,7 +81,7 @@
 
         .collage__image--2 {
 
-            @include xlarge-up {
+            @include large-up {
                 width: 27%;
                 float: right;
                 margin-bottom: 164px;
@@ -91,7 +91,7 @@
 
         .collage__image--3 {
 
-            @include xlarge-up {
+            @include large-up {
                 width: 44%;
                 float: left;
                 clear: left;
@@ -101,7 +101,7 @@
 
         .collage__image--4 {
 
-            @include xlarge-up {
+            @include large-up {
                 width: 44%;
                 float: right;
                 position: relative;
@@ -125,7 +125,7 @@
             padding-bottom: 64px;
         }
 
-        @include xlarge-up {
+        @include large-up {
             @include horizontal-center;
             padding: 80px;
             width: 47%;
@@ -143,13 +143,13 @@
                 line-height: 44px;
             }
 
-            @include xlarge-up {
+            @include large-up {
                 font-size: 52px;
                 line-height: 64px;
                 margin-bottom: 0;
             }
 
-            @include xxlarge-up {
+            @include large-up {
                 font-size: 72px;
                 line-height: 84px;
             }
@@ -157,7 +157,7 @@
 
         .collage__image-pagination {
 
-            @include xlarge-up {
+            @include large-up {
                 display: none;
             }
         }

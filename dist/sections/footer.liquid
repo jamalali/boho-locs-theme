@@ -1,0 +1,57 @@
+{% if settings.logo != nil %}
+    <img class="logo" src="{{ settings.logo | img_url: '250x' }}" alt="Boho Locs Logo" />
+{% endif %}
+
+<ul class="links">
+
+    {% for link in linklists.footer-menu.links %}
+        <li class="link-item {{ link.handle }} {% if link.links != blank %}is-parent{% endif %}">
+            <a href="{{ link.url }}" class="{% if link.links != blank %}dropdown-toggle{% endif %}">
+                {{ link.title }}
+
+                {% if link.links != blank %}
+                    <span class="chevron">
+                        {% render 'icon_chevron' %}
+                    </span>
+                {% endif %}
+            </a>
+
+            {% if link.links != blank %}
+                <ul class="child-links">
+
+                    {% for child_link in link.links %}
+                        <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
+                            <a href="{{ child_link.url }}" class="dropdown-toggle">
+                                {{ child_link.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+
+</ul>
+
+<div class="follow">
+    <h4 class="title">
+        Follow Us
+    </h4>
+
+    {% render 'social_links' %}
+</div>
+
+<div class="designer">
+    <a href="http://riannaoh.com/" target=_blank>
+        Designed by Rianna Osanwuta
+    </a>
+</div>
+
+{% schema %}
+    {
+        "name": "Footer",
+        "class": "site-footer",
+        "tag": "footer"
+    }
+{% endschema %}

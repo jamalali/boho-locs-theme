@@ -1,0 +1,64 @@
+<ul class="social-links">
+    {% if settings.instagram_url != blank %}
+        <li class="social-links__item social-links__item--instagram">
+            <a href="{{ settings.instagram_url }}" target="_blank">
+                Instagram
+                {% render 'icon_instagram' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.facebook_url != blank %}
+        <li class="social-links__item social-links__item--facebook">
+            <a href="{{ settings.facebook_url }}" target="_blank">
+                Facebook
+                {% render 'icon_facebook' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.twitter_url != blank %}
+        <li class="social-links__item social-links__item--twitter">
+            <a href="{{ settings.twitter_url }}" target="_blank">
+                Twitter
+                {% render 'icon_twitter' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.pinterest_url != blank %}
+        <li class="social-links__item social-links__item--pinterest">
+            <a href="{{ settings.pinterest_url }}" target="_blank">
+                Pinterest
+                {% render 'icon_pinterest' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.linkedin_url != blank %}
+        <li class="social-links__item social-links__item--linkedin">
+            <a href="{{ settings.linkedin_url }}" target="_blank">
+                LinkedIn
+                {% render 'icon_linkedin' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.youtube_url != blank %}
+        <li class="social-links__item social-links__item--youtube">
+            <a href="{{ settings.youtube_url }}" target="_blank">
+                YouTube
+                {% render 'icon_youtube' %}
+            </a>
+        </li>
+    {% endif %}
+
+    {% if settings.tiktok_url != blank %}
+        <li class="social-links__item social-links__item--tiktok">
+            <a href="{{ settings.tiktok_url }}" target="_blank">
+                TikTok
+                {% render 'icon_tiktok' %}
+            </a>
+        </li>
+    {% endif %}
+</ul>

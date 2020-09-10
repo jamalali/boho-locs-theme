@@ -19905,6 +19905,10 @@ var _carousel = __webpack_require__(332);
 
 var Carousel = _interopRequireWildcard(_carousel);
 
+var _menuDropdown = __webpack_require__(334);
+
+var MenuDropdown = _interopRequireWildcard(_menuDropdown);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -19914,6 +19918,7 @@ window.$ = _jquery2.default;
 
 MobileMenu.init();
 Carousel.init();
+MenuDropdown.init();
 
 // Setup marquees
 var marquees = document.querySelectorAll('.esc-marquee');
@@ -20026,25 +20031,6 @@ function init() {
             event.preventDefault();
             header.classList.toggle('mobile-menu-open');
         });
-    }
-
-    // Setup events
-    var parentLinks = document.querySelectorAll('.child-links .link-item.is-parent');
-
-    var _loop = function _loop() {
-
-        var parent = parentLinks[i];
-        var toggle = parent.querySelector('.dropdown-toggle');
-        var grandChildLinks = parent.querySelector('.grand-child-links');
-
-        toggle.addEventListener('click', function (event) {
-            event.preventDefault();
-            parent.classList.toggle('is-parent--active');
-        });
-    };
-
-    for (var i = 0; i < parentLinks.length; i++) {
-        _loop();
     }
 }
 
@@ -23089,6 +23075,38 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 }));
 
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function init() {
+
+    var parentLinks = document.querySelectorAll('.link-item.is-parent');
+
+    var _loop = function _loop() {
+
+        var parent = parentLinks[i];
+        var toggle = parent.querySelector('.dropdown-toggle');
+
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            parent.classList.toggle('is-parent--active');
+        });
+    };
+
+    for (var i = 0; i < parentLinks.length; i++) {
+        _loop();
+    }
+}
+
+exports.init = init;
 
 /***/ })
 /******/ ]);

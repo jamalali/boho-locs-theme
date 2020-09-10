@@ -6,7 +6,7 @@
         padding-bottom: 64px;
     }
 
-    @include xlarge-up {
+    @include large-up {
         padding-top: 120px;
         padding-bottom: 120px;
     }
@@ -20,7 +20,7 @@
         text-align: center;
         line-height: 20px;
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 36px;
             font-size: 24px;
             line-height: 30px;
@@ -37,7 +37,7 @@
             font-size: 42px;
         }
 
-        @include xlarge-up {
+        @include large-up {
             margin-bottom: 48px;
             font-size: 72px;
         }
@@ -59,7 +59,7 @@
                 margin-right: 24px;
             }
 
-            @include xlarge-up {
+            @include large-up {
                 margin-right: 30px;
             }
 
@@ -91,7 +91,7 @@
                 margin-bottom: 24px;
                 line-height: 20px;
 
-                @include xlarge-up {
+                @include large-up {
                     margin-bottom: 36px;
                     font-size: 24px;
                     line-height: 30px;
@@ -101,7 +101,7 @@
             .media-info-box_description {
                 line-height: 24px;
 
-                @include xlarge-up {
+                @include large-up {
                     font-size: 24px;
                     line-height: 42px;
                 }

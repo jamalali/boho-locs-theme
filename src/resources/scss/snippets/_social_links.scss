@@ -1,0 +1,35 @@
+.social-links {
+    display: flex;
+    justify-content: center;
+
+    @include medium-up {
+        justify-content: start;
+    }
+
+    .social-links__item {
+        margin: 0 6px;
+
+        &:first-child {
+
+            @include medium-up {
+                margin-left: 0;
+            }
+        }
+
+        a {
+            border: solid 1px $body-text-color;
+            border-radius: 50px;
+            font-size: 0;
+            color: transparent;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+
+            svg {
+                max-width: 100%;
+                max-height: 16px;
+            }
+        }
+    }
+}
