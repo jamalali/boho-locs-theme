@@ -1,57 +1,50 @@
-<div class="section__inner">
+{% if section.settings.sub_heading != blank %}
+    <h3 class="quiz-intro__sub-heading">
+        {{ section.settings.sub_heading }}
+    </h3>
+{% endif %}
 
-    {% if section.settings.sub_heading != blank %}
-        <h3 class="quiz-intro__sub_heading">
-            {{ section.settings.sub_heading }}
-        </h3>
-    {% endif %}
+{% if section.settings.heading != blank %}
+    <h2 class="quiz-intro__heading">
+        {{ section.settings.heading }}
+    </h2>
+{% endif %}
 
-    {% if section.settings.heading != blank %}
-        <h2 class="quiz-intro__heading">
-            {{ section.settings.heading }}
-        </h2>
-    {% endif %}
+{% if section.settings.description != blank %}
+    <p class="quiz-intro__description">
+        {{ section.settings.description }}
+    </p>
+{% endif %}
 
-    {% if section.settings.description != blank %}
-        <p class="quiz-intro__description">
-            {{ section.settings.description }}
-        </p>
-    {% endif %}
+{% if section.settings.question != blank %}
+    <p class="quiz-intro__question">
+        {{ section.settings.question }}
+    </p>
+{% endif %}
 
-    {% if section.settings.question != blank %}
-        <p class="quiz-intro__question">
-            {{ section.settings.question }}
-        </p>
-    {% endif %}
+<ul class="quiz-intro__answers">
+    {% for block in section.blocks %}
+        {% if block.type == 'answer' %}
+            <li class="quiz-intro__answer" {{ block.shopify_attributes }}>
+              {% render 'circle.liquid' %}
+              <p>
+                {{ block.settings.answer }}
+              </p>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
 
-    <div class="quiz-intro__answers">
-        {% for block in section.blocks %}
-            {% if block.type == 'answer' %}
-                <div class="quiz-intro__answer" {{ block.shopify_attributes }}>
-                    {{ block.settings.answer }}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-
-    {% if section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="button quiz-intro__cta"">
-            Take the quiz
-        </a>
-    {% endif %}
-
-</div>
-
-<style>
-  #shopify-section-{{ section.id }} {
-    background: #c2c2c2;
-  }
-</style>
+{% if section.settings.button_link != blank %}
+    <a href="{{ section.settings.button_link }}" class="button quiz-intro__cta"">
+        Take the quiz
+    </a>
+{% endif %}
 
 {% schema %}
   {
     "name": "Quiz Intro",
-    "class": "section--quiz-intro",
+    "class": "section--quiz-intro section--blue-pink",
     "tag": "section",
     "settings": [
       {

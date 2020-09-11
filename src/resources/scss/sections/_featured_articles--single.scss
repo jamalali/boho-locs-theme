@@ -24,7 +24,8 @@
                 // TODO: Test this floating image with different aspect ratio images
                 @include center;
                 max-width: none;
-                height: 100%;
+                min-height: 100%;
+                min-width: 100%;
             }
         }
 

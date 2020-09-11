@@ -5,10 +5,28 @@
     font-size: 12px;
     line-height: 34px;
     display: inline-block;
-    padding: 0 50px;
+    padding: 0 20px;
     transition: all .2s;
+    white-space: nowrap;
+
+    @include medium-up {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 
     @include large-up {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    @include xlarge-up {
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    @include xxlarge-up {
+        padding-left: 35px;
+        padding-right: 35px;
         font-size: 16px;
         line-height: 59px;
     }

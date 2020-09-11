@@ -262,10 +262,25 @@ header.site-header.mobile-menu-open .mobile-menu-area {
   font-size: 12px;
   line-height: 34px;
   display: inline-block;
-  padding: 0 50px;
-  transition: all .2s; }
+  padding: 0 20px;
+  transition: all .2s;
+  white-space: nowrap; }
+  @media screen and (min-width: 768px) {
+    .button {
+      padding-left: 25px;
+      padding-right: 25px; } }
   @media screen and (min-width: 1200px) {
     .button {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  @media screen and (min-width: 1440px) {
+    .button {
+      padding-left: 35px;
+      padding-right: 35px; } }
+  @media screen and (min-width: 1600px) {
+    .button {
+      padding-left: 35px;
+      padding-right: 35px;
       font-size: 16px;
       line-height: 59px; } }
   .button:hover {
@@ -321,11 +336,11 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       bottom: 0; }
 
 .shopify-section {
-  background-color: #e4d9d5; }
+  background-color: #e4d9d5;
+  background-repeat: no-repeat; }
 
 .section--blue {
   background-image: url("splash_blue.png");
-  background-repeat: no-repeat;
   background-size: 1000px;
   background-position: -670px -460px; }
   @media screen and (min-width: 768px) {
@@ -337,12 +352,15 @@ header.site-header.mobile-menu-open .mobile-menu-area {
 
 .section--red {
   background-image: url("splash_red.png");
-  background-repeat: no-repeat;
   background-size: 1000px;
   background-position: right -560px bottom -560px; }
   @media screen and (min-width: 768px) {
     .section--red {
       background-size: 1100px; } }
+
+.section--blue-pink {
+  background-image: url("splash_blue.png"), url("splash_pink.png");
+  background-position: right -300px bottom -300px, -300px -300px; }
 
 .section--collage {
   text-align: center;
@@ -635,7 +653,8 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       top: 50%;
       transform: translate(-50%, -50%);
       max-width: none;
-      height: 100%; }
+      min-height: 100%;
+      min-width: 100%; }
   .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content {
     background: #000000;
     padding: 36px 24px;
@@ -693,15 +712,35 @@ header.site-header.mobile-menu-open .mobile-menu-area {
         .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__date-author {
           font-size: 24px; } }
 
-.section--featured-page .section__inner {
+.section--featured-page {
   padding: 174px 48px 48px;
-  text-align: center; }
-
-.section--featured-page .featured-page__heading {
-  font-family: "Louize Display Regular", serif;
-  font-weight: normal;
-  font-size: 48px;
-  margin-bottom: 48px; }
+  text-align: center;
+  position: relative;
+  min-height: 450px; }
+  @media screen and (min-width: 768px) {
+    .section--featured-page {
+      padding-bottom: 64px; } }
+  .section--featured-page .featured-page__bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0; }
+  .section--featured-page .featured-page__content {
+    position: relative;
+    z-index: 1; }
+  .section--featured-page .featured-page__heading {
+    font-family: "Louize Display Regular", serif;
+    font-weight: normal;
+    font-size: 48px;
+    margin-bottom: 48px; }
+    @media screen and (min-width: 768px) {
+      .section--featured-page .featured-page__heading {
+        margin-bottom: 64px; } }
 
 .section--featured-products {
   padding: 48px 0; }
@@ -971,60 +1010,59 @@ header.site-header .inner {
     padding: 0 24px;
     width: 100%; }
   .section--hero .section__inner .hero__sub-heading {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     font-size: 16px;
     margin-bottom: 24px;
     line-height: 1; }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1200px) {
       .section--hero .section__inner .hero__sub-heading {
         font-size: 18px; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--hero .section__inner .hero__sub-heading {
         font-size: 24px;
         margin-bottom: 64px; } }
   .section--hero .section__inner .hero__heading {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     font-size: 42px;
     margin-bottom: 36px;
     line-height: 1; }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1200px) {
       .section--hero .section__inner .hero__heading {
         max-width: 300px;
         margin-left: auto;
         margin-right: auto; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1600px) {
       .section--hero .section__inner .hero__heading {
         font-size: 94px;
         max-width: none;
         margin-bottom: 64px; } }
   .section--hero .section__inner .hero__description {
     margin-bottom: 36px; }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1200px) {
       .section--hero .section__inner .hero__description {
         margin-left: auto;
         margin-right: auto;
         max-width: 300px; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--hero .section__inner .hero__description {
         margin-bottom: 64px;
         max-width: 710px; } }
     .section--hero .section__inner .hero__description p {
       line-height: 24px; }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1200px) {
         .section--hero .section__inner .hero__description p {
           font-size: 18px; } }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--hero .section__inner .hero__description p {
           font-size: 30px;
           line-height: 40px; } }
   .section--hero .section__inner .hero__cta {
     display: inline-block;
-    border: 1px solid transparent;
-    padding: 0 55px; }
+    border: 1px solid transparent; }
     .section--hero .section__inner .hero__cta::hover {
       color: #000000; }
 
@@ -1206,25 +1244,86 @@ header.site-header .inner {
         font-size: 24px;
         line-height: 42px; } }
 
-.section--quiz-intro .section__inner {
+.section--quiz-intro {
   text-align: center;
   padding: 205px 24px 48px; }
-  .section--quiz-intro .section__inner .quiz-intro__sub_heading {
+  @media screen and (min-width: 768px) {
+    .section--quiz-intro {
+      padding: 64px 36px; } }
+  @media screen and (min-width: 1200px) {
+    .section--quiz-intro {
+      padding: 120px 80px; } }
+  .section--quiz-intro .quiz-intro__sub-heading {
     display: none;
     font-family: "GT America Condensed", sans-serif;
     text-transform: uppercase;
-    font-weight: 700; }
-  .section--quiz-intro .section__inner .quiz-intro__heading {
+    font-weight: 700;
+    color: #93a0ee;
+    font-size: 16px; }
+    @media screen and (min-width: 768px) {
+      .section--quiz-intro .quiz-intro__sub-heading {
+        display: block;
+        margin-bottom: 36px; } }
+  .section--quiz-intro .quiz-intro__heading {
     font-family: "Louize Display Regular", serif;
     font-size: 34px;
     font-weight: normal;
     margin: 0 20% 24px; }
-  .section--quiz-intro .section__inner .quiz-intro__question {
+    @media screen and (min-width: 768px) {
+      .section--quiz-intro .quiz-intro__heading {
+        margin: 0 auto 48px; } }
+  .section--quiz-intro .quiz-intro__question {
     display: none; }
-  .section--quiz-intro .section__inner .quiz-intro__answers {
+    @media screen and (min-width: 1200px) {
+      .section--quiz-intro .quiz-intro__question {
+        display: block;
+        font-size: 24px;
+        margin-bottom: 64px; } }
+    @media screen and (min-width: 1440px) {
+      .section--quiz-intro .quiz-intro__question {
+        font-size: 42px; } }
+  .section--quiz-intro .quiz-intro__answers {
     display: none; }
-  .section--quiz-intro .section__inner .quiz-intro__description {
-    margin: 0 8% 36px; }
+    @media screen and (min-width: 1200px) {
+      .section--quiz-intro .quiz-intro__answers {
+        display: block;
+        margin-bottom: 64px; } }
+    @media screen and (min-width: 1200px) {
+      .section--quiz-intro .quiz-intro__answers::after {
+        content: "";
+        display: block;
+        clear: both; } }
+    .section--quiz-intro .quiz-intro__answers .quiz-intro__answer {
+      position: relative;
+      margin-bottom: 6px;
+      float: left;
+      width: 33.33333%; }
+      .section--quiz-intro .quiz-intro__answers .quiz-intro__answer:nth-child(1), .section--quiz-intro .quiz-intro__answers .quiz-intro__answer:nth-child(3) {
+        margin-top: 76px; }
+      .section--quiz-intro .quiz-intro__answers .quiz-intro__answer:nth-child(5) {
+        margin-top: -76px; }
+      .section--quiz-intro .quiz-intro__answers .quiz-intro__answer svg {
+        max-width: 100%;
+        height: auto; }
+      .section--quiz-intro .quiz-intro__answers .quiz-intro__answer p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "GT America Condensed Bold", sans-serif;
+        text-transform: uppercase;
+        font-weight: normal;
+        width: 78%; }
+      .section--quiz-intro .quiz-intro__answers .quiz-intro__answer:hover {
+        cursor: pointer; }
+        .section--quiz-intro .quiz-intro__answers .quiz-intro__answer:hover svg path {
+          fill: #eef315; }
+  .section--quiz-intro .quiz-intro__description {
+    margin: 0 8% 36px;
+    line-height: 24px; }
+    @media screen and (min-width: 768px) {
+      .section--quiz-intro .quiz-intro__description {
+        margin: 0 auto 64px; } }
 
 .template--index > main {
   display: flex;

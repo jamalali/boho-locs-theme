@@ -1,3 +1,7 @@
+@mixin flex-basis($item-width, $item-spacing, $items-per-row) {
+  flex-basis: calc(#{$item-width} - (#{$item-spacing} * (#{$items-per-row} - 1) / #{$items-per-row}));
+}
+
 @mixin button-font {
   font-family: $button-font-family;
   text-transform: uppercase;

@@ -10,8 +10,8 @@
 
     <div class="logo-area">
         <a href="/">
-            {% if section.settings.logo != nil %}
-                <img class="logo" src="{{ section.settings.logo | img_url: 'master' }}" alt="Boho Locs Logo" />
+            {% if settings.logo != nil %}
+                <img class="logo" src="{{ settings.logo | img_url: 'master' }}" alt="Boho Locs Logo" />
             {% else %}
                 Home
             {% endif %}

@@ -1,28 +1,24 @@
-<div class="section__inner">
+{% if section.settings.image != blank %}
+  <div class="featured-page__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
+{% endif %}
 
-    {% if section.settings.image != blank %}
-        <div class="featured-page__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
-    {% endif %}
+<div class="featured-page__content">
 
-    {% if section.settings.heading != blank %}
-      <h2 class="featured-page__heading">
-        {{ section.settings.heading }}
-      </h2>
-    {% endif %}
+  {% if section.settings.heading != blank %}
+    <h2 class="featured-page__heading">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
 
-    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-      <a href="{{ section.settings.button_link }}" class="button button--transparent featured-page__cta"">
-        {{ section.settings.button_label }}
-      </a>
-    {% endif %}
+  {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+    <a href="{{ section.settings.button_link }}" class="button button--transparent featured-page__cta"">
+      {{ section.settings.button_label }}
+    </a>
+  {% endif %}
 
 </div>
 
 <style>
-  #shopify-section-{{ section.id }} {
-    background-color: #9b9b9b;
-  }
-
   #shopify-section-{{ section.id }}.section--featured-page .featured-page__heading {
     color: {{ section.settings.text_color }};
   }
@@ -32,7 +28,12 @@
     border-color: {{ section.settings.text_color }};
   }
   #shopify-section-{{ section.id }}.section--featured-page .featured-page__cta:hover {
-    color: #fff;
+    {% assign text_color_brightness = section.settings.text_color | color_brightness %}
+    {% if text_color_brightness > 127.5 %}
+      color: #000;
+    {% else %}
+      color: #fff;
+    {% endif %}
     background: {{ section.settings.text_color }};
   }
 </style>

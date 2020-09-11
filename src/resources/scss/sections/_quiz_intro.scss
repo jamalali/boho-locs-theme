@@ -1,11 +1,26 @@
-.section--quiz-intro .section__inner {
+.section--quiz-intro {
     text-align: center;
     padding: 205px 24px 48px;
 
-    .quiz-intro__sub_heading {
+    @include medium-up {
+        padding: 64px 36px;
+    }
+
+    @include large-up {
+        padding: 120px 80px;
+    }
+
+    .quiz-intro__sub-heading {
         display: none;
         @include header-font-secondary-normal;
         font-weight: 700;
+        color: $brand-color-3;
+        font-size: 16px;
+
+        @include medium-up {
+            display: block;
+            margin-bottom: 36px;
+        }
     }
 
     .quiz-intro__heading {
@@ -13,17 +28,91 @@
         font-size: 34px;
         font-weight: normal;
         margin: 0 20% 24px;
+
+        @include medium-up {
+            margin: 0 auto 48px;
+        }
     }
 
     .quiz-intro__question {
         display: none;
+
+        @include large-up {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 64px;
+        }
+
+        @include xlarge-up {
+            font-size: 42px;
+        }
     }
 
     .quiz-intro__answers {
         display: none;
+
+        @include large-up {
+            display: block;
+            margin-bottom: 64px;
+        }
+
+        &::after {
+
+            @include large-up {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+
+        .quiz-intro__answer {
+
+            $spacing: 76px;
+
+            position: relative;
+            margin-bottom: 6px;
+            float: left;
+            width: (100% / 3);
+
+            &:nth-child(1),
+            &:nth-child(3) {
+                margin-top: $spacing;
+            }
+
+            &:nth-child(5) {
+                margin-top: -$spacing;
+            }
+
+            // Circle SVG
+            svg {
+                max-width: 100%;
+                height: auto;
+            }
+
+            p {
+                @include center;
+                @include header-font-secondary-bold;
+                width: 78%;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                svg {
+                    path {
+                        fill: $brand-color-1;
+                    }
+                }
+            }
+        }
     }
 
     .quiz-intro__description {
         margin: 0 8% 36px;
+        line-height: 24px;
+
+        @include medium-up {
+            margin: 0 auto 64px;
+        }
     }
 }

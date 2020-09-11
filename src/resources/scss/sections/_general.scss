@@ -1,10 +1,11 @@
 .shopify-section {
     background-color: $timberwolf;
+    background-repeat: no-repeat;
 }
 
 .section--blue {
     background-image: url('splash_blue.png');
-    background-repeat: no-repeat;
+    
     background-size: 1000px;
     background-position: -670px -460px;
 
@@ -19,11 +20,19 @@
 
 .section--red {
     background-image: url('splash_red.png');
-    background-repeat: no-repeat;
     background-size: 1000px;
     background-position: right -560px bottom -560px;
 
     @include  medium-up {
         background-size: 1100px;
     }
+}
+
+.section--blue-pink {
+    background-image:
+        url('splash_blue.png'),
+        url('splash_pink.png');
+    background-position:
+        right -300px bottom -300px,
+        -300px -300px;
 }

@@ -1,13 +1,37 @@
 .section--featured-page {
+    padding: 174px 48px 48px;
+    text-align: center;
+    position: relative;
+    min-height: 450px;
 
-    .section__inner {
-        padding: 174px 48px 48px;
-        text-align: center;
+    @include medium-up {
+        padding-bottom: 64px;
+    }
+
+    .featured-page__bg {
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .featured-page__content {
+        position: relative;
+        z-index: 1;
     }
 
     .featured-page__heading {
         @include body-font;
         font-size: 48px;
         margin-bottom: 48px;
+
+        @include medium-up {
+            margin-bottom: 64px;
+        }
     }
 }

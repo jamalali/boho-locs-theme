@@ -59,7 +59,8 @@ footer.site-footer {
             padding-bottom: 12px;
 
             @include medium-up {
-                flex-basis: calc(#{$m-link-list-width} - (#{$m-link-list-margin} * (#{$m-link-lists-per-row} - 1) / #{$m-link-lists-per-row}));
+                @include flex-basis($m-link-list-width, $m-link-list-margin, $m-link-lists-per-row);
+                // flex-basis: calc(#{$m-link-list-width} - (#{$m-link-list-margin} * (#{$m-link-lists-per-row} - 1) / #{$m-link-lists-per-row}));
                 margin-right: $m-link-list-margin;
                 margin-bottom: 48px;
                 padding-bottom: 0;
