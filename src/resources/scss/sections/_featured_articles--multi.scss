@@ -39,7 +39,7 @@
             border-right: solid 1px $black;
         }
 
-        @include large-up {
+        @include xlarge-up {
             padding: 48px 30px;
         }
 
@@ -53,7 +53,7 @@
         .featured-articles__image {
             margin-bottom: 24px;
 
-            @include large-up {
+            @include xlarge-up {
                 margin-bottom: 36px;
             }
 
@@ -68,7 +68,7 @@
                 
             }
 
-            @include large-up {
+            @include xlarge-up {
                 
             }
 
@@ -77,13 +77,12 @@
             }
 
             .featured-articles__category {
-                @include header-font-secondary-normal;
+                @include header-font-secondary-bold;
                 font-size: 12px;
-                font-weight: 700;
                 line-height: 18px;
                 margin-bottom: 24px;
 
-                @include large-up {
+                @include xlarge-up {
                     margin-bottom: 36px;
                     font-size: 18px;
                     line-height: 24px;
@@ -96,7 +95,7 @@
                 line-height: 28px;
                 margin-bottom: 24px;
 
-                @include large-up {
+                @include xlarge-up {
                     margin-bottom: 48px;
                     font-size: 42px;
                     line-height: 42px;
@@ -107,7 +106,7 @@
                 font-size: 12px;
                 line-height: 28px;
 
-                @include large-up {
+                @include xlarge-up {
                     font-size: 16px;
                 }
             }

@@ -32,43 +32,45 @@
 
     </div>
 
-    <ul class="links">
-        {% for link in linklists.mobile-menu.links %}
-            <li class="link-item {{ link.handle }} {% if link.links != blank %}is-parent{% endif %}">
-                <a href="{{ link.url }}">
-                    {{ link.title }}
-                </a>
+    <div class="links-area">
+        <ul class="links">
+            {% for link in linklists.mobile-menu.links %}
+                <li class="link-item {{ link.handle }} {% if link.links != blank %}is-parent{% endif %}">
+                    <a href="{{ link.url }}">
+                        {{ link.title }}
+                    </a>
 
-                {% if link.links != blank %}
-                    <ul class="child-links">
-                        {% for child_link in link.links %}
-                            <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
-                                <a href="{{ child_link.url }}" class="dropdown-toggle">
-                                    {{ child_link.title }}
+                    {% if link.links != blank %}
+                        <ul class="child-links">
+                            {% for child_link in link.links %}
+                                <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
+                                    <a href="{{ child_link.url }}" class="dropdown-toggle">
+                                        {{ child_link.title }}
+
+                                        {% if child_link.links != blank %}
+                                            <span class="chevron">
+                                                {% render 'icon_chevron' %}
+                                            </span>
+                                        {% endif %}
+                                    </a>
 
                                     {% if child_link.links != blank %}
-                                        <span class="chevron">
-                                            {% render 'icon_chevron' %}
-                                        </span>
+                                        <ul class="grand-child-links">
+                                            {% for grand_child_link in child_link.links %}
+                                                <li class="link-item {{ grand_child_link.handle }}">
+                                                    <a href="{{ grand_child_link.url }}">
+                                                        {{ grand_child_link.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
                                     {% endif %}
-                                </a>
-
-                                {% if child_link.links != blank %}
-                                    <ul class="grand-child-links">
-                                        {% for grand_child_link in child_link.links %}
-                                            <li class="link-item {{ grand_child_link.handle }}">
-                                                <a href="{{ grand_child_link.url }}">
-                                                    {{ grand_child_link.title }}
-                                                </a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>

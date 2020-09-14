@@ -144,8 +144,7 @@ footer.site-footer {
     }
 
     .title {
-        @include header-font-secondary-normal;
-        font-weight: 700;
+        @include header-font-secondary-bold;
         margin-bottom: 24px;
 
         @include large-up {
@@ -164,9 +163,8 @@ footer.site-footer {
     }
     
     a {
-        @include header-font-secondary-normal;
+        @include header-font-secondary-bold;
         font-size: 11px;
-        font-weight: 700;
 
         @include medium-up {
             font-size: 12px;

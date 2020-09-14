@@ -6,21 +6,20 @@
         padding-bottom: 64px;
     }
 
-    @include large-up {
+    @include xlarge-up {
         padding-top: 120px;
         padding-bottom: 120px;
     }
 
     .media-info-box__sub_heading {
-        @include header-font-secondary-normal;
-        font-weight: 700;
+        @include header-font-secondary-bold;
         font-size: 16px;
         color: $brand-color-4;
         margin-bottom: 24px;
         text-align: center;
         line-height: 20px;
 
-        @include large-up {
+        @include xlarge-up {
             margin-bottom: 36px;
             font-size: 24px;
             line-height: 30px;
@@ -37,7 +36,7 @@
             font-size: 42px;
         }
 
-        @include large-up {
+        @include xlarge-up {
             margin-bottom: 48px;
             font-size: 72px;
         }
@@ -59,7 +58,7 @@
                 margin-right: 24px;
             }
 
-            @include large-up {
+            @include xlarge-up {
                 margin-right: 30px;
             }
 
@@ -101,7 +100,7 @@
             .media-info-box_description {
                 line-height: 24px;
 
-                @include large-up {
+                @include xlarge-up {
                     font-size: 24px;
                     line-height: 42px;
                 }

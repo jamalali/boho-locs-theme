@@ -11,7 +11,11 @@
 body {
   font-family: "Louize Display Regular", serif;
   font-size: 16px;
-  position: relative; }
+  position: relative;
+  padding-top: 42px; }
+  @media screen and (min-width: 1200px) {
+    body {
+      padding-top: 90px; } }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'GT America Expanded'; }
@@ -68,10 +72,10 @@ ul {
 .currency-selector {
   /* Hide arrow icon in IE browsers */ }
   .currency-selector select {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
+    font-weight: normal;
     font-size: 16px;
-    font-weight: 700;
     border: 0;
     background: url("icon_chevron_down.png") transparent no-repeat right center;
     background-size: 9px;
@@ -92,9 +96,9 @@ ul {
     justify-content: space-between;
     padding: 0 120px; }
     .desktop-menu-area .links > .link-item > a {
-      font-family: "GT America Condensed", sans-serif;
+      font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: normal;
       padding: 0 9px;
       display: inline-block;
       line-height: 90px;
@@ -134,9 +138,9 @@ ul {
         .desktop-menu-area .links > .link-item .child-links {
           padding-left: 384px; } }
       .desktop-menu-area .links > .link-item .child-links > .link-item > a {
-        font-family: "GT America Condensed", sans-serif;
+        font-family: "GT America Condensed Bold", sans-serif;
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: normal;
         line-height: 30px;
         white-space: nowrap; }
         @media screen and (min-width: 1200px) {
@@ -166,8 +170,8 @@ ul {
   background: #eef315;
   position: absolute;
   top: 0;
-  bottom: 0;
   width: 100%;
+  height: 100vh;
   left: -100%;
   transition: left .5s;
   z-index: 2; }
@@ -193,42 +197,48 @@ ul {
         margin-left: 12px; }
         .mobile-menu-area .top .nav-links li:first-child {
           margin-left: 0; }
-  .mobile-menu-area .links a {
-    display: block;
-    line-height: 24px; }
-  .mobile-menu-area .links > .link-item {
-    margin-bottom: 48px; }
-    .mobile-menu-area .links > .link-item > a {
-      font-family: "GT America Condensed", sans-serif;
-      text-transform: uppercase;
-      font-size: 20px;
-      margin-bottom: 12px; }
-  .mobile-menu-area .child-links > .link-item {
-    border-bottom: solid 1px #000000;
-    padding: 12px 0; }
-    .mobile-menu-area .child-links > .link-item.is-parent > a {
-      position: relative; }
-      .mobile-menu-area .child-links > .link-item.is-parent > a .chevron {
-        position: absolute;
-        right: 0;
-        transform: rotate(180deg);
-        transition: transform .25s; }
-    .mobile-menu-area .child-links > .link-item.is-parent .grand-child-links {
-      display: none; }
-      .mobile-menu-area .child-links > .link-item.is-parent .grand-child-links > .link-item > a {
+  .mobile-menu-area .links-area {
+    max-height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+    .mobile-menu-area .links-area .links a {
+      display: block;
+      line-height: 24px; }
+    .mobile-menu-area .links-area .links > .link-item {
+      margin-bottom: 48px; }
+      .mobile-menu-area .links-area .links > .link-item > a {
         font-family: "GT America Condensed", sans-serif;
-        text-transform: uppercase; }
-    .mobile-menu-area .child-links > .link-item.is-parent.is-parent--active .chevron {
-      transform: rotate(0deg); }
-    .mobile-menu-area .child-links > .link-item.is-parent.is-parent--active .grand-child-links {
-      display: block; }
-    .mobile-menu-area .child-links > .link-item > a {
-      font-family: "GT America Condensed Bold", sans-serif;
-      text-transform: uppercase;
-      font-weight: normal; }
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-bottom: 12px; }
+    .mobile-menu-area .links-area .child-links > .link-item {
+      border-bottom: solid 1px #000000;
+      padding: 12px 0; }
+      .mobile-menu-area .links-area .child-links > .link-item.is-parent > a {
+        position: relative; }
+        .mobile-menu-area .links-area .child-links > .link-item.is-parent > a .chevron {
+          position: absolute;
+          right: 0;
+          transform: rotate(180deg);
+          transition: transform .25s; }
+      .mobile-menu-area .links-area .child-links > .link-item.is-parent .grand-child-links {
+        display: none; }
+        .mobile-menu-area .links-area .child-links > .link-item.is-parent .grand-child-links > .link-item > a {
+          font-family: "GT America Condensed", sans-serif;
+          text-transform: uppercase; }
+      .mobile-menu-area .links-area .child-links > .link-item.is-parent.is-parent--active .chevron {
+        transform: rotate(0deg); }
+      .mobile-menu-area .links-area .child-links > .link-item.is-parent.is-parent--active .grand-child-links {
+        display: block; }
+      .mobile-menu-area .links-area .child-links > .link-item > a {
+        font-family: "GT America Condensed Bold", sans-serif;
+        text-transform: uppercase;
+        font-weight: normal; }
 
-header.site-header.mobile-menu-open .mobile-menu-area {
-  left: 0; }
+body.mobile-menu-open {
+  width: 100%; }
+  body.mobile-menu-open .mobile-menu-area {
+    left: 0; }
 
 .social-links {
   display: flex;
@@ -368,39 +378,41 @@ header.site-header.mobile-menu-open .mobile-menu-area {
   @media screen and (min-width: 768px) {
     .section--collage {
       padding: 64px 36px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--collage {
       padding: 120px 80px; } }
   .section--collage .collage__sub-heading {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     font-size: 16px;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--collage .collage__sub-heading {
         margin-bottom: 36px;
-        font-size: 24px;
-        line-height: 18px; } }
+        line-height: 18px;
+        font-size: 24px; } }
   .section--collage .collage__heading {
     font-family: "Louize Display Regular", serif;
     font-weight: normal;
     font-size: 34px;
     margin-bottom: 36px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--collage .collage__heading {
         margin-bottom: 64px;
-        font-size: 62px;
-        line-height: 78px; } }
+        line-height: 78px;
+        font-size: 62px; } }
   .section--collage .collage__intro {
     margin-bottom: 48px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--collage .collage__intro {
-        margin-bottom: 120px;
-        font-size: 24px;
-        line-height: 42px; } }
+        margin-bottom: 120px; } }
     .section--collage .collage__intro p {
       line-height: 24px; }
+      @media screen and (min-width: 1440px) {
+        .section--collage .collage__intro p {
+          font-size: 24px;
+          line-height: 42px; } }
   .section--collage .collage__body {
     position: relative; }
   .section--collage .collage__images {
@@ -475,7 +487,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
           font-size: 52px;
           line-height: 64px;
           margin-bottom: 0; } }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--collage .collage__block_text p {
           font-size: 72px;
           line-height: 84px; } }
@@ -490,7 +502,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
   @media screen and (min-width: 768px) {
     .section--feature-box .section__inner {
       padding-bottom: 64px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--feature-box .section__inner {
       padding-bottom: 120px; } }
   .section--feature-box .section__inner .feature-box__header {
@@ -501,7 +513,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       .section--feature-box .section__inner .feature-box__header {
         margin-bottom: 0px;
         padding-top: 64px; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--feature-box .section__inner .feature-box__header {
         padding-top: 120px;
         padding-bottom: 64px; } }
@@ -513,9 +525,9 @@ header.site-header.mobile-menu-open .mobile-menu-area {
         .section--feature-box .section__inner .feature-box__header img {
           width: 45%; } }
     .section--feature-box .section__inner .feature-box__header .feature-box__overlay-text {
-      font-family: "GT America Condensed", sans-serif;
+      font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: normal;
       font-size: 42px;
       line-height: 42px;
       text-align: center;
@@ -530,17 +542,17 @@ header.site-header.mobile-menu-open .mobile-menu-area {
           transform: translateY(-50%);
           bottom: auto;
           padding: 0 20%; } }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--feature-box .section__inner .feature-box__header .feature-box__overlay-text {
           font-size: 94px;
           line-height: 86px; } }
   .section--feature-box .section__inner .feature-box__title {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     text-align: center;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--feature-box .section__inner .feature-box__title {
         margin-bottom: 64px;
         font-size: 24px;
@@ -556,7 +568,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
         max-width: 70%;
         margin-left: auto;
         margin-right: auto; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--feature-box .section__inner .feature-box__description {
         max-width: 62%;
         font-size: 24px;
@@ -590,7 +602,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       padding-right: 18px;
       border: none;
       border-right: solid 1px #000000; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--featured-articles .featured-articles--multi .featured-articles__article {
       padding: 48px 30px; } }
   @media screen and (min-width: 768px) {
@@ -598,17 +610,17 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       border-right: none; } }
   .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
     margin-bottom: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__image {
         margin-bottom: 36px; } }
   .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
+    font-weight: normal;
     font-size: 12px;
-    font-weight: 700;
     line-height: 18px;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__category {
         margin-bottom: 36px;
         font-size: 18px;
@@ -619,7 +631,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
     font-size: 24px;
     line-height: 28px;
     margin-bottom: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__title {
         margin-bottom: 48px;
         font-size: 42px;
@@ -627,7 +639,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
   .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__date-author {
     font-size: 12px;
     line-height: 28px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-articles .featured-articles--multi .featured-articles__article .featured-articles__content .featured-articles__date-author {
         font-size: 16px; } }
 
@@ -675,19 +687,19 @@ header.site-header.mobile-menu-open .mobile-menu-area {
         display: flex;
         flex-direction: column;
         justify-content: center; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content {
         padding: 120px 115px; } }
     .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content a {
       color: #e4d9d5; }
     .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__category {
-      font-family: "GT America Condensed", sans-serif;
+      font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
+      font-weight: normal;
       font-size: 12px;
-      font-weight: 700;
       line-height: 18px;
       margin-bottom: 24px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__category {
           font-size: 24px;
           line-height: 30px;
@@ -701,14 +713,14 @@ header.site-header.mobile-menu-open .mobile-menu-area {
         .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__title {
           font-size: 34px;
           line-height: 38px; } }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__title {
           font-size: 82px;
           line-height: 94px;
           margin-bottom: 64px; } }
     .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__date-author {
       font-size: 12px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--featured-articles .featured-articles--single .featured-articles__article .featured-articles__content .featured-articles__date-author {
           font-size: 24px; } }
 
@@ -748,19 +760,19 @@ header.site-header.mobile-menu-open .mobile-menu-area {
     .section--featured-products {
       padding-top: 64px;
       padding-bottom: 64px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--featured-products {
       padding-top: 120px;
       padding-bottom: 120px; } }
   .section--featured-products .featured-products__heading {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     text-align: center;
     margin-bottom: 24px;
     font-size: 16px;
     color: #93a0ee; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-products .featured-products__heading {
         margin-bottom: 36px;
         font-size: 24px; } }
@@ -769,13 +781,13 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       display: flex;
       padding-left: 27px;
       padding-right: 27px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--featured-products .featured-products__products {
       padding-left: 65px;
       padding-right: 65px; } }
   .section--featured-products .featured-products__product {
     padding: 0 9px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--featured-products .featured-products__product {
         padding-left: 15px;
         padding-right: 15px; } }
@@ -783,7 +795,7 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       position: relative;
       margin-bottom: 12px;
       border: solid #000000 1px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--featured-products .featured-products__product .product__image-area {
           margin-bottom: 18px; } }
       .section--featured-products .featured-products__product .product__image-area .product__image-overlay {
@@ -799,11 +811,11 @@ header.site-header.mobile-menu-open .mobile-menu-area {
       .section--featured-products .featured-products__product .product__image-area .product__image {
         width: 100%; }
     .section--featured-products .featured-products__product .product__title {
-      font-family: "GT America Condensed", sans-serif;
+      font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: normal;
       font-size: 14px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--featured-products .featured-products__product .product__title {
           font-size: 22px; } }
 
@@ -901,9 +913,9 @@ footer.site-footer {
       flex-basis: 50%;
       margin-bottom: 0; } }
   .follow .title {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     margin-bottom: 24px; }
     @media screen and (min-width: 1200px) {
       .follow .title {
@@ -917,68 +929,73 @@ footer.site-footer {
       text-align: right;
       align-self: flex-end; } }
   .designer a {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 700; }
+    font-weight: normal;
+    font-size: 11px; }
     @media screen and (min-width: 768px) {
       .designer a {
         font-size: 12px; } }
 
-header.site-header .inner {
-  display: flex;
-  height: 42px;
-  padding-right: 18px;
-  padding-left: 18px;
-  background: #eef315; }
-  @media screen and (min-width: 1200px) {
-    header.site-header .inner {
-      height: auto; } }
-  header.site-header .inner .mobile-menu-toggle {
+header.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2; }
+  header.site-header .inner {
     display: flex;
-    align-items: center;
-    margin-right: 18px; }
+    height: 42px;
+    padding-right: 18px;
+    padding-left: 18px;
+    background: #eef315; }
     @media screen and (min-width: 1200px) {
-      header.site-header .inner .mobile-menu-toggle {
-        display: none; } }
-  header.site-header .inner .logo-area {
-    display: flex;
-    align-items: center; }
-    @media screen and (min-width: 1200px) {
-      header.site-header .inner .logo-area {
-        height: 90px; } }
-    header.site-header .inner .logo-area .logo {
-      width: 100px; }
+      header.site-header .inner {
+        height: auto; } }
+    header.site-header .inner .mobile-menu-toggle {
+      display: flex;
+      align-items: center;
+      margin-right: 18px; }
       @media screen and (min-width: 1200px) {
-        header.site-header .inner .logo-area .logo {
-          width: 175px; } }
-      @media screen and (min-width: 1440px) {
-        header.site-header .inner .logo-area .logo {
-          width: 246px; } }
-  @media screen and (min-width: 1200px) {
-    header.site-header .inner .desktop-menu-area {
-      flex-grow: 1; } }
-  header.site-header .inner .right-area {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: end; }
-    @media screen and (min-width: 1200px) {
-      header.site-header .inner .right-area {
-        height: 90px;
-        flex-grow: 0; } }
-    header.site-header .inner .right-area li {
-      margin-left: 18px; }
+        header.site-header .inner .mobile-menu-toggle {
+          display: none; } }
+    header.site-header .inner .logo-area {
+      display: flex;
+      align-items: center; }
       @media screen and (min-width: 1200px) {
-        header.site-header .inner .right-area li {
-          margin-left: 24x; } }
-      header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
-        display: none; }
+        header.site-header .inner .logo-area {
+          height: 90px; } }
+      header.site-header .inner .logo-area .logo {
+        width: 100px; }
         @media screen and (min-width: 1200px) {
-          header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
-            display: inline-block; } }
-      header.site-header .inner .right-area li svg {
-        vertical-align: middle; }
+          header.site-header .inner .logo-area .logo {
+            width: 175px; } }
+        @media screen and (min-width: 1440px) {
+          header.site-header .inner .logo-area .logo {
+            width: 246px; } }
+    @media screen and (min-width: 1200px) {
+      header.site-header .inner .desktop-menu-area {
+        flex-grow: 1; } }
+    header.site-header .inner .right-area {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: end; }
+      @media screen and (min-width: 1200px) {
+        header.site-header .inner .right-area {
+          height: 90px;
+          flex-grow: 0; } }
+      header.site-header .inner .right-area li {
+        margin-left: 18px; }
+        @media screen and (min-width: 1200px) {
+          header.site-header .inner .right-area li {
+            margin-left: 24x; } }
+        header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
+          display: none; }
+          @media screen and (min-width: 1200px) {
+            header.site-header .inner .right-area li.account-link, header.site-header .inner .right-area li.currency-selector, header.site-header .inner .right-area li.wishlist {
+              display: inline-block; } }
+        header.site-header .inner .right-area li svg {
+          vertical-align: middle; }
 
 .section--hero .section__inner {
   height: calc(100vh - 42px);
@@ -1075,7 +1092,7 @@ header.site-header .inner {
     .section--icon-info-list .section__inner .icon-info-list__items {
       padding: 48px 36px;
       flex-direction: row; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--icon-info-list .section__inner .icon-info-list__items {
       justify-content: center; } }
   .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item {
@@ -1088,7 +1105,7 @@ header.site-header .inner {
         flex-basis: 0; }
         .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item {
         flex-grow: 0;
         flex-basis: auto; } }
@@ -1097,7 +1114,7 @@ header.site-header .inner {
       min-width: 60px;
       position: relative;
       height: 80px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item .icon-info-list__icon {
           margin-right: 30px; } }
       .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item .icon-info-list__icon img {
@@ -1105,12 +1122,12 @@ header.site-header .inner {
         top: 50%;
         transform: translateY(-50%); }
     .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item .icon-info-list__info {
-      font-family: "GT America Condensed", sans-serif;
+      font-family: "GT America Condensed Bold", sans-serif;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: normal;
       font-size: 13px;
       line-height: 14px; }
-      @media screen and (min-width: 1200px) {
+      @media screen and (min-width: 1440px) {
         .section--icon-info-list .section__inner .icon-info-list__items .icon-info-list__item .icon-info-list__info {
           max-width: 280px;
           font-size: 24px;
@@ -1169,20 +1186,20 @@ header.site-header .inner {
     .section--media-info-box {
       padding-top: 64px;
       padding-bottom: 64px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--media-info-box {
       padding-top: 120px;
       padding-bottom: 120px; } }
   .section--media-info-box .media-info-box__sub_heading {
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     font-size: 16px;
     color: #ff776d;
     margin-bottom: 24px;
     text-align: center;
     line-height: 20px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--media-info-box .media-info-box__sub_heading {
         margin-bottom: 36px;
         font-size: 24px;
@@ -1196,7 +1213,7 @@ header.site-header .inner {
     @media screen and (min-width: 768px) {
       .section--media-info-box .media-info-box__heading {
         font-size: 42px; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--media-info-box .media-info-box__heading {
         margin-bottom: 48px;
         font-size: 72px; } }
@@ -1211,7 +1228,7 @@ header.site-header .inner {
       .section--media-info-box .media-info-box__main-area .media-info-box__video-area {
         flex-basis: 50%;
         margin-right: 24px; } }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--media-info-box .media-info-box__main-area .media-info-box__video-area {
         margin-right: 30px; } }
     .section--media-info-box .media-info-box__main-area .media-info-box__video-area a {
@@ -1239,7 +1256,7 @@ header.site-header .inner {
         line-height: 30px; } }
   .section--media-info-box .media-info-box__main-area .media-info-box__text-area .media-info-box_description {
     line-height: 24px; }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       .section--media-info-box .media-info-box__main-area .media-info-box__text-area .media-info-box_description {
         font-size: 24px;
         line-height: 42px; } }
@@ -1250,14 +1267,14 @@ header.site-header .inner {
   @media screen and (min-width: 768px) {
     .section--quiz-intro {
       padding: 64px 36px; } }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     .section--quiz-intro {
       padding: 120px 80px; } }
   .section--quiz-intro .quiz-intro__sub-heading {
     display: none;
-    font-family: "GT America Condensed", sans-serif;
+    font-family: "GT America Condensed Bold", sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: normal;
     color: #93a0ee;
     font-size: 16px; }
     @media screen and (min-width: 768px) {

@@ -3,8 +3,8 @@
     background: $brand-color-1;
     position: absolute;
     top: 0;
-    bottom: 0;
     width: 100%;
+    height: 100vh;
     left: -100%;
     transition: left .5s;
     z-index: 2;
@@ -47,72 +47,81 @@
         }
     }
 
-    .links {
-        a {
-            display: block;
-            line-height: 24px;
-        }
+    .links-area {
+        max-height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
 
-        > .link-item {
-            margin-bottom: 48px;
-
-            > a {
-                @include header-font-secondary-normal;
-                font-size: 20px;
-                margin-bottom: 12px;
+        .links {
+            a {
+                display: block;
+                line-height: 24px;
+            }
+    
+            > .link-item {
+                margin-bottom: 48px;
+    
+                > a {
+                    @include header-font-secondary-normal;
+                    font-size: 20px;
+                    margin-bottom: 12px;
+                }
             }
         }
-    }
 
-    .child-links {
-        > .link-item {
-            border-bottom: solid 1px $body-text-color;
-            padding: 12px 0;
-
-            &.is-parent {
-
-                > a {
-                    position: relative;
-
-                    .chevron {
-                        position: absolute;
-                        right: 0;
-                        transform: rotate(180deg);
-                        transition: transform .25s;
+        .child-links {
+            > .link-item {
+                border-bottom: solid 1px $body-text-color;
+                padding: 12px 0;
+    
+                &.is-parent {
+    
+                    > a {
+                        position: relative;
+    
+                        .chevron {
+                            position: absolute;
+                            right: 0;
+                            transform: rotate(180deg);
+                            transition: transform .25s;
+                        }
                     }
-                }
-
-                .grand-child-links {
-                    display: none;
-        
-                    > .link-item {
-                        > a {
-                            @include header-font-secondary-normal;
+    
+                    .grand-child-links {
+                        display: none;
+            
+                        > .link-item {
+                            > a {
+                                @include header-font-secondary-normal;
+                            }
+                        }
+                    }
+    
+                    &.is-parent--active {
+                        .chevron {
+                            transform: rotate(0deg);
+                        }
+    
+                        .grand-child-links {
+                            display: block;
                         }
                     }
                 }
-
-                &.is-parent--active {
-                    .chevron {
-                        transform: rotate(0deg);
-                    }
-
-                    .grand-child-links {
-                        display: block;
-                    }
+    
+                > a {
+                    @include header-font-secondary-bold;
                 }
-            }
-
-            > a {
-                @include header-font-secondary-bold;
             }
         }
     }
 }
 
 // Mobile menu open
-header.site-header {
-    &.mobile-menu-open .mobile-menu-area {
+body.mobile-menu-open {
+    width: 100%;
+    // More styles are added in mobile-menu.js
+
+    .mobile-menu-area {
         left: 0;
     }
 }

@@ -6,20 +6,19 @@
         padding: 64px 36px;
     }
 
-    @include large-up {
+    @include xlarge-up {
         padding: 120px 80px;
     }
 
     .collage__sub-heading {
-        @include header-font-secondary-normal;
-        font-weight: 700;
+        @include header-font-secondary-bold;
         font-size: 16px;
         margin-bottom: 24px;
 
-        @include large-up {
+        @include xlarge-up {
             margin-bottom: 36px;
-            font-size: 24px;
             line-height: 18px;
+            font-size: 24px;
         }
     }
 
@@ -28,24 +27,27 @@
         font-size: 34px;
         margin-bottom: 36px;
 
-        @include large-up {
+        @include xlarge-up {
             margin-bottom: 64px;
-            font-size: 62px;
             line-height: 78px;
+            font-size: 62px;
         }
     }
 
     .collage__intro {
         margin-bottom: 48px;
 
-        @include large-up {
+        @include xlarge-up {
             margin-bottom: 120px;
-            font-size: 24px;
-            line-height: 42px;
         }
 
         p {
             line-height: 24px;
+
+            @include xlarge-up {
+                font-size: 24px;
+                line-height: 42px;
+            }
         }
     }
 
@@ -149,7 +151,7 @@
                 margin-bottom: 0;
             }
 
-            @include large-up {
+            @include xlarge-up {
                 font-size: 72px;
                 line-height: 84px;
             }

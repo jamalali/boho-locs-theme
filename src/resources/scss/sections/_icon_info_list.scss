@@ -11,7 +11,7 @@
             flex-direction: row;
         }
 
-        @include large-up {
+        @include xlarge-up {
             justify-content: center;
         }
 
@@ -29,7 +29,7 @@
                 }
             }
     
-            @include large-up {
+            @include xlarge-up {
                 flex-grow: 0;
                 flex-basis: auto;
             }
@@ -40,7 +40,7 @@
                 position: relative;
                 height: 80px;
     
-                @include large-up {
+                @include xlarge-up {
                     margin-right: 30px;
                 }
 
@@ -50,12 +50,11 @@
             }
         
             .icon-info-list__info {
-                @include header-font-secondary-normal;
-                font-weight: 700;
+                @include header-font-secondary-bold;
                 font-size: 13px;
                 line-height: 14px;
     
-                @include large-up {
+                @include xlarge-up {
                     max-width: 280px;
                     font-size: 24px;
                     line-height: 24px;

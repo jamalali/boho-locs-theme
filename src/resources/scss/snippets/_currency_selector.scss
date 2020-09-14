@@ -1,9 +1,8 @@
 .currency-selector {
 
     select {
-        @include header-font-secondary-normal;
+        @include header-font-secondary-bold;
         font-size: $body-text-size;
-        font-weight: 700;
         border: 0;
         background: url('icon_chevron_down.png') transparent no-repeat right center;
         background-size: 9px;

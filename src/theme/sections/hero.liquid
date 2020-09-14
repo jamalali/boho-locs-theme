@@ -1,11 +1,11 @@
 <div class="section__inner">
 
   {% if section.settings.mobile_image != blank %}
-    <div class="hero__bg hero--mobile__bg" style="background-image: url('{{ section.settings.mobile_image | img_url: '1920x' }}');"></div>
+    <div class="hero__bg hero--mobile__bg" style="background-image: url('{{ section.settings.mobile_image | img_url: '1200x' }}');"></div>
   {% endif %}
 
   {% if section.settings.image != blank %}
-    <div class="hero__bg hero--desktop__bg" style="background-image: url('{{ section.settings.image | img_url: '1920x' }}');"></div>
+    <div class="hero__bg hero--desktop__bg" style="background-image: url('{{ section.settings.image | img_url: 'master' }}');"></div>
   {% endif %}
 
   <div class="hero__inner" style="color: {{ section.settings.text_color }};">

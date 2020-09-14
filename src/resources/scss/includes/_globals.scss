@@ -13,6 +13,11 @@ body {
     font-family: $body-font-family;
     font-size: $body-text-size;
     position: relative;
+    padding-top: $header-height;
+
+    @include large-up {
+        padding-top: $header-height-l;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
