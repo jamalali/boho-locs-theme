@@ -1,6 +1,6 @@
-.section--featured-articles .featured-articles--single {
+.section--featured-article {
 
-    .featured-articles__article {
+    .article {
         position: relative;
         padding-bottom: 55px;
 
@@ -9,7 +9,7 @@
             padding-bottom: 0;
         }
 
-        .featured-articles__image {
+        .article__image {
             position: relative;
             overflow: hidden;
             min-height: 400px;
@@ -29,7 +29,7 @@
             }
         }
 
-        .featured-articles__content {
+        .article__content {
             background: $black;
             padding: 36px 24px;
             color: $brand-color-2;
@@ -59,7 +59,7 @@
                 color: $brand-color-2;
             }
 
-            .featured-articles__category {
+            .article__category {
                 @include header-font-secondary-bold;
                 font-size: 12px;
                 line-height: 18px;
@@ -72,7 +72,7 @@
                 }
             }
 
-            .featured-articles__title {
+            .article__title {
                 @include body-font;
                 font-size: 24px;
                 margin-bottom: 24px;
@@ -89,7 +89,7 @@
                 }
             }
 
-            .featured-articles__date-author {
+            .article__date-author {
                 font-size: 12px;
 
                 @include xlarge-up {

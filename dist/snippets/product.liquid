@@ -1,0 +1,21 @@
+<div class="featured-products-list__product product" {{ block_attributes }}>
+    <a href="{{ product.url }}">
+
+        <div class="product__image-area">
+            <div class="product__image-overlay"></div>
+            <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }}" class="product__image" />
+        </div>
+
+        <div class="product__info-area">
+            <h3 class="product__title">
+                {{ product.title }}
+            </h3>
+
+            {% if hide_price != true %}
+                <p class="product__price">
+                    {{ product.price | money_with_currency }}
+                </p>
+            {% endif %}
+        </div>
+    </a>
+</div>

@@ -4,7 +4,7 @@
   </h2>
 {% endif %}
 
-<div class="featured-products__products slick-slider" data-slick='{
+<div class="featured-products__list slick-slider" data-slick='{
         "centerMode": true,
         "centerPadding": "24px",
         "arrows": false,
@@ -18,19 +18,13 @@
         ]
     }'>
     {% for block in section.blocks %}
-        {% assign product = all_products[block.settings.product] %}
 
-        <div class="featured-products__product product" {{ block.shopify_attributes }}>
-            <a href="{{ product.url }}">
-                <div class="product__image-area">
-                    <div class="product__image-overlay"></div>
-                    <img src="{{ product.featured_image | img_url: '500x' }}" alt="{{ product.title }}" class="product__image" />
-                </div>
-                <h3 class="product__title">
-                    {{ product.title }}
-                </h3>
-            </a>
-        </div>
+        {% render 'block--product',
+            product             : all_products[block.settings.product],
+            block_attributes    : block.shopify_attributes,
+            hide_price          : true
+        %}
+
     {% endfor %}
 </div>
 

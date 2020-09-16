@@ -1,0 +1,10 @@
+.section--search-overlay-articles {
+    background: $brand-color-1;
+    padding-top: 48px;
+
+    .search-overlay-articles__heading {
+        @include header-font-secondary-bold;
+        font-size: 16px;
+        padding: 0 24px 36px;
+    }
+}

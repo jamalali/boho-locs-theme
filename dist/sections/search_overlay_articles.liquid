@@ -1,0 +1,58 @@
+<h2 class="search-overlay-articles__heading">
+    {{ section.settings.featured_articles_heading }}
+</h2>
+
+<div class="articles-list slick-slider" data-slick='{
+        "centerMode": true,
+        "centerPadding": "24px",
+        "arrows": false,
+        "infinite": false,
+        "mobileFirst": true,
+        "responsive": [
+            {
+                "breakpoint": 767,
+                "settings": "unslick"
+            }
+        ]
+    }'>
+
+    {% for block in section.blocks %}
+        {% if block.type == 'featured_articles' %}
+
+            {% render 'block--article',
+                article             : articles[block.settings.article],
+                block_attributes    : block.shopify_attributes
+            %}
+
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Search Overlay - Articles",
+    "class": "section--search-overlay-articles",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "featured_articles_heading",
+        "label": "Featured Articles Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_articles",
+        "name": "Featured Articles",
+        "settings": [
+          {
+            "id": "article",
+            "type": "article",
+            "label": "Article"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,6 +1,7 @@
 .section--quiz-intro {
     text-align: center;
     padding: 205px 24px 48px;
+    border: solid 1px $body-text-color;
 
     @include medium-up {
         padding: 64px 36px;

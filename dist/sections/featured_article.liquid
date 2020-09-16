@@ -1,0 +1,24 @@
+{% render 'block--article',
+    article: articles[section.settings.article]
+%}
+
+{% schema %}
+  {
+    "name": "Featured Article",
+    "class": "section--featured-article",
+    "tag": "section",
+    "settings": [
+        {
+        "type": "article",
+        "id": "article",
+        "label": "Article"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Article",
+            "category": "Boho Sections"
+        }
+    ]
+  }
+{% endschema %}

@@ -43,6 +43,18 @@
                 &:first-child {
                     margin-left: 0;
                 }
+
+                &.search-link {
+                    
+                    svg {
+                        max-width: 15px;
+                        height: auto;
+
+                        path {
+                            stroke-width: 2;
+                        }
+                    }
+                }
             }
         }
     }
@@ -117,11 +129,6 @@
 }
 
 // Mobile menu open
-body.mobile-menu-open {
-    width: 100%;
-    // More styles are added in mobile-menu.js
-
-    .mobile-menu-area {
-        left: 0;
-    }
+body.mobile-menu-open .mobile-menu-area {
+    left: 0;
 }

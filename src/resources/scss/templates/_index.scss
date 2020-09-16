@@ -4,7 +4,7 @@
         display: flex;
         flex-wrap: wrap;
 
-        .shopify-section {
+        > .shopify-section {
             flex-basis: 100%;
             max-width: 100%;
         }

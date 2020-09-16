@@ -80,6 +80,18 @@ header.site-header {
                     }
                 }
 
+                &.search-link {
+                    
+                    svg {
+                        max-width: 15px;
+                        height: auto;
+
+                        path {
+                            stroke-width: 2;
+                        }
+                    }
+                }
+
                 svg {
                     vertical-align: middle;
                 }
