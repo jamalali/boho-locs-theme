@@ -59,8 +59,7 @@ footer.site-footer {
             padding-bottom: 12px;
 
             @include medium-up {
-                @include flex-basis($m-link-list-width, $m-link-list-margin, $m-link-lists-per-row);
-                // flex-basis: calc(#{$m-link-list-width} - (#{$m-link-list-margin} * (#{$m-link-lists-per-row} - 1) / #{$m-link-lists-per-row}));
+                @include flex-items($m-link-lists-per-row, $m-link-list-margin);
                 margin-right: $m-link-list-margin;
                 margin-bottom: 48px;
                 padding-bottom: 0;
@@ -70,14 +69,6 @@ footer.site-footer {
             @include large-up {
                 margin-right: 0;
                 flex-basis: auto;
-            }
-
-            &:nth-child(#{$m-link-lists-per-row}n) {
-
-                @include medium-up {
-                    break-after: always;
-                    margin-right: 0;
-                }
             }
 
             > a {

@@ -1,0 +1,30 @@
+<ul class="search-tags__list">
+    {% for block in section.blocks %}
+        <li class="search-tags__list-item">
+            <a class="search-tags__tag" href="/search?q={{ block.settings.tag | replace: ' ', '+' }}">
+                {{ block.settings.tag }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% schema %}
+  {
+    "name": "Search Tags",
+    "class": "section--search-tags",
+    "tag": "section",
+    "blocks": [
+      {
+        "type": "tag",
+        "name": "Tag",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tag",
+            "label": "Tag"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

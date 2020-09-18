@@ -1,16 +1,17 @@
 <div class="search-overlay">
 
-  <div class="top">
-      <a href="#" class="search-overlay-toggle">
-          {% render 'icon_times' %}
-      </a>
-  </div>
+    <div class="top">
+        <a href="#" class="search-overlay-toggle">
+            {% render 'icon_times' %}
+        </a>
+    </div>
 
-  <div class="search-overlay__form-area">
-      {% render 'form_search' %}
-  </div>
+    <div class="search-overlay__form-area">
+        {% render 'form_search' %}
+    </div>
 
-  {% section 'search_overlay_products' %}
-  {% section 'search_overlay_articles' %}
+    {% section 'search_tags' %}
+    {% section 'search_overlay_products' %}
+    {% section 'search_overlay_articles' %}
 
 </div>

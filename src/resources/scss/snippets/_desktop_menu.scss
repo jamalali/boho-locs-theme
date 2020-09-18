@@ -1,7 +1,7 @@
 .desktop-menu-area {
 
     $bottom-border-size: 5px;
-    $parent-links-side-padding: 120px;
+    $parent-links-side-padding: 126px;
 
     // Hidden on small devices
     display: none;
@@ -107,11 +107,9 @@
 
 @keyframes dropdown {
     0% {
-        opacity: 0;
         transform: scaleY(0);
     }
     100% {
-        opacity: 1;
         transform: scaleY(1);
     }
 }

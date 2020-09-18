@@ -1,0 +1,21 @@
+<div class="tutorial" {{ block_attributes }}>
+    <a href="{{ tutorial.url }}">
+
+        <div class="tutorial__image">
+            <img src="{{ tutorial.image | img_url: '650x' }}" alt="{{ tutorial.title }}" />
+
+            <button class="button button--play">
+                {% render 'icon_play' %}
+            </button>
+        </div>
+
+        <div class="tutorial__content">
+
+            <h2 class="tutorial__title">
+                {{ tutorial.title }}
+            </h2>
+
+        </div>
+
+    </a>
+</div>

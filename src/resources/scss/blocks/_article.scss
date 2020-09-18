@@ -1,0 +1,87 @@
+.article {
+    padding: 36px 24px;
+    border: solid 1px $black;
+    border-right: none;
+    height: 100%;
+
+    @include medium-up {
+        height: auto;
+        padding-left: 18px;
+        padding-right: 18px;
+        border: none;
+        border-right: solid 1px $black;
+    }
+
+    @include xlarge-up {
+        padding: 48px 30px;
+    }
+
+    &:last-child {
+        
+        @include medium-up {
+            border-right: none;
+        }
+    }
+
+    .article__image {
+        margin-bottom: 24px;
+
+        @include xlarge-up {
+            margin-bottom: 36px;
+        }
+
+        img {
+            
+        }
+    }
+
+    .article__content {
+
+        @include medium-up {
+            
+        }
+
+        @include xlarge-up {
+            
+        }
+
+        a {
+            
+        }
+
+        .article__category {
+            @include header-font-secondary-bold;
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 24px;
+
+            @include xlarge-up {
+                margin-bottom: 36px;
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+
+        .article__title {
+            @include body-font;
+            font-size: 24px;
+            line-height: 28px;
+            margin-bottom: 24px;
+
+            @include xlarge-up {
+                margin-bottom: 48px;
+                font-size: 42px;
+                line-height: 42px;
+            }
+        }
+
+        .article__date-author {
+            font-size: 12px;
+            line-height: 28px;
+
+            @include xlarge-up {
+                font-size: 16px;
+            }
+        }
+    }
+}

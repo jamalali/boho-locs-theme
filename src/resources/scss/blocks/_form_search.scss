@@ -1,0 +1,35 @@
+.search-form {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    input[type="text"] {
+        outline: none;
+        font-family: $body-font-family;
+        width: 90%;
+        font-size: 34px;
+        line-height: 36px;
+        background: none;
+        border: 0;
+        border-bottom: solid 1px $body-text-color; 
+        padding: 8px;
+        text-align: center;
+
+        @include large-up {
+            width: 100%;
+        }
+    }
+
+    button {
+        background: none;
+        border: 0;
+        font-size: 0;
+        width: 20px;
+        cursor: pointer;
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

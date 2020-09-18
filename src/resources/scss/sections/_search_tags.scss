@@ -1,0 +1,31 @@
+.section--search-tags {
+    background: transparent;
+    padding: 48px 25px;
+    display: none;
+
+    @include large-up {
+        display: block;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    .search-tags__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-tags__list-item {
+        margin: 9px;
+    }
+
+    .search-tags__tag {
+        @include header-font-secondary-bold;
+        display: block;
+        width: 200px;
+        line-height: 48px;
+        border: 2px solid $body-text-color;
+        text-align: center;
+        white-space: nowrap;
+    }
+}

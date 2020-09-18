@@ -11,7 +11,7 @@
     overflow-y: scroll;
 
     @include large-up {
-        top: $header-height-l;
+        padding-top: $header-height-l;
     }
 
     .top {
@@ -22,35 +22,9 @@
     .search-overlay__form-area {
         padding: 48px 25px;
 
-        form {
-            text-align: center;
-            display: flex;
-
-            input[type="text"] {
-                outline: none;
-                font-family: $body-font-family;
-                width: 90%;
-                font-size: 34px;
-                line-height: 36px;
-                background: none;
-                border: 0;
-                border-bottom: solid 1px $body-text-color; 
-                padding: 8px;
-                text-align: center;
-            }
-
-            button {
-                background: none;
-                border: 0;
-                font-size: 0;
-                width: 20px;
-                cursor: pointer;
-
-                svg {
-                    max-width: 100%;
-                    height: auto;
-                }
-            }
+        @include large-up {
+            padding-left: 20%;
+            padding-right: 20%;
         }
     }
 
@@ -81,13 +55,6 @@
 
         .product__title {
             color: $white;
-        }
-
-        .product__price {
-            @include header-font-secondary-bold;
-            background: $brand-color-1;
-            line-height: 30px;
-            padding: 0 10px;
         }
     }
 }

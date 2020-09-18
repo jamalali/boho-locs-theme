@@ -1,0 +1,39 @@
+.tutorial {
+    padding: 0 9px;
+    // height: 100%;
+
+    @include medium-up {
+        // height: auto;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .tutorial__image {
+        margin-bottom: 24px;
+        position: relative;
+
+        @include xlarge-up {
+            margin-bottom: 36px;
+        }
+
+        .button--play {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+        }
+    }
+
+    .tutorial__content {
+
+        .tutorial__title {
+            @include header-font-secondary-bold;
+            font-size: 18px;
+            line-height: 18px;
+
+            @include xlarge-up {
+                font-size: 42px;
+                line-height: 42px;
+            }
+        }
+    }
+}

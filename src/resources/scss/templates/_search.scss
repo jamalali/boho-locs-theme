@@ -1,0 +1,156 @@
+.template--search {
+
+    > main {
+        background: $brand-color-1;
+
+        .search-form-area {
+            padding: 48px 25px;
+
+            @include large-up {
+                padding-left: 20%;
+                padding-right: 20%;
+            }
+
+            @include xlarge-up {
+                padding-top: 120px;
+                padding-bottom: 120px;
+            }
+        }
+
+        .section--search-results {
+            background: $brand-color-1;
+        }
+
+        .sub-heading {
+            @include header-font-secondary-bold;
+            font-size: 16px;
+            margin-bottom: 36px;
+
+            @include large-up {
+                font-size: 24px;
+                padding-top: 48px;
+                border-top: solid 1px $body-text-color;
+            }
+
+            @include xlarge-up {
+                
+            }
+
+            @include xxlarge-up {
+                font-size: 42px;
+                margin-bottom: 48px;
+                padding-top: 80px;
+            }
+        }
+
+        .product-results-area {
+            padding: 48px 24px 0;
+
+            @include large-up {
+                padding-bottom: 36px;
+            }
+
+            .products {
+                display: flex;
+                flex-wrap: wrap;
+
+                .product {
+                    padding: 0;
+                    margin-bottom: 48px;
+
+                    @include small-only {
+                        @include flex-items(2, 18px);
+                    }
+
+                    @include medium-only {
+                        @include flex-items(3, 18px);
+                    }
+
+                    @include large-up {
+                        @include flex-items(4, 30px);
+                    }
+
+                    @include xlarge-up {
+                        margin-bottom: 64px;
+                    }
+                }
+
+                .product__info-area {
+                    flex-direction: column;
+
+                    @include large-up {
+                        flex-direction: row;
+                    }
+                }
+
+                .product__title {
+                    margin-bottom: 12px;
+                }
+
+                .product__price {
+                    color: $white;
+                    background: $black;;
+                }
+            }
+        }
+
+        .article-results-area {
+            padding-bottom: 48px;
+
+            @include large-up {
+                padding-bottom: 84px;
+            }
+
+            .sub-heading {
+                margin: 0 24px 36px;
+            }
+
+            .articles-list {
+
+                @include medium-up {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                }
+
+                .article {
+                    border-top: solid 1px $body-text-color;
+                    border-bottom: solid 1px $body-text-color;
+
+                    &:first-child {
+
+                        @include medium-up {
+                            border-left: solid 1px $body-text-color;
+                        }
+                    }
+
+                    &:last-child {
+
+                        @include medium-up {
+                            border-right: solid 1px $body-text-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tutorial-results-area {
+            padding-bottom: 48px;
+
+            .sub-heading {
+                margin: 0 24px 36px;
+            }
+
+            .articles-list {
+
+                @include medium-up {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                }
+
+                .tutorial {
+                    @include flex-items(3, 18px);
+                }
+            }
+        }
+    }
+}

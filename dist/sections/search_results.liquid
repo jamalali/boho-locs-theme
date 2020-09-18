@@ -1,0 +1,178 @@
+{% if search.performed %}
+
+    {% assign product_results = search.results | where: "object_type", "product" %}
+    {% assign article_results = search.results | where: "object_type", "article" %}
+
+    {% comment %} We need to split the article results by which blog they are in i.e news and tutorials {% endcomment %}
+    {% assign news_articles_list = '' %}
+    {% assign tutorials_list = '' %}
+
+    {% for article in article_results %}
+
+        {% assign words = article.url | split: '/' %}
+        {% assign category_handle = words[2] %}
+
+        {% case category_handle %}
+
+            {% when section.settings.articles_blog %}
+                {% capture news_articles_list %}
+                    {{ news_articles_list }}{% if news_articles_list != '' %}::{% endif %}
+                    {{ article.handle }}
+                {% endcapture %}
+
+            {% when section.settings.videos_blog %}
+                {% capture tutorials_list %}
+                    {{ tutorials_list }}{% if tutorials_list != '' %}::{% endif %}
+                    {{ article.handle }}
+                {% endcapture %}
+
+        {% endcase %}
+
+    {% endfor %}
+
+    {% assign news_articles = news_articles_list | split: '::'%}
+    {% assign tutorials = tutorials_list | split: '::'%}
+
+    {% if product_results.size > 0 %}
+        <div class="product-results-area container">
+            <div class="inner">
+
+                <h2 class="sub-heading">
+                    {{ section.settings.product_results_heading }}
+                </h2>
+
+                <div class="products">
+                    {% for item in product_results %}
+                        {% render 'block--product',
+                            product: item
+                        %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+
+    {% if news_articles.size > 0 %}
+        <div class="article-results-area container">
+            <div class="inner">
+
+                <h2 class="sub-heading">
+                    {{ section.settings.article_results_heading }}
+                </h2>
+
+                <div class="articles-list slick-slider" data-slick='{
+                    "centerMode": true,
+                    "centerPadding": "36px",
+                    "infinite": true,
+                    "arrows": false,
+                    "mobileFirst": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 767,
+                            "settings": "unslick"
+                        }
+                    ]
+                }'>
+                    {% for item in news_articles %}
+                        {% assign handle = item | strip %}
+                        {% render 'block--article',
+                            article: articles[handle]
+                        %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+
+    {% if tutorials.size > 0 %}
+        <div class="tutorial-results-area container">
+            <div class="inner">
+
+                <h2 class="sub-heading">
+                    {{ section.settings.video_results_heading }}
+                </h2>
+
+                <div class="articles-list slick-slider" data-slick='{
+                    "centerMode": true,
+                    "centerPadding": "24px",
+                    "infinite": true,
+                    "arrows": false,
+                    "mobileFirst": true,
+                    "responsive": [
+                        {
+                            "breakpoint": 767,
+                            "settings": "unslick"
+                        }
+                    ]
+                }'>
+                    {% for item in tutorials %}
+                        {% assign handle = item | strip %}
+                        {% render 'block--tutorial',
+                            tutorial: articles[handle]
+                        %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+
+{% endif %}
+
+{% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Search Results",
+        "class": "section--search-results",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Products"
+            },
+            {
+                "type": "text",
+                "id": "product_results_heading",
+                "label": "Product Results Heading",
+                "default": "Products"
+            },
+            {
+                "type": "header",
+                "content": "Articles"
+            },
+            {
+                "type": "text",
+                "id": "article_results_heading",
+                "label": "Article Results Heading",
+                "default": "Articles"
+            },
+            {
+                "type": "blog",
+                "id": "articles_blog",
+                "label": "Articles Blog",
+                "info": "Choose which blog's articles you wish to show in this section"
+            },
+            {
+                "type": "header",
+                "content": "Videos"
+            },
+            {
+                "type": "text",
+                "id": "video_results_heading",
+                "label": "Video Results Heading",
+                "default": "Video"
+            },
+            {
+                "type": "blog",
+                "id": "videos_blog",
+                "label": "Videos Blog",
+                "info": "Choose which blog's articles you wish to show in this section"
+            }
+        ]
+    }
+{% endschema %}

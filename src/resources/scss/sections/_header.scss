@@ -3,16 +3,19 @@ header.site-header {
     top: 0;
     width: 100%;
     z-index: 2;
+    background: $brand-color-1;
     
     .inner {
         display: flex;
         height: $header-height;
         padding-right: 18px;
         padding-left: 18px;
-        background: $brand-color-1;
+        position: relative;
 
         @include large-up {
             height: auto;
+            padding-left: 24px;
+            padding-right: 24px;
         }
 
         .mobile-menu-toggle {

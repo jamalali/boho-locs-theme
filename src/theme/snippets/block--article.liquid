@@ -1,7 +1,9 @@
 <div class="article" {{ block_attributes }}>
 
     <div class="article__image">
-        <img src="{{ article.image | img_url: '650x' }}" alt="{{ article.title }}" />
+        <a href="{{ article.url }}">
+            <img src="{{ article.image | img_url: '650x' }}" alt="{{ article.title }}" />
+        </a>
     </div>
 
     <div class="article__content">

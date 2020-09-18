@@ -50,6 +50,10 @@
     
         .product__price {
             white-space: nowrap;
+            @include header-font-secondary-bold;
+            background: $brand-color-1;
+            line-height: 30px;
+            padding: 0 10px;
         }
     }
 }
