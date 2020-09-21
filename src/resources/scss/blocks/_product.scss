@@ -1,9 +1,9 @@
 .product {
     padding: 0 9px;
 
-    @include xlarge-up {
-        padding-left: 15px;
-        padding-right: 15px;
+    @include medium-up {
+        @include flex-items(3, 18px);
+        padding: 0;
     }
 
     .product__image-area {

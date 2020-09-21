@@ -61,18 +61,13 @@
                     {{ section.settings.article_results_heading }}
                 </h2>
 
-                <div class="articles-list slick-slider" data-slick='{
+                <div class="articles-list esc-carousel" data-carousel='{
                     "centerMode": true,
                     "centerPadding": "36px",
                     "infinite": true,
                     "arrows": false,
                     "mobileFirst": true,
-                    "responsive": [
-                        {
-                            "breakpoint": 767,
-                            "settings": "unslick"
-                        }
-                    ]
+                    "destroyAt": 768
                 }'>
                     {% for item in news_articles %}
                         {% assign handle = item | strip %}
@@ -94,18 +89,13 @@
                     {{ section.settings.video_results_heading }}
                 </h2>
 
-                <div class="articles-list slick-slider" data-slick='{
+                <div class="articles-list esc-carousel" data-carousel='{
                     "centerMode": true,
                     "centerPadding": "24px",
                     "infinite": true,
                     "arrows": false,
                     "mobileFirst": true,
-                    "responsive": [
-                        {
-                            "breakpoint": 767,
-                            "settings": "unslick"
-                        }
-                    ]
+                    "destroyAt": 768
                 }'>
                     {% for item in tutorials %}
                         {% assign handle = item | strip %}

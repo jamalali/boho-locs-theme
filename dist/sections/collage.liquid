@@ -24,19 +24,14 @@
 
 <main class="collage__body">
 
-  <div class="collage__images slick-slider" data-slick='{
+  <div class="collage__images esc-carousel" data-carousel='{
                 "arrows": false,
                 "mobileFirst": true,
                 "dots": true,
                 "autoplay": true,
                 "arrows": false,
-                "appendDots" : "#shopify-section-{{ section.id }} .collage__image-pagination",
-                "responsive": [
-                    {
-                        "breakpoint": 1199,
-                        "settings": "unslick"
-                    }
-                ]
+                "appendDots": "#shopify-section-{{ section.id }} .collage__image-pagination",
+                "destroyAt": 1200
             }'>
     {% for block in section.blocks %}
         {% if block.type == 'image' %}
@@ -56,12 +51,6 @@
   {% endif %}
 
 </main>
-
-<style>
-#shopify-section-{{ section.id }} {
-    background-color: #e4d9d5;
-  }
-</style>
 
 {% schema %}
   {

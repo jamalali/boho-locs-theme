@@ -58,6 +58,10 @@
             padding-right: 12.5px;
         }
 
+        svg {
+            max-height: 100%;
+        }
+
         &::after {
             content: " ";
             display: block;

@@ -4,18 +4,13 @@
         {{ section.settings.featured_products_heading }}
     </h2>
 
-    <div class="featured-products__list slick-slider" data-slick='{
+    <div class="featured-products__list esc-carousel" data-carousel='{
             "centerMode": true,
             "centerPadding": "24px",
             "arrows": false,
             "infinite": false,
             "mobileFirst": true,
-            "responsive": [
-                {
-                    "breakpoint": 767,
-                    "settings": "unslick"
-                }
-            ]
+            "destroyAt": 768
         }'>
 
         {% for block in section.blocks %}

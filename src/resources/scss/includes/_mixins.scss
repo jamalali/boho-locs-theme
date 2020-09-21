@@ -66,31 +66,37 @@
 }
 
 @mixin medium-only {
-  @media screen and (min-width: #{map-get($breakpoints, "medium")}) and (max-width: #{map-get($breakpoints, "large") - 1px}) {
-      @content;
-  }
+    @media screen and (min-width: #{map-get($breakpoints, "medium")}) and (max-width: #{map-get($breakpoints, "large") - 1px}) {
+        @content;
+    }
 }
 
 @mixin large-up {
-  @media screen and (min-width: #{map-get($breakpoints, "large")}) {
-      @content;
-  }
+    @media screen and (min-width: #{map-get($breakpoints, "large")}) {
+        @content;
+    }
 }
 
 @mixin large-only {
     @media screen and (min-width: #{map-get($breakpoints, "large")}) and (max-width: #{map-get($breakpoints, "xlarge") - 1px}) {
         @content;
     }
-  }
+}
 
 @mixin xlarge-up {
-  @media screen and (min-width: #{map-get($breakpoints, "xlarge")}) {
-      @content;
-  }
+    @media screen and (min-width: #{map-get($breakpoints, "xlarge")}) {
+        @content;
+    }
+}
+
+@mixin xlarge-only {
+    @media screen and (min-width: #{map-get($breakpoints, "xlarge")}) and (max-width: #{map-get($breakpoints, "xxlarge") - 1px}) {
+        @content;
+    }
 }
 
 @mixin xxlarge-up {
-  @media screen and (min-width: #{map-get($breakpoints, "xxlarge")}) {
-      @content;
-  }
+    @media screen and (min-width: #{map-get($breakpoints, "xxlarge")}) {
+        @content;
+    }
 }

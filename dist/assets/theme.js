@@ -20101,8 +20101,43 @@ exports.init = undefined;
 
 __webpack_require__(334);
 
+var _breakpoint = __webpack_require__(337);
+
 function init() {
-    $('.slick-slider').slick();
+
+    var carousels = document.querySelectorAll('.esc-carousel');
+
+    var _loop = function _loop() {
+
+        var carousel = carousels[i];
+        var config = JSON.parse(carousel.dataset.carousel);
+        var destroyAt = config.destroyAt;
+
+        config.responsive = [{
+            "breakpoint": destroyAt - 1,
+            "settings": "unslick"
+        }];
+
+        var resizeTimer = void 0;
+
+        // Initialze carousel (slick slider)
+        var el = $(carousel).slick(config);
+
+        window.addEventListener('resize', function () {
+
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+
+                if (!el.hasClass('slick-initialized') && window.innerWidth < destroyAt) {
+                    $(carousel).slick(config);
+                }
+            }, 500);
+        });
+    };
+
+    for (var i = 0; i < carousels.length; i++) {
+        _loop();
+    }
 }
 
 exports.init = init;
@@ -23194,6 +23229,28 @@ function init() {
 }
 
 exports.init = init;
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var breakpoint = exports.breakpoint = {
+
+    get current() {
+        return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+    },
+
+    get minWidth() {
+        var minWidth = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/\"/g, '');
+        return parseInt(minWidth);
+    }
+};
 
 /***/ })
 /******/ ]);

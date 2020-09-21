@@ -2,18 +2,13 @@
     {{ section.settings.featured_articles_heading }}
 </h2>
 
-<div class="articles-list slick-slider" data-slick='{
+<div class="articles-list esc-carousel" data-carousel='{
         "centerMode": true,
         "centerPadding": "24px",
         "arrows": false,
         "infinite": false,
         "mobileFirst": true,
-        "responsive": [
-            {
-                "breakpoint": 767,
-                "settings": "unslick"
-            }
-        ]
+        "destroyAt": 768
     }'>
 
     {% for block in section.blocks %}

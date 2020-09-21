@@ -22,6 +22,27 @@ body {
     &.scrolling-off {
         width: 100%;
     }
+
+    // These are for the javascript breakpoints module
+    &:before {
+        content: "small";
+        display: none;
+
+        @include medium-up  { content: "medium"; }
+        @include large-up   { content: "large"; }
+        @include xlarge-up  { content: "xlarge"; }
+        @include xxlarge-up { content: "xxlarge";}
+    }
+
+    &:after {
+        content: "0";
+        display: none;
+
+        @include medium-up  { content: "#{map-get($breakpoints, "medium")}"; }
+        @include large-up   { content: "#{map-get($breakpoints, "large")}"; }
+        @include xlarge-up  { content: "#{map-get($breakpoints, "xlarge")}"; }
+        @include xxlarge-up { content: "#{map-get($breakpoints, "xxlarge")}";}
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
