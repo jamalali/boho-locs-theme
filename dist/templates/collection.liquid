@@ -1,18 +1,63 @@
-{% paginate collection.products by 2 %}
-  <h1>{{ collection.title }}</h1>
-  {% for product in collection.products %}
-    <div>
-      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-      {{ product.price | money }}
-      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-      <a href="{{ product.url | within: collection }}">
-        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-      </a>
+{% paginate collection.products by 20 %}
+
+    <div class="container">
+
+        <div class="filter-sort-area">
+            <div id="bc-sf-filter-tree-mobile"></div> 
+            <div id="bc-sf-filter-tree"></div>
+        </div>
+
+        <div class="collection-area">
+
+            <h1 class="collection__title">
+                {{ collection.title }}
+            </h1>
+
+            <div class="products" id="bc-sf-filter-products">
+                {% for item in collection.products %}
+                    {% render 'block--product',
+                        product: item,
+                        collection: collection
+                    %}
+                {% endfor %}
+            </div>
+
+            {% if paginate.pages > 1 %}
+                {{ paginate | default_pagination }}
+            {% endif %}
+
+        </div>
+
     </div>
-  {% else %}
-    <p>no matches</p>
-  {% endfor %}
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
+
+    <script>   
+        // Declare bcSfFilterConfig variable   
+        var bcSfFilterConfig = {     
+            label: {       
+                sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Sorting" {% endunless %},       
+                sorting_best_selling: {% assign temp = collection.sort_options[1].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Best Selling" {% endunless %},       
+                sorting_featured: {% assign temp = collection.sort_options[0].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Featured" {% endunless %},       
+                sorting_title_ascending: {% assign temp = collection.sort_options[2].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, A-Z" {% endunless %},       
+                sorting_title_descending: {% assign temp = collection.sort_options[3].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, Z-A" {% endunless %},       
+                sorting_price_ascending: {% assign temp = collection.sort_options[4].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Lowest Price" {% endunless %},       
+                sorting_price_descending: {% assign temp = collection.sort_options[5].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Highest Price" {% endunless %},       
+                sorting_date_ascending: {% assign temp = collection.sort_options[6].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, Old to New" {% endunless %},       
+                sorting_date_descending: {% assign temp = collection.sort_options[7].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, New to Old" {% endunless %},       
+                sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Relevance" {% endunless %},        
+
+
+                sale: {{ 'products.product.on_sale' | t | json }},       
+                sale_price: {{ 'products.product.sale_price' | t | json }},       
+                sold_out: {{ 'products.product.sold_out' | t | json }},       
+                vendor: {{ 'products.product.vendor' | t |json }},       
+                regular_price: {{ 'products.product.regular_price' | t | json }},       items_with_count_one: {{ 'collections.general.items_with_count.one' | t | json}},       
+                items_with_count_other: {{ 'collections.general.items_with_count.other' | t | json }},       
+                current_page: {{ 'general.pagination.current_page' | t | json }}, 
+            },     
+            custom: {       
+                // Add custom value here     
+            }   
+        }; 
+    </script>
+
 {% endpaginate %}

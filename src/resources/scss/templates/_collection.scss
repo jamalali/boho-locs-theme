@@ -1,0 +1,65 @@
+.template--collection {
+
+    > main {
+        background: $brand-color-2;
+        padding: 36px 24px;
+
+        .container {
+
+            @include large-up {
+                display: flex;
+            }
+        }
+
+        .filter-sort-area {
+
+            @include large-up {
+                min-width: $logo-width-l + $left-column-width;
+            }
+
+            @include xlarge-up {
+                min-width: $logo-width-xl + $left-column-width;
+            }
+        }
+
+        .collection__title {
+            @include body-font;
+            font-size: 38px;
+            margin-bottom: 36px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+
+            .product {
+                padding: 0;
+                margin-bottom: 48px;
+
+                @include small-only {
+                    @include flex-items(2, 18px);
+                }
+
+                @include medium-only {
+                    @include flex-items(3, 18px);
+                }
+
+                @include large-up {
+                    @include flex-items(3, 30px);
+                }
+
+                .product__info-area {
+                    flex-direction: column;
+
+                    @include large-up {
+                        flex-direction: row;
+                    }
+                }
+
+                .product__title {
+                    margin-bottom: 12px;
+                }
+            }
+        }        
+    }
+}

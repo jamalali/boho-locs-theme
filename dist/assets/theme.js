@@ -19942,11 +19942,11 @@ var _carousel = __webpack_require__(333);
 
 var Carousel = _interopRequireWildcard(_carousel);
 
-var _menuDropdown = __webpack_require__(335);
+var _menuDropdown = __webpack_require__(336);
 
 var MenuDropdown = _interopRequireWildcard(_menuDropdown);
 
-var _search = __webpack_require__(336);
+var _search = __webpack_require__(337);
 
 var Search = _interopRequireWildcard(_search);
 
@@ -20101,7 +20101,7 @@ exports.init = undefined;
 
 __webpack_require__(334);
 
-var _breakpoint = __webpack_require__(337);
+var _breakpoint = __webpack_require__(335);
 
 function init() {
 
@@ -23172,6 +23172,28 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var breakpoint = exports.breakpoint = {
+
+    get current() {
+        return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+    },
+
+    get minWidth() {
+        var minWidth = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/\"/g, '');
+        return parseInt(minWidth);
+    }
+};
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 function init() {
 
     var parentLinks = document.querySelectorAll('.link-item.is-parent');
@@ -23195,7 +23217,7 @@ function init() {
 exports.init = init;
 
 /***/ }),
-/* 336 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23229,28 +23251,6 @@ function init() {
 }
 
 exports.init = init;
-
-/***/ }),
-/* 337 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var breakpoint = exports.breakpoint = {
-
-    get current() {
-        return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
-    },
-
-    get minWidth() {
-        var minWidth = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/\"/g, '');
-        return parseInt(minWidth);
-    }
-};
 
 /***/ })
 /******/ ]);

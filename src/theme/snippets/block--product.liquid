@@ -1,5 +1,11 @@
+{% assign product_url = product.url %}
+
+{% if collection %}
+    {% assign product_url = product.url | within: collection %}
+{% endif %}
+
 <div class="product" {{ block_attributes }}>
-    <a href="{{ product.url }}">
+    <a href="{{ product_url }}">
 
         <div class="product__image-area">
 

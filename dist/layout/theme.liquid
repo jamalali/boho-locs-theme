@@ -11,6 +11,7 @@
     {{ content_for_header }} <!-- Header hook for plugins -->
     
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {% render 'bc-sf-filter-style' %}
   </head>
   <body class="template--{{ template | split: '.' | first }}">
   
@@ -34,5 +35,6 @@
     {% section 'footer' %}
 
     {{ 'theme.js' | asset_url | script_tag }}
+    {% render 'bc-sf-filter' %}
   </body>
 </html>

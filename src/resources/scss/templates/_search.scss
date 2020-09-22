@@ -57,6 +57,7 @@
                 .product {
                     padding: 0;
                     margin-bottom: 48px;
+                    break-after: auto;
 
                     @include small-only {
                         @include flex-items(2, 18px);

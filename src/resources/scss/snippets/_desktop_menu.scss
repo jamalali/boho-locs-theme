@@ -1,7 +1,6 @@
 .desktop-menu-area {
 
     $bottom-border-size: 5px;
-    $parent-links-side-padding: 126px;
 
     // Hidden on small devices
     display: none;
@@ -67,10 +66,10 @@
                 background: $brand-color-1;
                 width: 100%;
                 left: 0;
-                padding: 30px 18px 30px 18px + $logo-width-l + $parent-links-side-padding;
+                padding: 30px 18px 30px 18px + $logo-width-l + $left-column-width;
 
                 @include xlarge-up {
-                    padding-left: 18px + $logo-width-xl + $parent-links-side-padding;
+                    padding-left: 18px + $logo-width-xl + $left-column-width;
                 }
 
                 > .link-item {
