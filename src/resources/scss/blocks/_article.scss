@@ -1,15 +1,15 @@
 .article {
     padding: 36px 24px;
-    border: solid 1px $black;
-    border-right: none;
+    // border: solid 1px $black;
+    // border-right: none;
     height: 100%;
 
     @include medium-up {
         height: auto;
         padding-left: 18px;
         padding-right: 18px;
-        border: none;
-        border-right: solid 1px $black;
+        // border: none;
+        // border-right: solid 1px $black;
     }
 
     @include xlarge-up {
@@ -19,7 +19,7 @@
     &:last-child {
         
         @include medium-up {
-            border-right: none;
+            // border-right: none;
         }
     }
 

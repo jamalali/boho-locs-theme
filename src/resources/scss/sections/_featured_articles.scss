@@ -1,4 +1,56 @@
 .section--featured-articles {
 
-    
+    .container {
+
+        @include xlarge-up {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+
+    .articles-list {
+
+        @include medium-up {
+            display: flex;
+        }
+    }
+
+    .article {
+        border-left: solid 1px $black;
+        border-top: solid 1px $black;
+
+        @include medium-up {
+            @include flex-items(3, 0px);
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        &:last-child {
+        
+            @include medium-up {
+                border-right: solid 1px $black;
+            }
+        }
+    }
+
+    // Need to negate some Slick Slider styles to get equal height slides
+    // Mobile only
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-slide {
+        height: auto;
+        min-height: 0;
+
+        > div {
+            height: 100%;
+        }
+
+        &:last-child {
+            .article {
+                border-right: solid 1px $black;
+            }
+        }
+    }
 }

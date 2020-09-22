@@ -108,22 +108,15 @@ ul {
 
 .article {
   padding: 36px 24px;
-  border: solid 1px #000000;
-  border-right: none;
   height: 100%; }
   @media screen and (min-width: 768px) {
     .article {
       height: auto;
       padding-left: 18px;
-      padding-right: 18px;
-      border: none;
-      border-right: solid 1px #000000; } }
+      padding-right: 18px; } }
   @media screen and (min-width: 1440px) {
     .article {
       padding: 48px 30px; } }
-  @media screen and (min-width: 768px) {
-    .article:last-child {
-      border-right: none; } }
   .article .article__image {
     margin-bottom: 24px; }
     @media screen and (min-width: 1440px) {
@@ -162,17 +155,6 @@ ul {
 @media screen and (min-width: 768px) {
   .articles-list {
     display: flex; } }
-
-.articles-list .slick-track {
-  display: flex; }
-
-.articles-list .slick-slide {
-  height: auto;
-  min-height: 0; }
-  .articles-list .slick-slide > div {
-    height: 100%; }
-  .articles-list .slick-slide:last-child .article {
-    border-right: solid 1px #000000; }
 
 .search-form {
   text-align: center;
@@ -837,6 +819,42 @@ body.search-overlay-open .search-overlay {
         font-size: 24px;
         line-height: 42px;
         margin-bottom: 64px; } }
+
+@media screen and (min-width: 1440px) {
+  .section--featured-articles .container {
+    padding-left: 24px;
+    padding-right: 24px; } }
+
+@media screen and (min-width: 768px) {
+  .section--featured-articles .articles-list {
+    display: flex; } }
+
+.section--featured-articles .article {
+  border-left: solid 1px #000000;
+  border-top: solid 1px #000000; }
+  @media screen and (min-width: 768px) {
+    .section--featured-articles .article {
+      flex-basis: calc(33.33333% - 0px);
+      margin-right: 0px;
+      padding-left: 24px;
+      padding-right: 24px; }
+      .section--featured-articles .article:nth-child(3n) {
+        break-after: always;
+        margin-right: 0; } }
+  @media screen and (min-width: 768px) {
+    .section--featured-articles .article:last-child {
+      border-right: solid 1px #000000; } }
+
+.section--featured-articles .slick-track {
+  display: flex; }
+
+.section--featured-articles .slick-slide {
+  height: auto;
+  min-height: 0; }
+  .section--featured-articles .slick-slide > div {
+    height: 100%; }
+  .section--featured-articles .slick-slide:last-child .article {
+    border-right: solid 1px #000000; }
 
 .section--featured-article .article {
   position: relative;

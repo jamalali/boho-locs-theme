@@ -4,24 +4,5 @@
         display: flex;
     }
 
-    // Need to negate some Slick Slider styles to get equal height slides
-    // Mobile only
-    .slick-track {
-        display: flex;
-    }
-
-    .slick-slide {
-        height: auto;
-        min-height: 0;
-
-        > div {
-            height: 100%;
-        }
-
-        &:last-child {
-            .article {
-                border-right: solid 1px $black;
-            }
-        }
-    }
+    
 }
