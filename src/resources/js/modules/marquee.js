@@ -4,15 +4,55 @@ export class Marquee {
         this.container  = container;
         this.content    = container.querySelector('.marquee__content');
 
-        this.rightSideOfContainer = container.getBoundingClientRect().right;
-
-        this.currentRightValue = 0;
         this.isPaused = false;
+
+        this.resizeTimer = null;
+        this.scrollTimer = null;
+
+        this.init();
+
+        window.addEventListener('resize', () => {
+
+            clearTimeout(this.resizeTimer);
+
+            this.resizeTimer = setTimeout(() =>  {
+
+                clearTimeout(this.scrollTimer);
+                this.init();
+                        
+            }, 1000);
+
+        });
     }
 
     init() {
 
-        setInterval(() => {
+        let containerWidth = this.container.offsetWidth;
+        let contentWidth = this.content.offsetWidth;
+
+        const item = this.content.querySelector('.marquee__list-item');
+        let clonedItem;
+
+        while (contentWidth < containerWidth) {
+            clonedItem = item.cloneNode(true); // Clone the marquee item
+            this.content.prepend(clonedItem); // Add it to the beginning
+
+            contentWidth = this.content.offsetWidth; // Update width value
+        }
+
+        // Clone an extra one so we do not get a gap at the end when it is scrolling
+        clonedItem = item.cloneNode(true);
+        this.content.prepend(clonedItem);
+
+        this.scroll();
+    }
+
+    scroll() {
+
+        let rightSideOfContainer = this.container.getBoundingClientRect().right;
+        let currentRightValue = 0;
+
+        this.scrollTimer = setInterval(() => {
 
             if (this.isPaused == false) {
 
@@ -32,14 +72,14 @@ export class Marquee {
                 Also, set the current right value to -1 so we won't stutter 
                 */
 
-                if (leftSideOfLastItem >= this.rightSideOfContainer){
-                    this.currentRightValue = -1;
+                if (leftSideOfLastItem >= rightSideOfContainer){
+                    currentRightValue = -1;
                     this.content.prepend(lastItem);
                 }
 
                 // The part that keeps it all going: animating the right value of the list.
-                this.content.style.right = `${this.currentRightValue}px`;
-                this.currentRightValue--;
+                this.content.style.right = `${currentRightValue}px`;
+                currentRightValue--;
             }
 
         }, 30);

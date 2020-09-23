@@ -1,4 +1,7 @@
 .section--featured-page {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     padding: 174px 48px 48px;
     text-align: center;
     position: relative;
@@ -8,22 +11,20 @@
         padding-bottom: 64px;
     }
 
-    .featured-page__bg {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        right: 0;
-    }
-
     .featured-page__content {
         position: relative;
         z-index: 1;
+
+        @include large-up {
+            @include horizontal-center;
+            bottom: 64px;
+            width: 60%;
+        }
+
+        @include xlarge-up {
+            @include horizontal-center;
+            bottom: 120px;
+        }
     }
 
     .featured-page__heading {
@@ -33,6 +34,15 @@
 
         @include medium-up {
             margin-bottom: 64px;
+        }
+
+        @include large-up {
+            font-size: 62px;
+        }
+
+        @include xlarge-up {
+            font-size: 92px;
+            line-height: 100px;
         }
     }
 }

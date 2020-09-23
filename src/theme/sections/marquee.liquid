@@ -1,17 +1,11 @@
 <div class="marquee__inner esc-marquee" style="background: {{ section.settings.bg_color }};">
-
-  <p class="marquee__content">
-    {% for block in section.blocks %}
-
-      <span {{ block.shopify_attributes }} class="marquee__list-item" style="color: {{ section.settings.text_color }};">
-        <a href="{{ block.settings.url }}">
-          {{ block.settings.text }}
-        </a>
-      </span>
-
-    {% endfor %}
-  </p>
-
+    <p class="marquee__content" style="color: {{ section.settings.text_color }};">
+        <span class="marquee__list-item">
+            <a href="{{ section.settings.url }}">
+                {{ section.settings.text }}
+            </a>
+        </span>
+    </p>
 </div>
 
 {% schema %}
@@ -20,36 +14,28 @@
     "class": "section--marquee",
     "tag": "section",
     "settings": [
-    {
-        "type": "color",
-        "id": "text_color",
-        "label": "Text Color",
-        "default": "#fff"
-    },
-    {
-        "type": "color",
-        "id": "bg_color",
-        "label": "Background Color",
-        "default": "#000"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "link",
-        "name": "Link",
-        "settings": [
-          {
+        {
             "type": "text",
             "id": "text",
             "label": "Text"
-          },
-          {
+        },
+        {
             "type": "url",
             "id": "url",
             "label": "Url"
-          }
-        ]
-      }
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#fff"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#000"
+        }
     ],
     "presets": [
       {

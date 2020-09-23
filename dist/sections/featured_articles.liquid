@@ -9,7 +9,7 @@
   }'>
   {% for block in section.blocks %}
       
-      {% render 'block--article',
+      {% render 'card_article',
           article             : articles[block.settings.article],
           block_attributes    : block.shopify_attributes
       %}

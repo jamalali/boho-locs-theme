@@ -19942,11 +19942,11 @@ var _carousel = __webpack_require__(333);
 
 var Carousel = _interopRequireWildcard(_carousel);
 
-var _menuDropdown = __webpack_require__(336);
+var _menuDropdown = __webpack_require__(335);
 
 var MenuDropdown = _interopRequireWildcard(_menuDropdown);
 
-var _search = __webpack_require__(337);
+var _search = __webpack_require__(336);
 
 var Search = _interopRequireWildcard(_search);
 
@@ -19966,8 +19966,7 @@ Search.init();
 var marquees = document.querySelectorAll('.esc-marquee');
 
 for (var i = 0; i < marquees.length; i++) {
-    var marquee = new _marquee.Marquee(marquees[i]);
-    marquee.init();
+    new _marquee.Marquee(marquees[i]);
 }
 
 /***/ }),
@@ -19993,25 +19992,66 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Marquee = exports.Marquee = function () {
     function Marquee(container) {
+        var _this = this;
+
         _classCallCheck(this, Marquee);
 
         this.container = container;
         this.content = container.querySelector('.marquee__content');
 
-        this.rightSideOfContainer = container.getBoundingClientRect().right;
-
-        this.currentRightValue = 0;
         this.isPaused = false;
+
+        this.resizeTimer = null;
+        this.scrollTimer = null;
+
+        this.init();
+
+        window.addEventListener('resize', function () {
+
+            clearTimeout(_this.resizeTimer);
+
+            _this.resizeTimer = setTimeout(function () {
+
+                clearTimeout(_this.scrollTimer);
+                _this.init();
+            }, 1000);
+        });
     }
 
     _createClass(Marquee, [{
         key: 'init',
         value: function init() {
-            var _this = this;
 
-            setInterval(function () {
+            var containerWidth = this.container.offsetWidth;
+            var contentWidth = this.content.offsetWidth;
 
-                if (_this.isPaused == false) {
+            var item = this.content.querySelector('.marquee__list-item');
+            var clonedItem = void 0;
+
+            while (contentWidth < containerWidth) {
+                clonedItem = item.cloneNode(true); // Clone the marquee item
+                this.content.prepend(clonedItem); // Add it to the beginning
+
+                contentWidth = this.content.offsetWidth; // Update width value
+            }
+
+            // Clone an extra one so we do not get a gap at the end when it is scrolling
+            clonedItem = item.cloneNode(true);
+            this.content.prepend(clonedItem);
+
+            this.scroll();
+        }
+    }, {
+        key: 'scroll',
+        value: function scroll() {
+            var _this2 = this;
+
+            var rightSideOfContainer = this.container.getBoundingClientRect().right;
+            var currentRightValue = 0;
+
+            this.scrollTimer = setInterval(function () {
+
+                if (_this2.isPaused == false) {
 
                     /*
                     Because we are going left-to-right (text is aligned right) we look at last item in the list and 
@@ -20019,7 +20059,7 @@ var Marquee = exports.Marquee = function () {
                     We do this by comparing the left position of the last list item to the right position of the containing element.
                     */
 
-                    var lastItem = _this.content.querySelector('.marquee__list-item:last-child');
+                    var lastItem = _this2.content.querySelector('.marquee__list-item:last-child');
 
                     var leftSideOfLastItem = lastItem.getBoundingClientRect().left;
 
@@ -20028,24 +20068,24 @@ var Marquee = exports.Marquee = function () {
                     Also, set the current right value to -1 so we won't stutter 
                     */
 
-                    if (leftSideOfLastItem >= _this.rightSideOfContainer) {
-                        _this.currentRightValue = -1;
-                        _this.content.prepend(lastItem);
+                    if (leftSideOfLastItem >= rightSideOfContainer) {
+                        currentRightValue = -1;
+                        _this2.content.prepend(lastItem);
                     }
 
                     // The part that keeps it all going: animating the right value of the list.
-                    _this.content.style.right = _this.currentRightValue + 'px';
-                    _this.currentRightValue--;
+                    _this2.content.style.right = currentRightValue + 'px';
+                    currentRightValue--;
                 }
             }, 30);
 
             // Setup hover events to pause
             this.container.addEventListener("mouseenter", function (event) {
-                _this.isPaused = true;
+                _this2.isPaused = true;
             });
 
             this.container.addEventListener("mouseleave", function (event) {
-                _this.isPaused = false;
+                _this2.isPaused = false;
             });
         }
     }]);
@@ -20100,8 +20140,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.init = undefined;
 
 __webpack_require__(334);
-
-var _breakpoint = __webpack_require__(335);
 
 function init() {
 
@@ -23172,28 +23210,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var breakpoint = exports.breakpoint = {
-
-    get current() {
-        return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
-    },
-
-    get minWidth() {
-        var minWidth = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/\"/g, '');
-        return parseInt(minWidth);
-    }
-};
-
-/***/ }),
-/* 336 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 function init() {
 
     var parentLinks = document.querySelectorAll('.link-item.is-parent');
@@ -23217,7 +23233,7 @@ function init() {
 exports.init = init;
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

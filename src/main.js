@@ -19,6 +19,5 @@ Search.init();
 let marquees = document.querySelectorAll('.esc-marquee');
 
 for (var i=0; i<marquees.length; i++) {
-    let marquee = new Marquee(marquees[i]);
-    marquee.init();
+    new Marquee(marquees[i]);
 }

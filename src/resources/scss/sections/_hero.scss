@@ -44,11 +44,11 @@
         margin-bottom: 24px;
         line-height: 1;
 
-        @include large-up {
+        @include medium-up {
             font-size: 18px;
         }
 
-        @include xlarge-up {
+        @include large-up {
             font-size: 24px;
             margin-bottom: 64px;
         }
@@ -66,7 +66,7 @@
             margin-right: auto;
         }
 
-        @include xxlarge-up {
+        @include xlarge-up {
             font-size: 94px;
             max-width: none;
             margin-bottom: 64px;

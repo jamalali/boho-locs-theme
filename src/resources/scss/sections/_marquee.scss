@@ -11,13 +11,6 @@
         position: absolute;
         right: 0px;
 
-        // -moz-transform: translateX(-100%);
-        // -webkit-transform: translateX(-100%);
-        // transform: translateX(-100%);
-        // -moz-animation: scroll-left 2s linear infinite;
-        // -webkit-animation: scroll-left 2s linear infinite;
-        // animation: scroll-right 20s linear infinite;
-
         &:hover {
             animation-play-state: paused;
         }
@@ -27,8 +20,7 @@
         font-family: "GT America Expanded", sans-serif;
         text-transform: uppercase;
         font-size: 12px;
-        color: $white;
-        // position: absolute;
+        color: inherit;
         display: inline-block;
         margin-right: 10px;
         line-height: 48px;
@@ -42,37 +34,6 @@
         a {
             font-family: "GT America Expanded", sans-serif;
             color: inherit;
-        }
-    }
-    
-    @-moz-keyframes scroll-left {
-        0% {
-            -moz-transform: translateX(-100%);
-        }
-        100% {
-            -moz-transform: translateX(100%);
-        }
-    }
-    
-    @-webkit-keyframes scroll-left {
-        0% {
-            -webkit-transform: translateX(-100%);
-        }
-        100% {
-            -webkit-transform: translateX(100%);
-        }
-    }
-    
-    @keyframes scroll-right {
-        0% {
-            // -moz-transform: translateX(-100%);
-            // -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-        }
-        100% {
-            // -moz-transform: translateX(100%);
-            // -webkit-transform: translateX(100%);
-            transform: translateX(0%);
         }
     }
 }

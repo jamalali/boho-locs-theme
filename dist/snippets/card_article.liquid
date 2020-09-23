@@ -1,0 +1,33 @@
+<div class="card card--article" {{ block_attributes }}>
+
+    <div class="article__image">
+        <a href="{{ article.url }}">
+            <img src="{{ article.image | img_url: '650x' }}" alt="{{ article.title }}" />
+        </a>
+    </div>
+
+    <div class="article__content">
+
+        {% assign words = article.url | split: '/' %}
+        {% assign category_handle = words[2] %}
+        {% assign article_blog = blogs[category_handle] %}
+
+        <h3 class="article__category">
+            <a href="{{ article_blog.url }}">
+                {{ article_blog.title }}
+            </a>
+        </h3>
+
+        <h2 class="article__title">
+            <a href="{{ article.url }}">
+                {{ article.title }}
+            </a>
+        </h2>
+
+        <p class="article__date-author">
+            {{ article.published_at | date: "%B %e, %Y" }} - {{ article.author }}
+        </p>
+
+    </div>
+
+</div>

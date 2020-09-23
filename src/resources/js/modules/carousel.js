@@ -1,5 +1,4 @@
 import 'slick-carousel';
-import { breakpoint } from './breakpoint.js';
 
 function init() {
 
@@ -35,13 +34,7 @@ function init() {
             }, 500);
             
         });
-
-        
-        
     }
-
-
-
 }
 
 export { init };

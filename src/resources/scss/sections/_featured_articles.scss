@@ -9,20 +9,22 @@
     }
 
     .articles-list {
+        border-top: solid 1px $black;
 
         @include medium-up {
             display: flex;
+            border-top: none;
         }
     }
 
-    .article {
+    .card--article {
         border-left: solid 1px $black;
-        border-top: solid 1px $black;
 
         @include medium-up {
             @include flex-items(3, 0px);
             padding-left: 24px;
             padding-right: 24px;
+            border-top: solid 1px $black;
         }
 
         &:last-child {
@@ -48,7 +50,7 @@
         }
 
         &:last-child {
-            .article {
+            .card--article {
                 border-right: solid 1px $black;
             }
         }

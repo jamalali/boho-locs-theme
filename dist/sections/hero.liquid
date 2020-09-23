@@ -23,9 +23,11 @@
     {% endif %}
 
     {% if section.settings.description != blank %}
-      <div class="hero__description">
-        {{ section.settings.description }}
-      </div>
+        <div class="hero__description">
+            <p>
+                {{ section.settings.description }}
+            </p>
+        </div>
     {% endif %}
 
     {% if section.settings.button_label != blank and section.settings.button_link != blank %}
