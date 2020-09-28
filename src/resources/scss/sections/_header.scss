@@ -10,7 +10,6 @@ header.site-header {
         height: $header-height;
         padding-right: 18px;
         padding-left: 18px;
-        position: relative;
 
         @include large-up {
             height: auto;

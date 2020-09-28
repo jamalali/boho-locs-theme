@@ -2,15 +2,70 @@
     background: $brand-color-1;
     padding-top: 48px;
 
+    .container {
+
+        @include xlarge-up {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+
     .search-overlay-articles__heading {
         @include header-font-secondary-bold;
         font-size: 16px;
         padding: 0 24px 36px;
+
+        @include xlarge-up {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 
     .articles-list {
-        .article {
-            border-top: solid $body-text-color 1px;
+        border-top: solid 1px $black;
+
+        @include medium-up {
+            display: flex;
+            border-top: none;
+        }
+    }
+
+    .card--article {
+        border-left: solid 1px $black;
+
+        @include medium-up {
+            @include flex-items(3, 0px);
+            padding-left: 24px;
+            padding-right: 24px;
+            border-top: solid 1px $black;
+        }
+
+        &:last-child {
+        
+            @include medium-up {
+                border-right: solid 1px $black;
+            }
+        }
+    }
+
+    // Need to negate some Slick Slider styles to get equal height slides
+    // Mobile only
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-slide {
+        height: auto;
+        min-height: 0;
+
+        > div {
+            height: 100%;
+        }
+
+        &:last-child {
+            .card--article {
+                border-right: solid 1px $black;
+            }
         }
     }
 }

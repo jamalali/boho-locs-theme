@@ -1,11 +1,14 @@
 function init() {
 
-    let parentLinks = document.querySelectorAll('.link-item.is-parent');
+    // let parentLinks = document.querySelectorAll('.link-item.is-parent');
 
-    for (var i=0; i<parentLinks.length; i++) {
+    const toggles = document.querySelectorAll('.link-item.is-parent .dropdown-toggle');
 
-        let parent = parentLinks[i];
-        let toggle = parent.querySelector('.dropdown-toggle');
+    for (var i=0; i<toggles.length; i++) {
+
+        let toggle = toggles[i];
+        let parent = toggle.parentNode;
+        // let toggle = parent.querySelector('.dropdown-toggle');
 
         toggle.addEventListener('click', event => {
             event.preventDefault();

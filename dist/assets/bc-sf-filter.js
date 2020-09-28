@@ -11,24 +11,30 @@ var bcSfFilterSettings = {
 var bcSfFilterTemplate = {
     'soldOutClass': 'sold-out',
     'saleClass': 'on-sale',
+    'featuredClass': 'featured',
     'soldOutLabelHtml': '<div>' + bcSfFilterConfig.label.sold_out + '</div>',
     'saleLabelHtml': '<div>' + bcSfFilterConfig.label.sale + '</div>',
     'vendorHtml': '<div>{{itemVendorLabel}}</div>',
 
     // Grid Template
-    'productGridItemHtml': '<div class="product">' +
-                                '<div class="{{soldOutClass}} {{saleClass}}">' +
-                                    '<a href="{{itemUrl}}" class="grid-link">' +
-                                        '<span class="grid-link__image {{imageSoldOutClass}} grid-link__image--product">' +
-                                            '{{itemSaleLabel}}' +
-                                            '{{itemSoldOutLabel}}' +
-                                            '<span class="grid-link__image-centered"><img src="{{imageUrl}}" alt="{{itemTitle}}" /></span>' +
-                                        '</span>' +
-                                        '<p class="grid-link__title">{{itemTitle}}</p>' +
-                                        '{{itemVendor}}' +
-                                        '{{itemPrice}}' +
-                                    '</a>' +
-                                '</div>' +
+    'productGridItemHtml': '<div class="product {{soldOutClass}} {{saleClass}} {{featuredClass}}">' +
+                                '<a href="{{itemUrl}}">' +
+
+                                    '<div class="product__image-area">' +
+                                        '<img src="{{imageUrl}}" alt="{{itemTitle}}" />' +
+                                    '</div>' +
+
+                                    '<div class="product__info-area">' +
+                                        '<h3 class="product__title">' +
+                                            '{{itemTitle}}' +
+                                        '</h3>' +
+
+                                        '<p class="product__price">' +
+                                            '{{itemPrice}}' +
+                                        '</p>' +
+                                    '</div>' +
+
+                                '</a>' +
                             '</div>',
 
     // Pagination Template
@@ -42,14 +48,23 @@ var bcSfFilterTemplate = {
     'paginateHtml': '<ul class="pagination-custom">{{previous}}{{pageItems}}{{next}}</ul>',
   
     // Sorting Template
-    'sortingHtml': '<label class="label--hidden">' + bcSfFilterConfig.label.sorting + '</label><select class="collection-sort__input">{{sortingItems}}</select>',
+    'sortingHtml': '<label>' + bcSfFilterConfig.label.sorting + ': <select>{{sortingItems}}</select></label>',
 };
 
 /************************** BUILD PRODUCT LIST **************************/
 
 // Build Product Grid Item
 BCSfFilter.prototype.buildProductGridItem = function(data, index) {
+
     /*** Prepare data ***/
+    var tags = data.tags;
+    var isFeatured = tags.includes('featured');
+
+    // Just for testing - remove
+    if (data.id == 5320178106412) {
+        isFeatured = true;
+    }
+
     var images = data.images_info;
      // Displaying price base on the policy of Shopify, have to multiple by 100
     var soldOut = !data.available; // Check a product is out of stock
@@ -74,24 +89,20 @@ BCSfFilter.prototype.buildProductGridItem = function(data, index) {
     var itemHtml = bcSfFilterTemplate.productGridItemHtml;
 
     // Add Thumbnail
-    console.log(images[0]['src']);
-
     var itemThumbUrl = images.length > 0 ? this.optimizeImage(images[0]['src']) : bcSfFilterConfig.general.no_image_url;
     itemHtml = itemHtml.replace(/{{imageUrl}}/g, itemThumbUrl);
 
     // Add Price
     var itemPriceHtml = '';
     if (data.title != '')  {
-        itemPriceHtml += '<p class="grid-link__meta">';
         if (onSale) {
-            itemPriceHtml += '<s class="grid-link__sale_price">' + this.formatMoney(data.compare_at_price_min) + '</s> ';
+            itemPriceHtml += '<s class="product__sale-price">' + this.formatMoney(data.compare_at_price_min) + '</s> ';
         }
         if (priceVaries) {
             itemPriceHtml += (bcSfFilterConfig.label.from_price).replace(/{{ price }}/g, this.formatMoney(data.price_min));
         } else {
             itemPriceHtml += this.formatMoney(data.price_min);
         }
-        itemPriceHtml += '</p>';
     }
     itemHtml = itemHtml.replace(/{{itemPrice}}/g, itemPriceHtml);
 
@@ -102,6 +113,10 @@ BCSfFilter.prototype.buildProductGridItem = function(data, index) {
     // Add onSale class
     var saleClass = onSale ? bcSfFilterTemplate.saleClass : '';
     itemHtml = itemHtml.replace(/{{saleClass}}/g, saleClass);
+
+    // Add isFeatured class
+    var featuredClass = isFeatured ? bcSfFilterTemplate.featuredClass : '';
+    itemHtml = itemHtml.replace(/{{featuredClass}}/g, featuredClass);
   
     // Add soldOut Label
     var itemSoldOutLabelHtml = soldOut ? bcSfFilterTemplate.soldOutLabelHtml : '';

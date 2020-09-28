@@ -64,14 +64,14 @@
                 <div class="articles-list esc-carousel" data-carousel='{
                     "centerMode": true,
                     "centerPadding": "36px",
-                    "infinite": true,
+                    "infinite": false,
                     "arrows": false,
                     "mobileFirst": true,
                     "destroyAt": 768
                 }'>
                     {% for item in news_articles %}
                         {% assign handle = item | strip %}
-                        {% render 'block--article',
+                        {% render 'card_article',
                             article: articles[handle]
                         %}
                     {% endfor %}
@@ -92,7 +92,7 @@
                 <div class="articles-list esc-carousel" data-carousel='{
                     "centerMode": true,
                     "centerPadding": "24px",
-                    "infinite": true,
+                    "infinite": false,
                     "arrows": false,
                     "mobileFirst": true,
                     "destroyAt": 768

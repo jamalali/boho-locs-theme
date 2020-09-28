@@ -2,16 +2,74 @@
 
     > main {
         background: $brand-color-2;
-        padding: 36px 24px;
 
         .container {
+            padding: 36px 24px;
 
             @include large-up {
                 display: flex;
             }
         }
 
-        .filter-sort-area {
+        .filter-sort-bar-area {
+
+            $bar-height: 35px;
+
+            display: flex;
+            border-bottom: solid $black 1px;
+
+            .bar-item {
+                border-right: solid $black 1px;
+                height: $bar-height;
+                flex-grow: 1;
+
+                @include medium-up {
+                    flex-basis: 50%;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+            #bc-sf-filter-tree-mobile {
+                button {
+                    @include header-font-secondary-bold;
+                    color: $body-text-color;
+                    font-size: $body-text-size;
+                    background: none;
+                    margin: 0;
+                    padding: 0;
+                    line-height: $bar-height;
+                }
+            }
+
+            #bc-sf-filter-top-sorting {
+                text-align: center;
+
+                label {
+                    @include header-font-secondary-bold;
+                    line-height: $bar-height;
+                    margin: 0;
+                }
+
+                select {
+                    @include header-font-secondary-bold;
+                    font-size: $body-text-size;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    border: none;
+                    background: none;
+
+                    &::-ms-expand {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .filter-sort-column-area {
 
             @include large-up {
                 min-width: $logo-width-l + $left-column-width;
@@ -22,44 +80,62 @@
             }
         }
 
-        .collection__title {
-            @include body-font;
-            font-size: 38px;
-            margin-bottom: 36px;
-        }
+        .collection-area {
+            .collection__title {
+                @include body-font;
+                font-size: 38px;
+                margin-bottom: 36px;
+            }
 
-        .products {
-            display: flex;
-            flex-wrap: wrap;
+            .collection__description {
+                margin-bottom: 36px;
 
-            .product {
-                padding: 0;
-                margin-bottom: 48px;
-
-                @include small-only {
-                    @include flex-items(2, 18px);
-                }
-
-                @include medium-only {
-                    @include flex-items(3, 18px);
-                }
-
-                @include large-up {
-                    @include flex-items(3, 30px);
-                }
-
-                .product__info-area {
-                    flex-direction: column;
-
-                    @include large-up {
-                        flex-direction: row;
-                    }
-                }
-
-                .product__title {
-                    margin-bottom: 12px;
+                p {
+                    line-height: 1.4;
                 }
             }
-        }        
+    
+            .products {
+                display: flex;
+                flex-wrap: wrap;
+    
+                .product {
+                    padding: 0;
+                    margin-bottom: 48px;
+
+                    @include small-only {
+                        @include flex-items(2, 18px);
+                    }
+    
+                    @include medium-only {
+                        @include flex-items(3, 18px);
+                    }
+    
+                    @include large-up {
+                        @include flex-items(3, 30px);
+                    }
+
+                    &.featured {
+                        flex-basis: auto;
+
+                        .product__info-area {
+                            flex-direction: row;
+                        }
+                    }
+    
+                    .product__info-area {
+                        flex-direction: column;
+    
+                        @include large-up {
+                            flex-direction: row;
+                        }
+                    }
+    
+                    .product__title {
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
     }
 }

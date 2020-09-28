@@ -10,10 +10,13 @@ import * as Carousel from './resources/js/modules/carousel';
 import * as MenuDropdown from './resources/js/modules/menu-dropdown';
 import * as Search from './resources/js/modules/search';
 
+import * as Collection from './resources/js/modules/templates/collection';
+
 MobileMenu.init();
 Carousel.init();
 MenuDropdown.init();
 Search.init();
+Collection.init();
 
 // Setup marquees
 let marquees = document.querySelectorAll('.esc-marquee');

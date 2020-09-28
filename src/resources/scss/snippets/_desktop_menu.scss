@@ -50,26 +50,37 @@
             }
 
             &:hover {
-                .child-links {
-                    display: flex;
+                .mega-menu {
+                    display: block;
                     transform-origin: top;
                     animation: dropdown .2s ease-out;
                 }
             }
 
-            .child-links {
-                display: none;
-                // display: flex;
-                justify-content: space-between;
+            .mega-menu {
+                background: $brand-color-1;
                 position: absolute;
                 z-index: 2;
-                background: $brand-color-1;
                 width: 100%;
                 left: 0;
-                padding: 30px 18px 30px 18px + $logo-width-l + $left-column-width;
+                display: none;
+
+                .container {
+                    
+                    @include xlarge-up {
+                        padding-left: 24px;
+                        padding-right: 24px;
+                    }
+                }
+            }
+
+            .child-links {
+                display: flex;
+                justify-content: space-between;
+                padding: 30px 24px 30px 24px + $logo-width-l + $left-column-width;
 
                 @include xlarge-up {
-                    padding-left: 18px + $logo-width-xl + $left-column-width;
+                    padding-left: $logo-width-xl + $left-column-width;
                 }
 
                 > .link-item {
@@ -79,7 +90,7 @@
                         line-height: 30px;
                         white-space: nowrap;
 
-                        @include large-up {
+                        @include xlarge-up {
                             font-size: 20px;
                         }
                     }
@@ -92,7 +103,7 @@
                                 line-height: 30px;
                                 white-space: nowrap;
 
-                                @include large-up {
+                                @include xlarge-up {
                                     font-size: 20px;
                                 }
                             }
@@ -106,9 +117,9 @@
 
 @keyframes dropdown {
     0% {
-        transform: scaleY(0);
+        opacity: 0;
     }
     100% {
-        transform: scaleY(1);
+        opacity: 1;
     }
 }

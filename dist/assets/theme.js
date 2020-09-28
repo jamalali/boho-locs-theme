@@ -19950,6 +19950,10 @@ var _search = __webpack_require__(336);
 
 var Search = _interopRequireWildcard(_search);
 
+var _collection = __webpack_require__(337);
+
+var Collection = _interopRequireWildcard(_collection);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -19961,6 +19965,7 @@ MobileMenu.init();
 Carousel.init();
 MenuDropdown.init();
 Search.init();
+Collection.init();
 
 // Setup marquees
 var marquees = document.querySelectorAll('.esc-marquee');
@@ -23212,12 +23217,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 function init() {
 
-    var parentLinks = document.querySelectorAll('.link-item.is-parent');
+    // let parentLinks = document.querySelectorAll('.link-item.is-parent');
+
+    var toggles = document.querySelectorAll('.link-item.is-parent .dropdown-toggle');
 
     var _loop = function _loop() {
 
-        var parent = parentLinks[i];
-        var toggle = parent.querySelector('.dropdown-toggle');
+        var toggle = toggles[i];
+        var parent = toggle.parentNode;
+        // let toggle = parent.querySelector('.dropdown-toggle');
 
         toggle.addEventListener('click', function (event) {
             event.preventDefault();
@@ -23225,7 +23233,7 @@ function init() {
         });
     };
 
-    for (var i = 0; i < parentLinks.length; i++) {
+    for (var i = 0; i < toggles.length; i++) {
         _loop();
     }
 }
@@ -23267,6 +23275,76 @@ function init() {
 }
 
 exports.init = init;
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.init = undefined;
+
+var _breakpoint = __webpack_require__(338);
+
+function init() {
+
+    var topBar = document.querySelector('.filter-sort-bar-area');
+    var sideBar = document.querySelector('.filter-sort-column-area');
+    var sort = document.querySelector('#bc-sf-filter-top-sorting');
+
+    positionSort(topBar, sideBar, sort);
+
+    // Setup window resize event to re-position sort if needs be
+    window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        var resizeTimer = setTimeout(function () {
+            positionSort(topBar, sideBar, sort);
+        }, 500);
+    });
+}
+
+function positionSort(topBar, sideBar, sort) {
+
+    var productSortBreakpoint = 1199;
+
+    if (_breakpoint.breakpoint.minWidth > productSortBreakpoint) {
+
+        // Sort needs to be in the side bar
+        sideBar.prepend(sort);
+    } else {
+
+        // Sort needs to be in the top bar
+        topBar.append(sort);
+    }
+}
+
+exports.init = init;
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var breakpoint = exports.breakpoint = {
+
+    get current() {
+        return window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+    },
+
+    get minWidth() {
+        var minWidth = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content').replace(/\"/g, '');
+        return parseInt(minWidth);
+    }
+};
 
 /***/ })
 /******/ ]);

@@ -1,27 +1,29 @@
-<h2 class="search-overlay-articles__heading">
-    {{ section.settings.featured_articles_heading }}
-</h2>
+<div class="container">
+    <h2 class="search-overlay-articles__heading">
+        {{ section.settings.featured_articles_heading }}
+    </h2>
 
-<div class="articles-list esc-carousel" data-carousel='{
-        "centerMode": true,
-        "centerPadding": "24px",
-        "arrows": false,
-        "infinite": false,
-        "mobileFirst": true,
-        "destroyAt": 768
-    }'>
+    <div class="articles-list esc-carousel" data-carousel='{
+            "centerMode": true,
+            "centerPadding": "24px",
+            "arrows": false,
+            "infinite": false,
+            "mobileFirst": true,
+            "destroyAt": 768
+        }'>
 
-    {% for block in section.blocks %}
-        {% if block.type == 'featured_articles' %}
+        {% for block in section.blocks %}
+            {% if block.type == 'featured_articles' %}
 
-            {% render 'block--article',
-                article             : articles[block.settings.article],
-                block_attributes    : block.shopify_attributes
-            %}
+                {% render 'card_article',
+                    article             : articles[block.settings.article],
+                    block_attributes    : block.shopify_attributes
+                %}
 
-        {% endif %}
-    {% endfor %}
+            {% endif %}
+        {% endfor %}
 
+    </div>
 </div>
 
 {% schema %}

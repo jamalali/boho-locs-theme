@@ -4,6 +4,8 @@
     // border-right: none;
     height: 100%;
 
+    border-left: solid 1px $black;
+
     @include medium-up {
         height: auto;
         padding-left: 18px;

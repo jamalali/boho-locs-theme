@@ -77,3 +77,9 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
+
+.hidden-s {
+    @include small-only {
+        display: none;
+    }
+}

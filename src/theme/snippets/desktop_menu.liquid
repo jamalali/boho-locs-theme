@@ -8,57 +8,61 @@
                 </a>
 
                 {% if link.links != blank %}
-                    <ul class="child-links">
+                    <div class="mega-menu">
+                        <div class="container">
+                            <ul class="child-links">
 
-                        {% for child_link in link.links %}
-                            <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
-                                <a href="{{ child_link.url }}" class="dropdown-toggle">
-                                    {{ child_link.title }}
-                                </a>
+                                {% for child_link in link.links %}
+                                    <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
+                                        <a href="{{ child_link.url }}" class="dropdown-toggle">
+                                            {{ child_link.title }}
+                                        </a>
 
-                                {% if child_link.links != blank %}
-                                    <ul class="grand-child-links">
+                                        {% if child_link.links != blank %}
+                                            <ul class="grand-child-links">
 
-                                        {% for grand_child_link in child_link.links %}
-                                            <li class="link-item {{ grand_child_link.handle }}">
-                                                <a href="{{ grand_child_link.url }}">
-                                                    {{ grand_child_link.title }}
-                                                </a>
-                                            </li>
-                                        {% endfor %}
+                                                {% for grand_child_link in child_link.links %}
+                                                    <li class="link-item {{ grand_child_link.handle }}">
+                                                        <a href="{{ grand_child_link.url }}">
+                                                            {{ grand_child_link.title }}
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
 
-                                    </ul>
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                                
+                                {% if link.handle == 'shop' and section.settings.shop_menu_image != nil %}
+                                    <li class="menu-image">
+                                        <a href="{{ section.settings.shop_menu_image_link }}">
+                                            <img class="logo" src="{{ section.settings.shop_menu_image | img_url: '333x' }}" alt="Boho Locs - Shop" />
+                                        </a>
+                                    </li>
                                 {% endif %}
-                            </li>
-                        {% endfor %}
-                        
-                        {% if link.handle == 'shop' and section.settings.shop_menu_image != nil %}
-                            <li class="menu-image">
-                                <a href="{{ section.settings.shop_menu_image_link }}">
-                                    <img class="logo" src="{{ section.settings.shop_menu_image | img_url: '333x' }}" alt="Boho Locs - Shop" />
-                                </a>
-                            </li>
-                        {% endif %}
 
-                        {% if link.handle == 'boho-101' %}
-                            {% if section.settings.boho_101_menu_image_1 != nil %}
-                                <li class="menu-image">
-                                    <a href="{{ section.settings.boho_101_menu_image_1_link }}">
-                                        <img class="logo" src="{{ section.settings.boho_101_menu_image_1 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
-                                    </a>
-                                </li>
-                            {% endif %}
+                                {% if link.handle == 'boho-101' %}
+                                    {% if section.settings.boho_101_menu_image_1 != nil %}
+                                        <li class="menu-image">
+                                            <a href="{{ section.settings.boho_101_menu_image_1_link }}">
+                                                <img class="logo" src="{{ section.settings.boho_101_menu_image_1 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                            </a>
+                                        </li>
+                                    {% endif %}
 
-                            {% if section.settings.boho_101_menu_image_2 != nil %}
-                                <li class="menu-image">
-                                    <a href="{{ section.settings.boho_101_menu_image_2_link }}">
-                                        <img class="logo" src="{{ section.settings.boho_101_menu_image_2 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
-                        
-                    </ul>
+                                    {% if section.settings.boho_101_menu_image_2 != nil %}
+                                        <li class="menu-image">
+                                            <a href="{{ section.settings.boho_101_menu_image_2_link }}">
+                                                <img class="logo" src="{{ section.settings.boho_101_menu_image_2 | img_url: '318x' }}" alt="Boho Locs - Boho 101" />
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                                
+                            </ul>
+                        </div>
+                    </div>
                 {% endif %}
             </li>
         {% endfor %}

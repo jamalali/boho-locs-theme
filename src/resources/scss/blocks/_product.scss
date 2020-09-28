@@ -15,7 +15,9 @@
             margin-bottom: 18px;
         }
 
-        .product__image-overlay {
+        &::before {
+            content: " ";
+            display: block;
             background: $white;
             position: absolute;
             width: 100%;
@@ -25,7 +27,7 @@
             transition: opacity .2s;
         }
 
-        &:hover .product__image-overlay {
+        &:hover::before {
             opacity: .5;
         }
 

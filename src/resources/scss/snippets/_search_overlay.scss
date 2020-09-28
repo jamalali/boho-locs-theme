@@ -27,36 +27,6 @@
             padding-right: 20%;
         }
     }
-
-    .featured-products-area {
-        background: $black;
-        padding: 24px 0;
-
-        .featured-products__heading {
-            @include header-font-secondary-bold;
-            font-size: 16px;
-            color: $white;
-            padding: 0 33px 36px;
-        }
-
-        .featured-products__list {
-
-            @include medium-up {
-                display: flex;
-                padding-left: 27px;
-                padding-right: 27px;
-            }
-        
-            @include xlarge-up {
-                padding-left: 65px;
-                padding-right: 65px;
-            }
-        }
-
-        .product__title {
-            color: $white;
-        }
-    }
 }
 
 // Search overlay open

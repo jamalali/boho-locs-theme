@@ -44,7 +44,7 @@
                         <ul class="child-links">
                             {% for child_link in link.links %}
                                 <li class="link-item {{ child_link.handle }} {% if child_link.links != blank %}is-parent{% endif %}">
-                                    <a href="{{ child_link.url }}" class="dropdown-toggle">
+                                    <a href="{{ child_link.url }}" class="{% if child_link.links != blank %}dropdown-toggle{% endif %}">
                                         {{ child_link.title }}
 
                                         {% if child_link.links != blank %}

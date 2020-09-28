@@ -5,9 +5,9 @@
 
     flex-basis: calc(#{$item-width} - #{$item-space});
     margin-right: $space;
-
-    &:nth-child(#{$items-per-row}n) {
-        break-after: always;
+    
+    &:nth-of-type(#{$items-per-row}n) {
+        // break-after: always;
         margin-right: 0;
     }
 }
