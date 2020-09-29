@@ -18,23 +18,25 @@ var bcSfFilterTemplate = {
 
     // Grid Template
     'productGridItemHtml': '<div class="product {{soldOutClass}} {{saleClass}} {{featuredClass}}">' +
-                                '<a href="{{itemUrl}}">' +
 
-                                    '<div class="product__image-area">' +
-                                        '<img src="{{imageUrl}}" alt="{{itemTitle}}" />' +
-                                    '</div>' +
+                                '<div class="product__image-area">' +
+                                    '<a href="{{itemUrl}}">' +
+                                        '<img src="{{imageUrl}}" alt="{{itemTitle}}" class="product__image" />' +
+                                    '</a>' +
+                                '</div>' +
 
-                                    '<div class="product__info-area">' +
-                                        '<h3 class="product__title">' +
+                                '<div class="product__info-area">' +
+                                    '<h3 class="product__title">' +
+                                        '<a href="{{itemUrl}}">' +
                                             '{{itemTitle}}' +
-                                        '</h3>' +
+                                        '</a>' +
+                                    '</h3>' +
 
-                                        '<p class="product__price">' +
-                                            '{{itemPrice}}' +
-                                        '</p>' +
-                                    '</div>' +
-
-                                '</a>' +
+                                    '<p class="product__price">' +
+                                        '{{itemPrice}}' +
+                                    '</p>' +
+                                '</div>' +
+                                
                             '</div>',
 
     // Pagination Template
@@ -59,12 +61,6 @@ BCSfFilter.prototype.buildProductGridItem = function(data, index) {
     /*** Prepare data ***/
     var tags = data.tags;
     var isFeatured = tags.includes('featured');
-
-    // Just for testing - remove
-    if (data.id == 5320178106412) {
-        isFeatured = true;
-    }
-
     var images = data.images_info;
      // Displaying price base on the policy of Shopify, have to multiple by 100
     var soldOut = !data.available; // Check a product is out of stock
@@ -134,7 +130,8 @@ BCSfFilter.prototype.buildProductGridItem = function(data, index) {
     itemHtml = itemHtml.replace(/{{itemId}}/g, data.id);
     itemHtml = itemHtml.replace(/{{itemHandle}}/g, data.handle);
     itemHtml = itemHtml.replace(/{{itemTitle}}/g, data.title);
-    itemHtml = itemHtml.replace(/{{itemUrl}}/g, this.buildProductItemUrl(data));
+    // itemHtml = itemHtml.replace(/{{itemUrl}}/g, this.buildProductItemUrl(data));
+    itemHtml = itemHtml.replace(/{{itemUrl}}/g, "/products/" + data.handle);
 
     return itemHtml;
 };
