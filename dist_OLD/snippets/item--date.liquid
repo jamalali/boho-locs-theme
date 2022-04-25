@@ -1,9 +1,0 @@
-{%- unless section.settings.item_date == blank -%}
-
-  <span class="item__date">
-
-    {{ article.published_at | time_tag: format: 'month_day_year' }}
-
-  </span>
-
-{%- endunless -%}
